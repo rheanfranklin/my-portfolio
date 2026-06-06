@@ -23,7 +23,9 @@
     padding-top: 50px;
     gap: 1.25rem;
   }
+
   .container-box {
+    flex-direction: column;
     background-color: rgba(0, 0, 0, 0.85); /* or var(--color-brandDark) */
     width: 80%;
     max-width: 1700px;
@@ -63,17 +65,29 @@
     font-weight: 600;
     color: var(--color-accent);
     line-height: 1.2;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: oblique;
+    padding-left: 1rem;
+    color: var(--color-brandDark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .paragraph,
   .centered-paragraph {
     white-space: pre-line;
-    font-size: 1rem;
-    margin-top: 0.25rem;
+    font-size: 0.5rem;
     margin-bottom: 0.25rem;
-    line-height: 1.7;
+    line-height: 1.4;
+  }
+
+  .paragraph {
+      padding-left: 2rem;
   }
 
   .centered-paragraph {
@@ -105,7 +119,7 @@
   @media (min-width: 768px) {
     .paragraph,
     .centered-paragraph {
-      font-size: 1.125rem
+      font-size: 1rem
     }
   }
 
