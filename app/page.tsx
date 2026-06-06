@@ -1,8 +1,10 @@
 import Intro from "./(sections)/Intro";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center text-4xl">
+    <div className="flex flex-col items-center pt-[50px] gap-5">
+      <Navbar></Navbar>
       <Intro></Intro>
     </div>
   );

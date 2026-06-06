@@ -1,8 +1,110 @@
 @import "@fontsource/roboto-mono";
 @import "tailwindcss";
 
+
+@theme {
+  --color-brand: #ACAECB;
+  --color-brandDark: #8082ab;
+  --color-accent: #A1DFEA;
+  --color-accentDark: #7FBBC6;
+}
+
+@layer utilities {
+  .itemGap {
+    gap: 6
+  }
+}
+
+@layer components {
+  .container-box {
+    background-color: rgba(0, 0, 0, 0.85); /* or var(--color-brandDark) */
+    width: 80%;
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    backdrop-filter: blur(6px);
+  }
+
+  .divider {
+    border-bottom: 1px solid var(--color-accent);
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .divider-dark {
+    border-bottom: 1px solid var(--color-accent);
+    width: 80%;
+    margin: 1rem auto;
+    opacity: 0.2;
+  }
+
+  .header {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 2px 4px rgba(0, 0, 0, 1);
+  }
+
+  .subheader {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .paragraph,
+  .centered-paragraph {
+    white-space: pre-line;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.7;
+  }
+
+  .centered-paragraph {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .caption {
+    font-size: 0.875rem; /* 14px */
+    color: var(--color-brandDark);
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
+
+  .link {
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--color-accent)
+  }
+
+  @media (min-width: 640px) {
+    .paragraph,
+    .centered-paragraph {
+      font-size: 0.875rem
+    }
+  }
+
+  @media (min-width: 768px) {
+    .paragraph,
+    .centered-paragraph {
+      font-size: 1.125rem
+    }
+  }
+
+}
+
 html {
-  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
   width: 100%;
   height: 100%;
 }
@@ -17,9 +119,3 @@ body {
   overflow-x: hidden;
 }
 
-@theme {
-  --color-brand: #ACAECB;
-  --color-brandDark: #555778;
-  --color-accent: #A1DFEA;
-  --color-accentDark: #7FBBC6;
-}
