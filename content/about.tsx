@@ -1,4 +1,3 @@
-
 export const AboutParagraph = () => (
   <p className="paragraph">
     Hello there! I'm so excited you're here! On this page you can find an indepth description
