@@ -31,12 +31,19 @@ export default function Intro() {
                         className="w-75 h-auto justify-self-center"
                     />
                     <p className="paragraph">
-                        - Currently on the look out for job opportunities. <br />
-                        - 3 years experience as a software engineer. <br />
-                        - B.S. in computer science from the Georgia Institute of Technology <br />
-                        - View my resume <a href="/files/resume.pdf" target="_blank" className="link">here</a>.
+                        - Currently on the look out for job opportunities. <br /><br />
+                        - B.S. in computer science from the Georgia Institute of Technology with a focus on user interface & design. <br /><br />
+                        - 3 years experience as a back-end software engineer at FactSet Research Systems. <br /><br />
+                        - 4 year experience working in product planning & logistics at Johnson & Johnson. <br /><br />
+                        - View my resume <a href="/files/resume.pdf" target="_blank" className="link">here</a>
                     </p>
                 </div>
+                
+                {/* Padding */}
+                <div className="p-6"></div>
+
+                {/* Divider */}
+                <hr className="divider-dark" />
             </AnimatedSection>
         </div>
     );
