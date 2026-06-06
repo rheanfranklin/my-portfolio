@@ -1,26 +1,121 @@
+@import "@fontsource/roboto-mono";
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+  --color-brand: #ACAECB;
+  --color-brandDark: #8082ab;
+  --color-accent: #A1DFEA;
+  --color-accentDark: #7FBBC6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .itemGap {
+    gap: 6
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-box {
+    background-color: rgba(0, 0, 0, 0.85); /* or var(--color-brandDark) */
+    width: 80%;
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    backdrop-filter: blur(6px);
+  }
+
+  .divider {
+    border-bottom: 1px solid var(--color-accent);
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .divider-dark {
+    border-bottom: 1px solid var(--color-accent);
+    width: 80%;
+    margin: 1rem auto;
+    opacity: 0.2;
+  }
+
+  .header {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 2px 4px rgba(0, 0, 0, 1);
+  }
+
+  .subheader {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .paragraph,
+  .centered-paragraph {
+    white-space: pre-line;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.7;
+  }
+
+  .centered-paragraph {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .caption {
+    font-size: 0.875rem; /* 14px */
+    color: var(--color-brandDark);
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
+
+  .link {
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--color-accent)
+  }
+
+  @media (min-width: 640px) {
+    .paragraph,
+    .centered-paragraph {
+      font-size: 0.875rem
+    }
+  }
+
+  @media (min-width: 768px) {
+    .paragraph,
+    .centered-paragraph {
+      font-size: 1.125rem
+    }
+  }
+
 }
+
+html {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: url('/images/background/background.png');
+  background-repeat: repeat-y;
+  background-size: cover;
+  font-family: "Roboto Mono", monospace;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
