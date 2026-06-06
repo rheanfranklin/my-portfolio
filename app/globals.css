@@ -16,6 +16,13 @@
 }
 
 @layer components {
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    gap: 1.25rem;
+  }
   .container-box {
     background-color: rgba(0, 0, 0, 0.85); /* or var(--color-brandDark) */
     width: 80%;
@@ -54,6 +61,7 @@
   .subheader {
     font-size: 1.5rem;
     font-weight: 600;
+    color: var(--color-accent);
     line-height: 1.2;
     margin-top: 1rem;
     margin-bottom: 2rem;
