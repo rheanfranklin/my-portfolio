@@ -1,11 +1,5 @@
 import Intro from "./(sections)/Intro";
-import Navbar from "./components/Navbar";
 
 export default function Home() {
-  return (
-    <div className="page">
-      <Navbar></Navbar>
-      <Intro></Intro>
-    </div>
-  );
+  return <Intro />;
 }

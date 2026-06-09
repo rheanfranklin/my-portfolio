@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import AnimatedMenu from "../components/AnimatedMenu";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,14 +22,9 @@ export default function Navbar() {
 
             {/* Bottom Row — Navigation */}
             <div>
+                
                 {/* Desktop Links */}
-                <div className="hidden md:flex gap-10 justify-center">
-                    <Link href="/about" className="hover:text-accent transition">About</Link>
-                    <Link href="/projects" className="hover:text-accent transition">Projects</Link>
-                    <Link href="/illustration" className="hover:text-accent transition">Illustration</Link>
-                    <Link href="/philosophy" className="hover:text-accent transition">Philosophy</Link>
-                    <Link href="/contact" className="hover:text-accent transition">Contact</Link>
-                </div>
+                <NavMenuItems className="hidden md:flex gap-5 justify-center"></NavMenuItems>
 
                 {/* Mobile Menu Button */}
                 <button
@@ -41,12 +37,29 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <AnimatedMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <Link href="/about">About</Link>
-                <Link href="/projects">Projects</Link>
-                <Link href="/illustration">Illustration</Link>
-                <Link href="/philosophy">Philosophy</Link>
-                <Link href="/contact">Contact</Link>
+                <NavMenuItems className="dropdown-menu" />
             </AnimatedMenu>
         </nav>
     );
 }
+
+type NavMenuItemsProps = {
+  className?: string;
+};
+
+export const NavMenuItems = ({ className="" }: NavMenuItemsProps) => {
+  const pathname = usePathname();
+
+  const isActive = (path: string) =>
+    pathname === path ? "link hover:text-accent hover:font-bold" : "std-text transition-colors hover:text-accent hover:font-bold";
+
+  return (
+    <div className={className}>
+      <Link href="/about" className={isActive("/about")}>About</Link>
+      <Link href="/projects" className={isActive("/projects")}>Projects</Link>
+      <Link href="/illustration" className={isActive("/illustration")}>Illustration</Link>
+      <Link href="/cat" className={isActive("/cat")}>Cat</Link>
+      <Link href="/contact" className={isActive("/contact")}>Contact</Link>
+    </div>
+  );
+};

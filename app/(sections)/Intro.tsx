@@ -2,41 +2,45 @@
 
 import AnimatedSection from "../components/AnimatedSection";
 import { fadeUp } from "@/lib/animations/fade";
-import Image from "next/image"
-import { Welcome, IntroParagraph } from "@/content/intro"
+import { WelcomeContent, IntroContent } from "@/content/intro"
+import { DividerDark } from "@/content/utils";
+
+//
+// Subsection construction
+//
+
+export const WelcomeSubsection = () => (
+    <AnimatedSection variants={fadeUp}>
+        <WelcomeContent />
+        <DividerDark />
+    </AnimatedSection>
+)
+
+export const IntroSubsection = () => (
+    <div>
+        {/* Header */}
+        <AnimatedSection variants={fadeUp}>
+            <p className="header2">
+                <span className="indent" />Intro
+            </p>
+        </AnimatedSection>
+
+        {/* Content */}
+        <AnimatedSection variants={fadeUp}>
+            <IntroContent />
+        </AnimatedSection>
+        <DividerDark />
+    </div>
+);
 
 export default function Intro() {
     return (
         <div className="container-box">
-            <AnimatedSection variants={fadeUp}>
-                {/* Welcome message */}
-                < Welcome />
 
-                {/* Divider */}
-                <hr className="divider-dark" />
+            <WelcomeSubsection />
 
-                {/* Intro */}
-                <p className="subheader">
-                    Intro
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Image
-                        src="/images/icons/icon1.png"
-                        alt="My photo"
-                        width={250}
-                        height={250}
-                        loading="eager"
-                        className="w-75 h-auto justify-self-center"
-                    />
-                    <IntroParagraph />
-                </div>
-                
-                {/* Padding */}
-                <div className="p-6"></div>
+            <IntroSubsection />
 
-                {/* Divider */}
-                <hr className="divider-dark" />
-            </AnimatedSection>
         </div>
     );
 }
