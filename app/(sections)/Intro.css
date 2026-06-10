@@ -34,7 +34,7 @@
     font-weight: var(--font-bold-weight);
 }
 
-.rounded-container { /* container containing "Open to work */
+.rounded-container {
     display: flex;
     border-radius: 30px;
     background-color: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
@@ -63,34 +63,11 @@
     width: auto;
 }
 
-.resume {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-    align-items: center;
-}
-
-/* Configurations specific to the left intro section */
-.intro-left-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.left-section-padding-md {
-    padding: calc(var(--font-size-std) * 0.5);
-}
-
-.left-section-padding-lg {
-    padding: var(--font-size-std);
-}
-
 /* Card configuration */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr; /* Updates to 1fr 1fr 1fr for larger screens*/
     gap: 2px;
-
 }
 
 .card-container {

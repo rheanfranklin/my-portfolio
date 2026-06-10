@@ -19,7 +19,7 @@ type ConstructSubsectionProps = {
 }
 
 // Builts a subsection with an animated header + content
-export function ConstructSubsection({
+function ConstructSubsection({
     header,
     content,
 }: ConstructSubsectionProps): React.ReactNode {
@@ -49,7 +49,7 @@ type MyStyleContentConstructorProps = {
 //
 // Building style subsection
 //
-export function MyStyleContentConstructor({
+function MyStyleContentConstructor({
     header,
     content,
 }: MyStyleContentConstructorProps): React.ReactNode {
@@ -66,7 +66,7 @@ export function MyStyleContentConstructor({
     );
 }
 
-export function ConstructMyStyleContent(): React.ReactNode {
+function ConstructMyStyleContent(): React.ReactNode {
     return (
         <div>
             <MyStyleContentConstructor header="Software Development" content={StyleSoftwareDevelopmentContent} />
@@ -88,7 +88,7 @@ export function About() {
         <div className="container-box">
             {/* About Hader */ }
             <div className="header2">
-                About Me
+                ABOUT ME
             </div>
             {AboutIntroContent}
 
