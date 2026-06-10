@@ -55,7 +55,7 @@ export const IntroContent = () => (
             <AnimatedSection variants={fadeUp} className="right">
                 <div>
                     <img
-                        src="/images/icons/icon1.png"
+                        src="/images/home/woman-on-computer.png"
                         alt="woman sitting on computer"
                         className="intro-image"
                     />
