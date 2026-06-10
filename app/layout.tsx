@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import BackgroundVideo from "./components/BackgroundVideo";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,8 @@ export default function RootLayout({
 }: RootLayoutProps ) {
   return (
     <html lang="en">
-      <body className="page">
+      <body className="page relative">
+        <BackgroundVideo />
         <Navbar />
         {children}
         {/* <Footer /> */}

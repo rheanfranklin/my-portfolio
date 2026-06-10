@@ -1,46 +1,38 @@
 "use client";
 
-import AnimatedSection from "../components/AnimatedSection";
-import { fadeUp } from "@/lib/animations/fade";
-import { WelcomeContent, IntroContent } from "@/content/intro"
-import { DividerDark } from "@/content/utils";
+import "./Intro.css";
+import {
+    IntroContent,
+    IntroCardOne,
+    IntroCardTwo,
+    IntroCardThree,
+    ResumeButton,
+} from "@/content/intro";
 
-//
-// Subsection construction
-//
-
-export const WelcomeSubsection = () => (
-    <AnimatedSection variants={fadeUp}>
-        <WelcomeContent />
-        <DividerDark />
-    </AnimatedSection>
-)
-
-export const IntroSubsection = () => (
-    <div>
-        {/* Header */}
-        <AnimatedSection variants={fadeUp}>
-            <p className="header2">
-                <span className="indent" />Intro
-            </p>
-        </AnimatedSection>
-
-        {/* Content */}
-        <AnimatedSection variants={fadeUp}>
-            <IntroContent />
-        </AnimatedSection>
-        <DividerDark />
-    </div>
-);
 
 export default function Intro() {
     return (
         <div className="container-box">
+            <div className="section-padding" />
 
-            <WelcomeSubsection />
+            {/* Image + Intro */}
+            <IntroContent />
 
-            <IntroSubsection />
+            <div className="section-padding" />
 
+            {/* Cards */}
+            <div className="card-grid">
+                <IntroCardOne />
+                <IntroCardTwo />
+                <IntroCardThree />
+            </div>
+
+            <div className="p-2" />
+
+            {/* Resume Button */}
+            <ResumeButton />
+
+            <div className="section-padding" />
         </div>
     );
 }
