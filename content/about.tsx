@@ -1,47 +1,25 @@
-import { RainbowText } from "@/app/components/AnimatedText";
+let AboutIntro: string = [
+  "Hello there! I'm so excited you're here! On this page you can find an in-depth description",
+  "of who I am, both as a person and an engineer, so you can know whether I'm the right fit for",
+  "your company.",
+].join("");
+
 
 
 //
 // Welcome subsection
 //
-export const AboutIntroContent = () => (
-  <RainbowText text="Test"></RainbowText>
-  // <p className="paragraph">
-  //   Hello there! I'm so excited you're here! On this page you can find an in-depth description
-  //   of who I am, both as a person and an engineer, so you can know whether I'm the right fit for
-  //   your company.
-  // </p>
-);
-
-//
-// My Skill subsection
-//
-export const MySkillsContent = () => (
-  <div className="flex flex-col">
-    <p className="paragraph">
-      I am proficient in the following languages:
-    </p>
-    <div className="two-column-grid">
-      <p className="paragraph">
-        - python 
-      </p>
-      <p className="paragraph">
-
-      </p>
-
-    </div>
-    <p>
-
-    </p>
-  </div>
-  
-);
+export const AboutIntroContent: React.ReactNode = <p className="paragraph">
+  Hello there! I'm so excited you're here! On this page you can find an in-depth description
+  of who I am, both as a person and an engineer, so you can know whether I'm the right fit for
+  your company.
+</p>;
 
 
 //
 // My Motivation subsection
 //
-export const MyMotivationContent = () => (
+export const MyMotivationContent: React.ReactNode = (
   <div>
       <p className="paragraph">
         Nothing is more satisfying to me in my workday than clicking a checkmark on my to-do list. I feel the
@@ -61,7 +39,7 @@ export const MyMotivationContent = () => (
 
 
 // Software Development
-export const StyleSoftwareDevelopmentContent = () => (
+export const StyleSoftwareDevelopmentContent: React.ReactNode = (
   <p className="paragraph">
     My priorities when developing software is writing readable, consistent, modular, & well-organized code.
     I thrive off of structure & organization; my head is already scatterbrained enough, so the last thing I
@@ -75,21 +53,21 @@ export const StyleSoftwareDevelopmentContent = () => (
 );
 
 // Collaboration
-export const StyleCollaborationContent  = () => (
-  <p className="paragraph">
-    I make it a point to bring positivity wherever I go. I enjoy creating an environment 
-    where people feel comfortable expressing themselves & speaking their mind. When it comes to my
-    teammates, I like keeping things casual & lighthearted. Work is more fun when you get to 
-    connect with the people around you.
-    <br/>
-    <span className="indent"/>A key part of achieving that is being open & accepting of everyone, regardless of who they are or their walk of life. Never would I judge someone over
-    something that doesn't matter. I welcome a variety of perspectives and believe diversity of thought
-    creates wellroundedness.
-  </p>
+export const StyleCollaborationContent: React.ReactNode = (
+    <p className="paragraph">
+      I make it a point to bring positivity wherever I go. I enjoy creating an environment 
+      where people feel comfortable expressing themselves & speaking their mind. When it comes to my
+      teammates, I like keeping things casual & lighthearted. Work is more fun when you get to 
+      connect with the people around you.
+      <br/>
+      <span className="indent"/>A key part of achieving that is being open & accepting of everyone, regardless of who they are or their walk of life. Never would I judge someone over
+      something that doesn't matter. I welcome a variety of perspectives and believe diversity of thought
+      creates wellroundedness.
+    </p>
 );
 
 // AI
-export const StyleAIContent  = () => (
+export const StyleAIContent: React.ReactNode = (
   <p className="paragraph">
     When it comes to AI, it's clear that its integration into our workflows as software engineers is inevitable.
     It is an incredibly powerful tool, and I believe it's just as incredibly important that we
@@ -111,7 +89,7 @@ export const StyleAIContent  = () => (
   </p>
 );
 
-export const StyleProblemSolvingContent  = () => (
+export const StyleProblemSolvingContent: React.ReactNode = (
   <p className="paragraph">
     Test
   </p>
@@ -121,7 +99,7 @@ export const StyleProblemSolvingContent  = () => (
 //
 // My History Subsection
 //
-export const MyHistoryContent = () => (
+export const MyHistoryContent: React.ReactNode = (
   <p className="paragraph">
     During my time working as an engineer at FactSet, 
   </p>

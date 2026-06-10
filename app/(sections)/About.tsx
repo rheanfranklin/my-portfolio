@@ -3,7 +3,6 @@
 import AnimatedSection from "../components/AnimatedSection";
 import { fadeUp } from "@/lib/animations/fade";
 import {
-    MySkillsContent,
     StyleSoftwareDevelopmentContent,
     StyleCollaborationContent,
     StyleProblemSolvingContent,
@@ -14,143 +13,89 @@ import {
 } from "@/content/about";
 import { DividerDark, PaddingSM } from "@/content/utils";
 
+type ConstructSubsectionProps = {
+    readonly header: string;
+    readonly content: React.ReactNode;
+}
+
+// Builts a subsection with an animated header + content
+export function ConstructSubsection({
+    header,
+    content,
+}: ConstructSubsectionProps): React.ReactNode {
+    return (
+        <div>
+            {/* Header */}
+            <AnimatedSection variants={fadeUp}>
+                <div className="header3">{header}</div>
+            </AnimatedSection>
+
+            {/* Content */}
+            <AnimatedSection variants={fadeUp}>
+                {content}
+            </AnimatedSection>
+
+            <DividerDark />
+        </div>
+    );
+}
+
+
+type MyStyleContentConstructorProps = {
+    readonly header: string;
+    readonly content: React.ReactNode;
+}
+
 //
-// Subsection construction
+// Building style subsection
 //
-export const AboutMeIntro = () => (
-    <div>
-        {/* Header */}
-        <AnimatedSection variants={fadeUp}>
-            <div className="header2">About Me</div>
-        </AnimatedSection>
+export function MyStyleContentConstructor({
+    header,
+    content,
+}: MyStyleContentConstructorProps): React.ReactNode {
+    return (
+        <div>
+            <AnimatedSection variants={fadeUp}>
+                <p className="header4">{header}</p>
+            </AnimatedSection>
+            <AnimatedSection variants={fadeUp}>
+                {content}
+            </AnimatedSection>
+        </div>
+        
+    );
+}
 
-        {/* Content */}
-        <AnimatedSection variants={fadeUp}>
-            <AboutIntroContent />
-        </AnimatedSection>
-
-        <DividerDark />
-    </div>
-)
-
-export const MySkillsSubsection = () => (
-    <div>
-        {/* Header */}
-        <AnimatedSection variants={fadeUp}>
-            <div className="header3">My Skills</div>
-        </AnimatedSection>
-
-        {/* Content */}
-        <AnimatedSection variants={fadeUp}>
-            <MySkillsContent />
-        </AnimatedSection>
-
-        <DividerDark />
-    </div>
-
-)
-
-export const MyMotivationSubsection = () => (
-    <div>
-        {/* Header */}
-        <AnimatedSection variants={fadeUp}>
-            <div className="header3">My Motivation</div>
-        </AnimatedSection>
-
-        {/* Content */}
-        <AnimatedSection variants={fadeUp}>
-            <MyMotivationContent />
-        </AnimatedSection>
-
-        <DividerDark />
-    </div>
-
-)
-
-export const MyStyleSubsection = () => (
-    <div>
-        {/* Header */}
-        <AnimatedSection variants={fadeUp}>
-            <div className="header3">My Style</div>
-        </AnimatedSection>
-
-        {/* Contnent */}
-        {/* Software Development H4 */}
-        <AnimatedSection variants={fadeUp}>
-            <p className="header4">Software Development</p>
-        </AnimatedSection>
-        <AnimatedSection variants={fadeUp}>
-            <StyleSoftwareDevelopmentContent />
-        </AnimatedSection>
-        {/* End of Software Development H4 */}
-
-        <PaddingSM />
-
-        {/* Collaboration H4 */}
-        <AnimatedSection variants={fadeUp}>
-            <p className="header4">Collaboration</p>
-        </AnimatedSection>
-        <AnimatedSection variants={fadeUp}>
-            <StyleCollaborationContent />
-        </AnimatedSection>
-        {/* End of Collaboration H4 */}
-
-        <PaddingSM />
-
-        {/* Problem Solving H4 */}
-        <AnimatedSection variants={fadeUp}>
-            <p className="header4">Problem Solving</p>
-        </AnimatedSection>
-        <AnimatedSection variants={fadeUp}>
-            <StyleProblemSolvingContent />
-        </AnimatedSection>
-        {/* End of Problem Solving H4 */}
-
-        <PaddingSM />
-
-        {/* AI H4 */}
-        <AnimatedSection variants={fadeUp}>
-            <p className="header4">AI</p>
-        </AnimatedSection>
-        <AnimatedSection variants={fadeUp}>
-            <StyleAIContent />
-        </AnimatedSection>
-        {/* End of AI H4 */}
-
-        <DividerDark />
-    </div>
-);
-
-export const MyHistorySubsection = () => (
-    <div>
-        <AnimatedSection variants={fadeUp}>
-            <div className="header3">My History</div>
-        </AnimatedSection>
-
-        <AnimatedSection variants={fadeUp}>
-            <MyHistoryContent />
-        </AnimatedSection>
-
-        <DividerDark />
-    </div>
-)
-
+export function ConstructMyStyleContent(): React.ReactNode {
+    return (
+        <div>
+            <MyStyleContentConstructor header="Software Development" content={StyleSoftwareDevelopmentContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="Collaboration" content={StyleCollaborationContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="Problem Solving" content={StyleProblemSolvingContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="AI" content={StyleAIContent} />
+        </div>
+    );
+}
 
 //
 // Stringing together About page content
 //
-export default function About() {
+export function About() {
     return (
         <div className="container-box">
-            <AboutMeIntro />
+            {/* About Hader */ }
+            <div className="header2">
+                About Me
+            </div>
+            {AboutIntroContent}
 
-            <MySkillsSubsection />
+            <ConstructSubsection header="My Motivation" content={MyMotivationContent} />
+            <ConstructSubsection header="My Style" content={ConstructMyStyleContent()} />
+            <ConstructSubsection header="My History" content={MyHistoryContent} />
 
-            <MyMotivationSubsection />
-
-            <MyStyleSubsection />
-
-            <MyHistorySubsection />
         </div>
-    )
+    );
 }
