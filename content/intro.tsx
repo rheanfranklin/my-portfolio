@@ -2,19 +2,19 @@ import { ExternalLink } from 'pixelarticons/react';
 
 
 // Left intro section content
-export const IntroContentText: React.ReactNode = <p className="caption rainbow-hover">
+export const IntroContentText: React.ReactNode = <p className="intro-text-format rainbow-hover">
     <span className="text-accent-pink-dark">//</span>hello, my name is
 </p>;
 
 export const Name: React.ReactNode = <p className="name-format rainbow-hover">RHEANNON FRANKLIN</p>
 
-export const Title: React.ReactNode = <p className="job-title rainbow-hover">Full Stack Software Engineer</p>
+export const Title: React.ReactNode = <p className="job-title rainbow-hover">&gt; Full Stack Software Engineer</p>
 
 export const WelcomeMessage: React.ReactNode = <p className="rainbow-hover">
     Welcome to my portfolio! Feel free to take a look around :D
 </p>;
 
-export const OpenToWork: React.ReactNode = <p className="rounded-container-text">
+export const OpenToWork: React.ReactNode = <p className="rounded-container-text rainbow-hover">
     &nbsp;Open to work &middot; CT, USA &middot; In-Office/Hybrid/Remote&nbsp;
 </p>;
 
@@ -43,4 +43,3 @@ export const ResumeButtonContent: React.ReactNode = <div className="rounded-cont
     <ExternalLink/>
     <p>&nbsp;Resume&nbsp;&middot;&nbsp;</p>
 </div>;
-
