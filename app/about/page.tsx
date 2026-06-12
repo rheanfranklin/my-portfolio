@@ -1,11 +1,5 @@
-import About from "../(sections)/About";
-import Navbar from "../components/Navbar";
+import { About } from "../(sections)/About"
 
 export default function Home() {
-  return (
-    <div className="page">
-      <Navbar></Navbar>
-      <About></About>
-    </div>
-  );
+  return <About />
 }

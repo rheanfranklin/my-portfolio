@@ -2,36 +2,100 @@
 
 import AnimatedSection from "../components/AnimatedSection";
 import { fadeUp } from "@/lib/animations/fade";
-import { MyStyleParagraph, MyHistoryParagraph, MyMotivationParagraph, AboutParagraph } from "@/content/about";   
+import {
+    StyleSoftwareDevelopmentContent,
+    StyleCollaborationContent,
+    StyleProblemSolvingContent,
+    StyleAIContent,
+    MyHistoryContent,
+    MyMotivationContent,
+    AboutIntroContent
+} from "@/content/about";
+import { DividerDark, PaddingSM } from "@/content/utils";
 
-export default function About() {
+type ConstructSubsectionProps = {
+    readonly header: string;
+    readonly content: React.ReactNode;
+}
+
+// Builts a subsection with an animated header + content
+function ConstructSubsection({
+    header,
+    content,
+}: ConstructSubsectionProps): React.ReactNode {
     return (
-        <div className="container-box">
+        <div>
+            {/* Header */}
             <AnimatedSection variants={fadeUp}>
-                {/* About Subheader */ }
-                <div className="subheader">
-                    About Me
-                </div>
-                <AboutParagraph />
+                <div className="header3">{header}</div>
+            </AnimatedSection>
 
-                {/* My Style Subsection */}
-                <div className="sectionTitle">
-                    My Style
-                </div>
-                <MyStyleParagraph />
+            {/* Content */}
+            <AnimatedSection variants={fadeUp}>
+                {content}
+            </AnimatedSection>
 
-                {/* My Motivation Subsection */}
-                <div className="sectionTitle">
-                    My Motivation
-                </div>
-                <MyMotivationParagraph />
+            <DividerDark />
+        </div>
+    );
+}
 
-                {/* My History Subsection */}
-                <div className="sectionTitle">
-                    My History
-                </div>
-                <MyHistoryParagraph />
+
+type MyStyleContentConstructorProps = {
+    readonly header: string;
+    readonly content: React.ReactNode;
+}
+
+//
+// Building style subsection
+//
+function MyStyleContentConstructor({
+    header,
+    content,
+}: MyStyleContentConstructorProps): React.ReactNode {
+    return (
+        <div>
+            <AnimatedSection variants={fadeUp}>
+                <p className="header4">{header}</p>
+            </AnimatedSection>
+            <AnimatedSection variants={fadeUp}>
+                {content}
             </AnimatedSection>
         </div>
-    )
+        
+    );
+}
+
+function ConstructMyStyleContent(): React.ReactNode {
+    return (
+        <div>
+            <MyStyleContentConstructor header="Software Development" content={StyleSoftwareDevelopmentContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="Collaboration" content={StyleCollaborationContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="Problem Solving" content={StyleProblemSolvingContent} />
+            <PaddingSM />
+            <MyStyleContentConstructor header="AI" content={StyleAIContent} />
+        </div>
+    );
+}
+
+//
+// Stringing together About page content
+//
+export function About() {
+    return (
+        <div className="container-box">
+            {/* About Hader */ }
+            <div className="header2">
+                ABOUT ME
+            </div>
+            {AboutIntroContent}
+
+            <ConstructSubsection header="My Motivation" content={MyMotivationContent} />
+            <ConstructSubsection header="My Style" content={ConstructMyStyleContent()} />
+            <ConstructSubsection header="My History" content={MyHistoryContent} />
+
+        </div>
+    );
 }
