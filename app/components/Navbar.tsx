@@ -6,6 +6,14 @@ import { useState } from "react";
 import AnimatedMenu from "../components/AnimatedMenu";
 import { usePathname } from "next/navigation";
 
+export const NAV_LINKS = {
+  home: "/",
+  about: "/about",
+  skills: "/skills",
+  projects: "/projects",
+  cat: "/cat",
+  contact: "/contact"
+}
 
 // Constructing Nav bar
 export default function Navbar() {
@@ -48,12 +56,12 @@ export const NavMenuItems = ({ className="" }: NavMenuItemsProps) => {
 
   return (
     <div className={className}>
-        <Link href="/" className={isActive("/")}>Home</Link>
-      <Link href="/about" className={isActive("/about")}>About</Link>
-      <Link href="/skills" className={isActive("/skills")}>Skills</Link>
-      <Link href="/projects" className={isActive("/projects")}>Projects</Link>
-      <Link href="/cat" className={isActive("/cat")}>Cat</Link>
-      <Link href="/contact" className={isActive("/contact")}>Contact</Link>
+      <Link href={NAV_LINKS.home} className={isActive(NAV_LINKS.home)}>HOME</Link>
+      <Link href={NAV_LINKS.about} className={isActive(NAV_LINKS.about)}>ABOUT</Link>
+      <Link href={NAV_LINKS.skills} className={isActive(NAV_LINKS.skills)}>SKILLS</Link>
+      <Link href={NAV_LINKS.projects} className={isActive(NAV_LINKS.projects)}>PROJECTS</Link>
+      <Link href={NAV_LINKS.cat} className={isActive(NAV_LINKS.cat)}>CAT</Link>
+      <Link href={NAV_LINKS.contact} className={isActive(NAV_LINKS.contact)}>CONTACT</Link>
     </div>
   );
 };
