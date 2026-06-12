@@ -3,15 +3,13 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
-type AnimatedIconGridProps = {
+type AnimatedIconProps = {
   readonly icon: React.ReactNode;
-  readonly text: React.ReactNode;
 };
 
-export default function AnimatedIconGrid({
+export default function AnimatedIcon({
   icon,
-  text,
-}: AnimatedIconGridProps) {
+}: AnimatedIconProps) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -20,7 +18,7 @@ export default function AnimatedIconGrid({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="icon-grid cursor-pointer"
+      className="card-container cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       animate={{
@@ -28,11 +26,8 @@ export default function AnimatedIconGrid({
         transition: { duration: 0.25, ease: "easeOut" },
       }}
     >
-      <div className={`icon-cell ${hovered ? "card-hover" : ""}`}>
+      <div className={`card-cell ${hovered ? "card-hover" : ""}`}>
         {icon}
-      </div>
-      <div className={`text-cell ${hovered ? "card-hover" : ""}`}>
-        {text}
       </div>
     </motion.div>
   );

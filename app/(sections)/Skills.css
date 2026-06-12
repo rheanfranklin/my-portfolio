@@ -5,6 +5,9 @@
   --border-color: black;
   --fill-color: #999;
   --hex-gap: 0.1vmin;
+  --tab-height: 50px;
+  --tab-width: 5px;
+  --tri-width: 12px;
 }
 
 .hex-container {
@@ -138,28 +141,125 @@
   border-bottom: 1px solid var(--color-accent-pink-dark);
 }
 
-.tab {
-  height: 100px;
-  width: 5px;
+:root {
+  --tab-height: 40px;
+  --tab-collapsed: 6px;
+  --tab-expanded: 120px;
+}
+
+/* Shared label */
+.tab-label {
+  color: white;
+  white-space: nowrap;
+  padding: 0 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* LEFT TAB */
+.tab-left {
+  position: absolute;
+  left: -15px;
+  top: 30px;
+
+  height: var(--tab-height);
+  width: var(--tab-collapsed);
   background-color: var(--color-accent-pink-dark);
-  display: grid;
-  grid-template-columns: 1fr;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  overflow: visible; /* <-- IMPORTANT */
+  transition: width 0.25s ease, transform 0.25s ease;
 }
 
-.layer-1, .layer-2 {
-  grid-row: 1;
-  grid-column: 1;
+.tab-anchor {
+  position: relative; /* REQUIRED so the tab can anchor to this column */
 }
 
-/* HTML: <div class="triangle"></div> */
+/* Expand left */
+.tab-left:hover {
+  width: var(--tab-expanded);
+  transform: translateX(calc(-1 * (var(--tab-expanded) - var(--tab-collapsed))));
+}
+
+.tab-left:hover .tab-label {
+  opacity: 1;
+}
+
+
 .triangle {
-  --r:5px; /* border radius */
+  position: absolute;
+  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
+  width: var(--tri-width);
+  aspect-ratio: 50%;
+  background: var(--color-accent-pink-dark);
+  height: calc(var(--tri-width) * 2); /* gives it real height */
+  transform: translateY(-25%);
+  left: calc(-1 * var(--tri-width)); 
 
-  width: 12px;
-  aspect-ratio: 1/2;
+  --r: 5px;
   -webkit-mask:
     linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
     radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
   clip-path: polygon(0 50%,100% 100%,100% 0);
+  transition: transform 0.25s ease;
+}
+
+/* RIGHT TAB */
+.tab-right {
+  position: absolute;
+  right: 40px;      /* anchor on the right side of the column */
+  top: 30px;
+
+  height: var(--tab-height);
+  width: var(--tab-collapsed);
+  background-color: var(--color-accent-pink-dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: visible;
+  transition: width 0.25s ease, transform 0.25s ease;
+}
+
+/* expand OUTWARD to the RIGHT */
+.tab-right:hover {
+  width: var(--tab-expanded);
+  transform: translateX(
+    calc(var(--tab-expanded) - var(--tab-collapsed))
+  );
+}
+
+.tab-right:hover .tab-label {
+  opacity: 1;
+}
+
+/* right triangle */
+.tab-right-triangle {
+  position: absolute;
+  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
+  width: var(--tri-width);
+  aspect-ratio: 50%;
   background: var(--color-accent-pink-dark);
+  height: calc(var(--tri-width) * 2); /* gives it real height */
+  transform: translateY(-25%);
+  right: calc(-1 * var(--tri-width));
+  left: auto;
+
+  --r: 5px;
+  -webkit-mask:
+    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
+    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
+  clip-path: polygon(0 50%,100% 100%,100% 0);
+  transition: transform 0.25s ease;
+  rotate: 180deg;
+}
+
+.tab-left:hover ~ .language .hex-shape {
+  filter: drop-shadow(0 0 12px var(--color-accent-pink-dark));
+  stroke: var(--color-accent-pink-dark);
+  transition: filter 0.25s ease;
 }
