@@ -1,6 +1,6 @@
 
 .section-padding {
-    padding: calc(var(--base-unit) * 4)
+    padding: calc(var(--base-unit) * 4);
 }
 
 /* grid containing the welcome message + image */
@@ -22,6 +22,13 @@
 }
 
 /* Text/Image configurations for top intro grid */
+.intro-text-format {
+    font-size: calc(var(--font-size-std) * 0.875);
+    color: var(--color-brandDark);
+    line-height: var(--line-height-sm);
+    margin-top: var(--margin-sm);
+}
+
 .name-format {
     font-size: calc(var(--font-size-std) * 2.5);
     font-weight: var(--font-bold-lg-weight);
@@ -29,30 +36,17 @@
 
 .job-title {
     color: var(--color-accent-pink-dark);
-    font-size: var(--font-size-lg);
+    font-size: 1.6rem;
     text-shadow: var(--text-shadow);
     font-weight: var(--font-bold-weight);
 }
 
-.rounded-container {
-    display: flex;
-    border-radius: 30px;
-    background-color: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
-    border: 1px solid var(--color-accent-pink-dark);
-    padding: var(--base-unit);
-    width: fit-content;
-}
-
-.rounded-container-text {
-    font-size: var(--base-unit);
-    color: var(--color-brand);
-}
 
 .open-message {
     font-size: calc(var(--base-unit) * 0.9);
     font-style: italic;
-    margin-left: calc(var(--base-unit) * 1.5);
-    margin-top: var(--base-unit);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
     color: var(--color-brandDark);
     opacity: 0.7;
 }

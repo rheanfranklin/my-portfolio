@@ -35,12 +35,13 @@ export function Intro() {
             <div className="two-col-grid">
                 {/* Left column */}
                 <div className="left">
+                    <div className="p-10" />
                     {/* Intro */}
                     <AnimatedText>{IntroContentText}</AnimatedText>
                     <AnimatedText>{Name}</AnimatedText>
                     <AnimatedText>{Title}</AnimatedText>
 
-                    <div className="p-4" />
+                    <div className="p-10" />
 
                     <AnimatedText>{WelcomeMessage}</AnimatedText>
 
@@ -65,6 +66,7 @@ export function Intro() {
                 </AnimatedSection>
             </div>
 
+            <div className="section-padding" />
             <div className="section-padding" />
 
             {/* Cards */}
