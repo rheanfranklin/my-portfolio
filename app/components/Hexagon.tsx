@@ -1,4 +1,12 @@
-export const Hexagon = () => (
+type HexagonProps = {
+    readonly front?: React.ReactNode;
+    readonly back?: React.ReactNode;
+}
+
+export const Hexagon = ({
+    front = null,
+    back = null,
+}: HexagonProps) => (
     <div className="hexagon">
         <svg viewBox="0 0 100 100">
             <polygon
@@ -6,7 +14,7 @@ export const Hexagon = () => (
                 className="hex-shape"
             />
         </svg>
-        <div className="text-face front">Front</div>
-        <div className="text-face back">Back</div>
+        <div className="text-face">{front}</div>
+        <div className="text-face back">{back}</div>
     </div>
 );

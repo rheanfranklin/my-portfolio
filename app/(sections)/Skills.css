@@ -10,23 +10,23 @@
 .hex-container {
   display: flex;
   flex-direction: column;
-  gap: var(--hex-gap);
+  /* border-top: 1px solid var(--color-accent-pink-dark); */
+  padding: 2.25rem;
 }
 
 .hex-column {
     margin-top: -1rem;
   display: flex;
   flex-direction: row;
-  gap: var(--hex-gap);
   align-items: center;
-  margin-left: calc((var(--hexagon-size) + var(--hex-gap)) / 2);
+  margin-left: 3.25rem;
+  /* margin-left: calc((var(--hexagon-size) + var(--hex-gap)) / 2); */
 }
 
 .hex-column-odd {
   margin-top: -1rem;
   display: flex;
   flex-direction: row;
-  gap: calc(var(--hex-gap) * (-1));
   align-items: center;
 }
 
@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2vmin;
+  font-size: 1vmin;
   font-weight: bold;
   color: white;
   backface-visibility: hidden;
@@ -81,4 +81,85 @@
 /* Flip the whole hexagon */
 .hexagon:hover {
   transform: translateY(-1vmin) rotateY(180deg);
+}
+
+.hex-grid {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  width: fit-content;
+  justify-self: center;
+}
+
+.hex-grid .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-accent-pink-dark);
+  height: 15rem;
+  text-align: center;
+  width: 3rem;
+}
+
+.language-grid {
+    border-top: 1px solid var(--color-accent-pink-dark);
+}
+
+.languages {
+  color: black;
+  transform: rotate(-90deg);
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-top: 3.5rem;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.go-logo {
+  height: 65px;
+  width: auto;
+}
+
+.script-logo {
+  height: 43px;
+  width: auto;
+}
+
+.sql-logo {
+  height: 45px;
+  width: auto;
+}
+
+
+.tools-grid {
+  border-left: 1px solid var(--color-accent-pink-dark);
+  border-bottom: 1px solid var(--color-accent-pink-dark);
+}
+
+.tab {
+  height: 100px;
+  width: 5px;
+  background-color: var(--color-accent-pink-dark);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.layer-1, .layer-2 {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+/* HTML: <div class="triangle"></div> */
+.triangle {
+  --r:5px; /* border radius */
+
+  width: 12px;
+  aspect-ratio: 1/2;
+  -webkit-mask:
+    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
+    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
+  clip-path: polygon(0 50%,100% 100%,100% 0);
+  background: var(--color-accent-pink-dark);
 }
