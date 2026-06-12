@@ -51,6 +51,9 @@ export default function Footer(): React.ReactNode {
                         <li className="footer-li">
                             <a href={SOCIAL_LINKS.linkedin} target="_blank">Linkedin</a>
                         </li>
+                        <li className="footer-li">
+                            <a href="/files/resume.pdf" target="_blank">Resume</a>
+                        </li>
                     </ol>
                 </section>
             </section>

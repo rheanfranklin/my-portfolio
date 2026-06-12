@@ -1,7 +1,9 @@
 "use client";
 
+import "./About.css";
 import AnimatedSection from "../components/AnimatedSection";
 import { fadeUp } from "@/lib/animations/fade";
+import { DividerDark, PaddingSM } from "@/content/utils";
 import {
     StyleSoftwareDevelopmentContent,
     StyleCollaborationContent,
@@ -11,7 +13,6 @@ import {
     MyMotivationContent,
     AboutIntroContent
 } from "@/content/about";
-import { DividerDark, PaddingSM } from "@/content/utils";
 
 type ConstructSubsectionProps = {
     readonly header: string;
@@ -83,18 +84,23 @@ function ConstructMyStyleContent(): React.ReactNode {
 //
 // Stringing together About page content
 //
-export function About() {
+export function About(): React.ReactNode {
     return (
         <div className="container-box">
             {/* About Hader */ }
             <div className="header2">
-                ABOUT ME
+                &gt; ABOUT ME
             </div>
             {AboutIntroContent}
 
-            <ConstructSubsection header="My Motivation" content={MyMotivationContent} />
+            <div className="folder">
+                <div className="folder-tab">Hi</div>
+                <div className="folder-body">blah blah blah blah blah</div>
+            </div>
+
+            {/* <ConstructSubsection header="My Motivation" content={MyMotivationContent} />
             <ConstructSubsection header="My Style" content={ConstructMyStyleContent()} />
-            <ConstructSubsection header="My History" content={MyHistoryContent} />
+            <ConstructSubsection header="My History" content={MyHistoryContent} /> */}
 
         </div>
     );
