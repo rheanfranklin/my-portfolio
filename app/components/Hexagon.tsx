@@ -1,15 +1,15 @@
 type HexagonProps = {
     readonly front?: React.ReactNode;
     readonly back?: React.ReactNode;
-    readonly className?: string;
+    readonly category: string;
 }
 
 export const Hexagon = ({
     front = null,
     back = null,
-    className = "",
+    category = "",
 }: HexagonProps) => (
-    <div className={`hexagon ${className}`}>
+    <div className={`hexagon ${category}`}>
         <svg viewBox="0 0 100 100">
             <polygon
                 points="50 2, 93 25, 93 75, 50 98, 7 75, 7 25"
