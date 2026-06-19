@@ -21,14 +21,14 @@
 
 .footer-header {
     letter-spacing: 3px;
-    color: var(--color-brandDark);
+    color: var(--color-brand-dark);
     font-size: 0.875rem;
 }
 
 .footer-li {
     margin-top: 1rem;
     font-size: 0.875rem;
-    color: var(--color-brandDark);
+    color: var(--color-brand-dark);
 }
 
 .footer-li:hover {
@@ -42,7 +42,7 @@
 }
 
 .footer-text {
-    color: var(--color-brandDark);
+    color: var(--color-brand-dark);
     font-size: 0.875rem;
 }
 

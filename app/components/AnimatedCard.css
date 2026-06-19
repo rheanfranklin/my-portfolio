@@ -1,0 +1,52 @@
+.animated-card-container {
+    align-items: center;
+    transition: transform 300ms ease;
+    width: 99%; /* Small gap between cards */
+}
+
+.animated-card-container:hover { /* Raise on hover */
+    transform: translateY(-6px);
+  }
+
+.animated-card-cell {
+    background-color: var(--color-accent-pink-dark);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.875rem;
+    padding-bottom: 2.1875rem;
+    color: black;
+    align-items: center;
+
+    /* left->right wipe animation setup */
+    background-image: linear-gradient(
+        to right,
+        var(--color-accent-pink) 0%,
+        var(--color-accent-pink) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 0% 100%; /* start hidden */
+    transition:
+        background-size 600ms ease,
+        transform 300ms ease;
+}
+
+.animated-card-container:hover .animated-card-cell {
+    background-size: 100% 100%; /* expands left→right */
+}
+
+.animated-card-text-lg {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.animated-card-text {
+    font-size: 0.875rem;
+    font-weight: bold;
+    justify-items: top;
+    text-align: center;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+}

@@ -1,0 +1,53 @@
+.hexagon {
+  width: var(--hexagon-size);
+  aspect-ratio: 1;
+  position: relative;
+  perspective: 100vmin;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+}
+
+/* SVG stays flat */
+.hex-shape {
+  fill: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
+  stroke: var(--color-accent-pink-dark);
+  stroke-width: 1px;
+  transition: stroke-width 0.25s ease;
+}
+
+/* Text faces */
+.text-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--color-brand);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Front text */
+.text-face.front {
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+/* Back text — rotated so it appears correct after flip */
+.text-face.back {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+/* Flip the whole hexagon */
+.hexagon:hover {
+  transform: translateY(-1rem) rotateY(180deg);
+}
+
+/* Updating formatting for mobile/small screens */
+@media (max-width: 639px) {
+  .text-face {
+    font-size: 0.6rem;
+  }
+}

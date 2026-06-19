@@ -15,11 +15,34 @@ export const NAV_LINKS = {
   contact: "/contact"
 }
 
+// Menu items
+type NavMenuItemsProps = {
+  className?: string;
+};
+
+export const NavMenuItems = ({ className="" }: NavMenuItemsProps) => {
+  const pathname = usePathname();
+
+  const isActive = (path: string) =>
+    pathname === path ? "text curr-page" : "text";
+
+  return (
+    <div className={className}>
+      <Link href={NAV_LINKS.home} className={isActive(NAV_LINKS.home)}>HOME</Link>
+      <Link href={NAV_LINKS.about} className={isActive(NAV_LINKS.about)}>ABOUT</Link>
+      <Link href={NAV_LINKS.skills} className={isActive(NAV_LINKS.skills)}>SKILLS</Link>
+      <Link href={NAV_LINKS.projects} className={isActive(NAV_LINKS.projects)}>PROJECTS</Link>
+      <Link href={NAV_LINKS.cat} className={isActive(NAV_LINKS.cat)}>CAT</Link>
+      <Link href={NAV_LINKS.contact} className={isActive(NAV_LINKS.contact)}>CONTACT</Link>
+    </div>
+  );
+};
+
 // Constructing Nav bar
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <nav className="container-box text-center">
+        <nav className="container-box nav-bar">
             {/* Bottom Row — Navigation */}
             <div>
                 
@@ -37,31 +60,10 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <AnimatedMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <NavMenuItems className="dropdown-menu" />
+                <NavMenuItems className="mobile-menu" />
             </AnimatedMenu>
         </nav>
     );
 }
 
-// Menu items
-type NavMenuItemsProps = {
-  className?: string;
-};
 
-export const NavMenuItems = ({ className="" }: NavMenuItemsProps) => {
-  const pathname = usePathname();
-
-  const isActive = (path: string) =>
-    pathname === path ? "link hover:text-accent hover:font-bold" : "std-text transition-colors hover:text-accent hover:font-bold";
-
-  return (
-    <div className={className}>
-      <Link href={NAV_LINKS.home} className={isActive(NAV_LINKS.home)}>HOME</Link>
-      <Link href={NAV_LINKS.about} className={isActive(NAV_LINKS.about)}>ABOUT</Link>
-      <Link href={NAV_LINKS.skills} className={isActive(NAV_LINKS.skills)}>SKILLS</Link>
-      <Link href={NAV_LINKS.projects} className={isActive(NAV_LINKS.projects)}>PROJECTS</Link>
-      <Link href={NAV_LINKS.cat} className={isActive(NAV_LINKS.cat)}>CAT</Link>
-      <Link href={NAV_LINKS.contact} className={isActive(NAV_LINKS.contact)}>CONTACT</Link>
-    </div>
-  );
-};

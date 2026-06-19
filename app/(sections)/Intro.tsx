@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import "./Intro.css";
 import { fadeUp } from "@/lib/animations/fade";
-import AnimatedIconGrid from "@/app/components/AnimatedIconGrid";
+import { Button } from "../components/Button";
+import AnimatedCard from "@/app/components/AnimatedCard";
 import AnimatedSection from "@/app/components/AnimatedSection";
 import AnimatedText from "@/app/components/AnimatedText";
 import {
@@ -13,75 +13,85 @@ import {
     WelcomeMessage,
     OpenToWork,
     OpenToRelocate,
-    IntroCardOneContent,
-    IntroCardTwoContent,
-    IntroCardThreeContent,
+    CardOne,
+    CardTwo,
+    CardThree,
     ResumeButtonContent,
 } from "@/content/intro";
 
-const ResumeButton: React.ReactNode = (
-    <AnimatedSection variants={fadeUp} className="self-center">
-        <Link href="/files/resume.pdf" target="_blank">
-            {ResumeButtonContent}
-        </Link>
+// Section with Name + Title
+const IntroSubsection: React.ReactNode = (
+    <div className="left">
+        <div className="p-10" /> {/* Padding */}
+        
+        <AnimatedText>{IntroContentText}</AnimatedText>
+        <AnimatedText>{Name}</AnimatedText>
+        <AnimatedText>{Title}</AnimatedText>
+
+        <div className="p-10" /> {/* Padding */}
+
+        <AnimatedText>{WelcomeMessage}</AnimatedText>
+
+        <div className="p-2" /> {/* Padding */}
+        <AnimatedSection variants={fadeUp}>
+            <AnimatedText>
+                    <div className="rounded-container">
+                        {OpenToWork}
+                    </div>
+            </AnimatedText>
+        </AnimatedSection>
+        <AnimatedText>{OpenToRelocate}</AnimatedText>
+    </div>
+);
+
+const IntroImage: React.ReactNode = (
+    <AnimatedSection variants={fadeUp} className="right">
+        <img
+            src="/images/home/woman-on-computer.png"
+            alt="woman sitting on computer"
+            className="intro-image"
+        />
     </AnimatedSection>
+);
+
+const CardGrid: React.ReactNode = (
+    <div className="grid grid-cols-3">
+        <AnimatedCard content={CardOne} />
+        <AnimatedCard content={CardTwo} />
+        <AnimatedCard content={CardThree} />
+    </div>
+);
+
+const ResumeButton: React.ReactNode = (
+    <Button
+        content={ResumeButtonContent}
+        link="/files/resume.pdf"
+        newTab={true}
+    />
 );
 
 export function Intro() {
     return (
-        <div className="container-box">
-            <div className="section-padding" />
+        <div className="container-box intro">
+            <div className="intro-section-padding" /> {/* Padding */}
             {/* Intro + Image */}
-            <div className="two-col-grid">
+            <div className="intro-grid">
                 {/* Left column */}
-                <div className="left">
-                    <div className="p-10" />
-                    {/* Intro */}
-                    <AnimatedText>{IntroContentText}</AnimatedText>
-                    <AnimatedText>{Name}</AnimatedText>
-                    <AnimatedText>{Title}</AnimatedText>
-
-                    <div className="p-10" />
-
-                    <AnimatedText>{WelcomeMessage}</AnimatedText>
-
-                    <div className="p-2" />
-                    <AnimatedSection variants={fadeUp}>
-                        <AnimatedText>
-                                <div className="rounded-container">
-                                    {OpenToWork}
-                                </div>
-                        </AnimatedText>
-                    </AnimatedSection>
-                    <AnimatedText>{OpenToRelocate}</AnimatedText>
-                </div>
+                {IntroSubsection}
 
                 {/* Right Column */}
-                <AnimatedSection variants={fadeUp} className="right">
-                    <img
-                        src="/images/home/woman-on-computer.png"
-                        alt="woman sitting on computer"
-                        className="intro-image"
-                    />
-                </AnimatedSection>
+                {IntroImage}
             </div>
 
-            <div className="section-padding" />
-            <div className="section-padding" />
+            <div className="p-20" /> {/* Padding */}
 
-            {/* Cards */}
-            <div className="card-grid">
-                <AnimatedIconGrid icon={IntroCardOneContent} />
-                <AnimatedIconGrid icon={IntroCardTwoContent} />
-                <AnimatedIconGrid icon={IntroCardThreeContent} />
-            </div>
+            {CardGrid}
+
+            <div className="p-3" /> {/* Padding */}
             
-            <div className="p-5" />
-
-            {/* Button */}
             {ResumeButton}
 
-            <div className="p-5" />
+            <div className="footer-padding" /> {/* Padding */}
         </div>
     );
 }

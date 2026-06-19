@@ -2,6 +2,7 @@
 File stores links to my socials & contact info.
 */
 
+
 export const SOCIAL_LINKS = {
     github: "https://github.com/rheanfranklin",
     linkedin: "https://www.linkedin.com/in/rheannon-franklin/",

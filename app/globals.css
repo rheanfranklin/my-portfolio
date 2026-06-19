@@ -16,13 +16,13 @@
 /* 8ce9ff  81e4fc */ 
 @theme {
   --color-brand: #CED1F2; /* #ACAECB */
-  --color-brandDark: #8488b8;
-  --color-accent: #8ce9ff;
+  --color-brand-dark: #8488b8;
+  --color-accent-blue: #8ce9ff;
   --color-accent-green: #b5ffca;
   --color-accent-pink: #edb4e9; /*edb4e9 de81d7*/
   --color-accent-pink-dark: #bd4db4;
-  --color-accentDark: #4fb8d1;
 }
+
 @keyframes rainbow {
   0%   { color: #ff6ec7; }   /* pink */
   20%  { color: #ffde59; }   /* yellow */
@@ -32,30 +32,84 @@
   100% { color: #ff6ec7; }   /* back to pink */
 }
 
+@keyframes rainbow-loop {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
 :root {
-  --base-unit: 0.875rem;
   --font-size-std: 0.875rem;
-  --indent: calc(var(--font-size-std) * 2);
-  --font-bold-lg-weight: 700;
-  --font-bold-weight: 600;
+  --indent: 1.75rem;
   --font-bold-sm-weight: 500;
   --container-box-color: rgba(0, 0, 0, 0.75);
   --color-accent-pink-dark-transparent: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
+  --hexagon-size: 6.5rem;
+  --hex-gap: 0.25rem;
 }
 
-  
-/* Monitor size adjustments */
-
-@media (min-width: 640px) {
-  :root {
-    --font-size-std: 1rem;
-  }
+html {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
 }
 
-@media (min-width: 1024px) {
-  :root {
-    --font-size-std: 1.2rem;
-  }
+body {
+  font-family: "IBM Plex Mono", monospace;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("/cursor.png") 8 8, auto;
+}
+
+a:hover {
+  cursor: url("/cursor-point.png") 8 8, pointer;
+}
+
+footer {
+  position: relative;
+}
+
+main {
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 3rem;
+  margin-top: 3rem;
+}
+
+h2 {
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+}
+
+summary {
+  font-size: 1rem;
+}
+
+/* Divider */
+hr {
+  border-bottom: 1px solid var(--color-accent-pink-dark);
+  width: 100%;
+  opacity: 0.3;
+}
+
+
+.section-description {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 @layer components {
@@ -84,22 +138,6 @@
     overflow: visible;
   }
 
-  /* dividers */
-
-  .divider {
-    border-bottom: 1px solid var(--color-accent-pink);
-    width: 80%;
-    margin: 1rem auto;
-  }
-
-  .divider-dark {
-    border-bottom: 1px solid var(--color-accent);
-    width: 80%;
-    margin: var(--margin-md) auto;
-    margin-bottom: var(--margin-md);
-    opacity: 0.2;
-  }
-
   .rainbow-hover:hover {
     animation: rainbow 9s linear infinite;
   }
@@ -111,224 +149,55 @@
 
   .button:hover {
     color: white;
-    font-weight: var(--font-bold-lg-weight);
+    font-weight: bold;
     transform: translateY(-2px); /* lift up */
     box-shadow: 0 12px 24px rgba(0,0,0, 0.9);
   }
 
-  
   .rounded-container {
       display: flex;
       border-radius: 30px;
       background-color: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
       border: 1px solid var(--color-accent-pink-dark);
-      padding: var(--base-unit);
+      padding: 0.875rem;
       width: fit-content;
   }
 
   .rounded-container-text {
-      font-size: var(--base-unit);
+      font-size: 0.875rem;
       color: var(--color-brand);
   }
-
-
-  /* Standard sized text items */
-  .std-text {
-    font-size: var(--font-size-std);
-    line-height: var(--line-height-std);
-  }
-
-  .paragraph {
-    font-size: var(--font-size-std);
-    text-indent: var(--indent);
-    line-height: var(--line-height-std);
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
-  }
-
-  .centered-paragraph {
-    font-size: var(--font-size-std);
-    line-height: var(--line-height-std);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .card-text {
-    font-size: var(--font-size-std);
-    line-height: var(--line-height-std);
-    color: rgb(0, 0, 0, 1)
-  }
-
-
-  .link {
-    font-size: var(--font-size-std);
-    font-weight: var(--font-bold-sm-weight);
-    text-decoration: underline;
-    color: var(--color-accent);
-  }
-
-  /* Grids */
-
-
-  /* A grid with an icon of the left and text on the right*/
-  .icon-grid {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    align-items: center;
-    transition: transform 300ms ease;
-  }
-
-  /* Raise the entire row on hover */
-  .icon-grid:hover {
-    transform: translateY(-6px);
-  }
-
-  /* ICON CELL */
-  .icon-cell {
-    background-color: var(--color-accent-pink-dark);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm);
-    color: black;
-
-    /* NEW: left→right wipe animation setup */
-    background-image: linear-gradient(
-      to right,
-      var(--color-accent-pink) 0%,
-      var(--color-accent-pink) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 0% 100%; /* start hidden */
-    transition:
-      background-size 600ms ease,
-      transform 300ms ease;
-  }
-
-  /* NEW: animate wipe on hover */
-  .icon-grid:hover .icon-cell {
-    background-size: 100% 100%; /* expands left→right */
-  }
-
-  /* Force icon size */
-  .icon svg {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* TEXT CELL */
-  .text-cell {
-    background-color: rgb(0, 0, 0, 0.25);
-    font-size: var(--font-size-sm);
-    padding: 0.75rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: var(--spacing-sm);
-  }
-
-  /* NEW: animate wipe on hover */
-  .icon-grid:hover .text-cell {
-    background-size: 100% 100%;
-  }
-
 
   .indent {
     display: inline-block;
     width: 2rem
   }
 
-  .padding-sm {
-    padding: 0.5rem;
-  }
-  .hor-padding-lg {
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
-  }
-
-  .dropdown-menu {
-    flex: auto;
-    flex-direction: column;
-  }
-
-  .flip-card-container {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
+  .rainbow-loop {
+    background: linear-gradient(
+      to right,
+      #ff6ec7,
+      #59caff,
+      #FFFF,
+      /* #b659ff,
+      #b131ca, */
+      #ff6ec7
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow-loop 4s linear infinite;
   }
 
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-  }
-
-  .flip-card-inner.flipped {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-face {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    background-color: var(--container-box-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Sharp corners */
-    border-radius: 0;
-  }
-
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
-
-
-
-  /* Monitor size adjustments */
-
-  @media (min-width: 640px) {
-    .header2,
-    .header3 {
-      text-align: left;
-    }
-    .bullet-point {
-      justify-content: left;
-    }
-    .two-col-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+  .footer-padding {
+    padding: 3rem;
   }
 }
+
 ::selection {
   background: var(--color-accent-pink-dark);
   color: black;
-}
-
-html {
-  font-size: 16px;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background-image: url('/images/background/pexels-adrien-olichon-2387793-1-scaled.jpg');
-  background-repeat: repeat-y;
-  background-size: cover;
-  font-family: "IBM Plex Mono", monospace;
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-  cursor: url("/cursor.png") 8 8, auto;
-}
-a:hover {
-  cursor: url("/cursor-point.png") 8 8, pointer;
 }
 
 .section-header {
@@ -340,15 +209,12 @@ a:hover {
   font-size: 3rem;
 }
 
-footer {
-  position: relative;
-}
-
-main {
-  min-height: 100vh;
-}
-
-.section-description {
-  text-align: center;
-  margin-bottom: 2rem;
+/* Updating formatting for mobile/small screens */
+@media (max-width: 639px) {
+  :root {
+    --hexagon-size: 4.5rem;
+  }
+  h1 {
+    margin-top: 0rem;
+  }
 }

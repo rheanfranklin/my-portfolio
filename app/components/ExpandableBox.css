@@ -1,0 +1,63 @@
+/* Base box container */
+.expandable-box {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 100%;
+}
+
+/* Clickable header */
+.expandable-box summary {
+  padding: 14px;
+  /* font-weight: bold; */
+    text-shadow: -2px 2px 0 black;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  color: white;
+    /* text-shadow:
+        -2px -2px 0 black,
+        2px -2px 0 black,
+        -2px  2px 0 black,
+        2px  2px 0 black,
+        -2px  0   0 black,
+        2px  0   0 black,
+        0   -2px 0 black,
+        0    2px 0 black; */
+  background-color: color-mix(in srgb, var(--color-accent-pink-dark) 40%, transparent);
+}
+
+.expandable-box[open] {
+    border-color: var(--color-accent-pink-dark);
+    background-color: var(--color-accent-pink-dark-transparent);
+}
+
+/* Wrapper handling the height animation */
+.expandable-box .content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;              /* collapsed */
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+/* When the details box is open, expand the row to full content size */
+.expandable-box[open] .content-wrapper {
+  grid-template-rows: 1fr;              /* expanded */
+}
+
+.expandable-box[open] summary {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Inner content must have min-height: 0 to animate correctly inside the grid */
+.expandable-box .content {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.expandable-box .content p {
+  padding: 14px;
+  margin: 0;
+}

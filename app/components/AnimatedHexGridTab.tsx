@@ -1,6 +1,6 @@
 
 type TabProps = {
-  readonly text: string;
+  readonly text?: string;
 };
 
 export function LeftTab({ text }: TabProps): React.ReactNode {

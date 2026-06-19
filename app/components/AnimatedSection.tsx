@@ -14,7 +14,7 @@ export default function AnimatedSection({
     children,
     variants,
     className = "",
-}: AnimatedSectionProps) {
+}: AnimatedSectionProps): React.ReactNode {
     return (
         <motion.section
             variants={variants}

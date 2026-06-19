@@ -1,154 +1,89 @@
-
-.section-padding {
-    padding: calc(var(--base-unit) * 4);
+.intro-section-padding {
+    padding: 5rem;
 }
 
 /* grid containing the welcome message + image */
-.two-col-grid {
+.intro-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Updates to 1fr 1fr for larger screens*/
-    gap: calc(var(--base-unit) * 2);
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
 }
 
-.two-col-grid .left {
+.intro-grid .left {
     display: flex;
     flex-direction: column;
     justify-self: end;
-    justify-content: center;
+    justify-content: left;
 }
 
-.two-col-grid .right {
+.intro-grid .right {
     justify-self: start;
 }
 
 /* Text/Image configurations for top intro grid */
-.intro-text-format {
-    font-size: calc(var(--font-size-std) * 0.875);
-    color: var(--color-brandDark);
-    line-height: var(--line-height-sm);
-    margin-top: var(--margin-sm);
+.intro-text {
+    font-size: 0.875rem;
+    color: var(--color-brand-dark);
+    text-align: left;
 }
 
-.name-format {
-    font-size: calc(var(--font-size-std) * 2.5);
-    font-weight: var(--font-bold-lg-weight);
+.intro-name {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-align: left;
 }
 
-.job-title {
+.intro-job {
     color: var(--color-accent-pink-dark);
     font-size: 1.6rem;
     text-shadow: var(--text-shadow);
-    font-weight: var(--font-bold-weight);
+    font-weight: bold;
+    text-align: left;
 }
 
+.intro-welcome {
+    text-align: left;
+}
 
-.open-message {
-    font-size: calc(var(--base-unit) * 0.9);
+.intro-open-message {
+    font-size: 0.75rem;
     font-style: italic;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
-    color: var(--color-brandDark);
+    color: var(--color-brand-dark);
     opacity: 0.7;
+    text-align: left;
 }
 
 .intro-image {
-    justify-self: center;
+    justify-self: left;
     height: 500px;
     width: auto;
 }
 
 /* Card configuration */
-.card-grid {
+.intro-card-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Updates to 1fr 1fr 1fr for larger screens*/
-    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 
-.card-container {
-    align-items: center;
-    transition: transform 300ms ease;
-    gap: 0;
-}
-
-.card-container:hover { /* Raise on hover */
-    transform: translateY(-6px);
-  }
-
-.card-cell {
-    background-color: var(--color-accent-pink-dark);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: var(--base-unit);
-    padding-bottom: calc(var(--base-unit) * 2.5);
-    color: black;
-    align-items: center;
-
-    /* left->right wipe animation setup */
-    background-image: linear-gradient(
-        to right,
-        var(--color-accent-pink) 0%,
-        var(--color-accent-pink) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 0% 100%; /* start hidden */
-    transition:
-        background-size 600ms ease,
-        transform 300ms ease;
-}
-
-.card-container:hover .card-cell {
-    background-size: 100% 100%; /* expands left→right */
-}
-
-.card-text-bold {
-    font-size: calc(var(--base-unit) * 4);
-    font-weight: var(--font-bold-lg-weight);
-    text-align: center;
-}
-
-.card-text {
-    font-size: var(--base-unit);
-    font-weight: var(--font-bold-weight);
-    justify-items: top;
-    text-align: center;
-    padding-left: calc(var(--base-unit) * 2);
-    padding-right: calc(var(--base-unit) * 2);
-}
-
-.rainbow-loop {
-  background: linear-gradient(
-    to right,
-    #ff6ec7,
-    #59caff,
-    #FFFF,
-    /* #b659ff,
-    #b131ca, */
-    #ff6ec7
-  );
-  background-size: 200% 100%;
-  background-position: 0% 0%;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: rainbow-loop 4s linear infinite;
-}
-
-@keyframes rainbow-loop {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: -200% 0%;
-  }
-}
-
-
-/* Updating fcolumn number based on screen size */
-@media (min-width: 640px) {
-    .two-col-grid {
-        grid-template-columns: 1fr 1fr;
+/* Updating formatting for mobile */
+@media (max-width: 639px) {
+    .intro-grid,
+    .intro-card-grid {
+        grid-template-columns: 1fr;
     }
-    .card-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+
+    .intro-text,
+    .intro-name,
+    .intro-job,
+    .intro-welcome,
+    .intro-open-message {
+    text-align: center;
+    }
+
+    .intro-section-padding {
+        padding: 0rem;
     }
 }

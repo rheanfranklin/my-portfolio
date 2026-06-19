@@ -1,15 +1,21 @@
 "use client";
 
-import AnimatedFlipCard from "../components/AnimatedCard";
-import { PortfolioProjContent } from "@/content/projects";
+import AnimatedSection from "../components/AnimatedSection";
+import { fadeUp } from "@/lib/animations/fade";
+
+function projectsHeader(): React.ReactNode {
+    return(
+        <AnimatedSection variants={fadeUp}>
+            <h1>Projects</h1>
+            <p className="section-description">A little bit about what I've done.</p>
+        </AnimatedSection>
+    );
+}
 
 export default function Projects() {
     return (
-        <AnimatedFlipCard
-            front={<h2 className="text-xl font-semibold">
-                <PortfolioProjContent />
-            </h2>}
-            back={ <PortfolioProjContent /> }
-        />
+        <div className="container-box">
+            {projectsHeader()}
+        </div>
     );
 }

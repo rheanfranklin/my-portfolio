@@ -1,3 +1,5 @@
+import "./Hexagon.css"
+
 type HexagonProps = {
     readonly front?: React.ReactNode;
     readonly back?: React.ReactNode;
@@ -9,7 +11,7 @@ export const Hexagon = ({
     back = null,
     category = "",
 }: HexagonProps) => (
-    <div className={`hexagon ${category}`}>
+    <div className={`hexagon ${category}`} data-category={category}>
         <svg viewBox="0 0 100 100">
             <polygon
                 points="50 2, 93 25, 93 75, 50 98, 7 75, 7 25"

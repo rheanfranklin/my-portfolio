@@ -9,74 +9,281 @@ import {
     StyleAIContent,
     MyHistoryContent,
     MyMotivationContent,
-    AboutIntroContent
+    AboutIntroContent,
+    MyMotivationFeelingAccomplishedCardBack,
+    MyMotivationHelpingOthersCardBack,
+    MyHobbiesWeightLifting,
+    MyHobbiesIllustration,
+    FunFacts
 } from "@/content/about";
-import { DividerDark, PaddingSM } from "@/content/utils";
+import "./About.css"
+import { ExpandableCloseBox } from "../components/ExpandableBox";
+import AnimatedFlipCard from "../components/AnimatedFlipCard";
 
-type ConstructSubsectionProps = {
-    readonly header: string;
-    readonly content: React.ReactNode;
-}
 
-// Builts a subsection with an animated header + content
-function ConstructSubsection({
-    header,
-    content,
-}: ConstructSubsectionProps): React.ReactNode {
+function aboutHeader(): React.ReactNode {
     return (
         <div>
-            {/* Header */}
+            {/* About Header */ }
             <AnimatedSection variants={fadeUp}>
-                <div className="header3">{header}</div>
+                <h1>About Me</h1>
             </AnimatedSection>
 
-            {/* Content */}
+            {/* Intro */}
             <AnimatedSection variants={fadeUp}>
-                {content}
+                {AboutIntroContent}
             </AnimatedSection>
-
-            <DividerDark />
         </div>
     );
 }
 
-
-type MyStyleContentConstructorProps = {
-    readonly header: string;
-    readonly content: React.ReactNode;
-}
-
 //
-// Building style subsection
+// My History
 //
-function MyStyleContentConstructor({
-    header,
-    content,
-}: MyStyleContentConstructorProps): React.ReactNode {
+// builds detail boxes
+function myHistoryDetails(): React.ReactNode {
     return (
-        <div>
-            <AnimatedSection variants={fadeUp}>
-                <p className="header4">{header}</p>
-            </AnimatedSection>
-            <AnimatedSection variants={fadeUp}>
-                {content}
-            </AnimatedSection>
+        <div className="about-details-1-col">
+            
+            <ExpandableCloseBox
+                summary="FactSet Research Systems"
+                content={
+                    <div className="about-card-grid">
+                        <AnimatedFlipCard
+                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Future Focused</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+            <ExpandableCloseBox
+                summary="Johnson & Johnson"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Future Focused</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+            <ExpandableCloseBox
+                summary="Georgia Institute of Technology"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Future Focused</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+
         </div>
-        
+    );
+}
+// Add header + description & wraps in animated section
+function myHistorySection(): React.ReactNode {
+    return (
+        <AnimatedSection variants={fadeUp}>
+            <h2>My History</h2>
+            <p>A brief overview of my experience:</p>
+            {myHistoryDetails()}
+        </AnimatedSection>
     );
 }
 
-function ConstructMyStyleContent(): React.ReactNode {
+//
+// My Motivation
+//
+// builds detail boxes
+function myMotivationDetails(): React.ReactNode {
     return (
-        <div>
-            <MyStyleContentConstructor header="Software Development" content={StyleSoftwareDevelopmentContent} />
-            <PaddingSM />
-            <MyStyleContentConstructor header="Collaboration" content={StyleCollaborationContent} />
-            <PaddingSM />
-            <MyStyleContentConstructor header="Problem Solving" content={StyleProblemSolvingContent} />
-            <PaddingSM />
-            <MyStyleContentConstructor header="AI" content={StyleAIContent} />
+        <div className="about-details-2-col">
+            <ExpandableCloseBox
+                summary="Feeling Accomplished"
+                content={MyMotivationFeelingAccomplishedCardBack}
+            />
+            <ExpandableCloseBox
+                summary="Helping Others"
+                content={MyMotivationHelpingOthersCardBack}
+            />
         </div>
+    );
+}
+// Add header + description & wraps in animated section
+function myMotivationSection(): React.ReactNode {
+    return (
+        <AnimatedSection variants={fadeUp}>
+            <h2>My Motivation</h2>
+            <p>A couple things that motivate me:</p>
+            {myMotivationDetails()}
+        </AnimatedSection>
+    );
+}
+
+//
+// My Style
+//
+// builds detail boxes
+function myStyleDetails(): React.ReactNode {
+    return (
+        <div className="about-details-1-col">
+            <ExpandableCloseBox
+                summary="Software Development"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Future Focused</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+            <ExpandableCloseBox
+                summary="Collaboration"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Positivity</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Acceptance</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+            <ExpandableCloseBox
+                summary="AI"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Positivity</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Acceptance</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+            <ExpandableCloseBox
+                summary="Problem Solving"
+                content={
+                    <div>
+                        <AnimatedFlipCard
+                            front={<h3>Positivity</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                        <AnimatedFlipCard
+                            front={<h3>Acceptance</h3>}
+                            back={StyleSoftwareDevelopmentContent}
+                            width="100%"
+                            height="25rem"
+                        />
+                    </div>
+                }
+            />
+
+        </div>
+    );
+}
+// Add header + description & wraps in animated section
+function myStyleSection(): React.ReactNode {
+    return (
+        <AnimatedSection variants={fadeUp}>
+            <h2>My Style</h2>
+            <p>A few things about how I work:</p>
+            {myStyleDetails()}
+        </AnimatedSection>
+    );
+}
+
+
+//
+// My Hobbies
+//
+// builds detail boxes
+function myHobbiesDetails(): React.ReactNode {
+    return(
+      <div className="about-details-2-col">
+        <ExpandableCloseBox
+            summary="Illustration"
+            content={MyHobbiesIllustration}
+        />
+        <ExpandableCloseBox
+            summary="Weightlifting"
+            content={MyHobbiesWeightLifting}
+        />
+    </div>
+    );
+}
+// Add header + description & wraps in animated section
+function myHobbiesSection(): React.ReactNode {
+    return(
+        <AnimatedSection variants={fadeUp}>
+            <h2>My Hobbies</h2>
+            <p>A little bit about my hobbies:</p>
+            {myHobbiesDetails()}
+        </AnimatedSection>
+    );
+}
+
+//
+// Fun Facts
+//
+function funFactsSection(): React.ReactNode {
+    return (
+        <AnimatedSection variants={fadeUp}>
+            <h4>And more fun facts !</h4>
+            {FunFacts}
+            <div className="footer-padding"/> {/* Padding */}
+        </AnimatedSection>
     );
 }
 
@@ -85,17 +292,18 @@ function ConstructMyStyleContent(): React.ReactNode {
 //
 export function About() {
     return (
-        <div className="container-box">
-            {/* About Hader */ }
-            <div className="header2">
-                ABOUT ME
-            </div>
-            {AboutIntroContent}
+        <div className="container-box about">
+            {aboutHeader()}
 
-            <ConstructSubsection header="My Motivation" content={MyMotivationContent} />
-            <ConstructSubsection header="My Style" content={ConstructMyStyleContent()} />
-            <ConstructSubsection header="My History" content={MyHistoryContent} />
+            {myHistorySection()}
 
+            {myMotivationSection()}
+
+            {myStyleSection()}
+            
+            {myHobbiesSection()}
+            
+            {funFactsSection()}
         </div>
     );
 }

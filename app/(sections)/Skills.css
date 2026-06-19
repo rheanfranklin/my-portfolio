@@ -1,295 +1,62 @@
-/* Grid container */
-:root {
-  --hexagon-size: 8vmin;
-  --border-thickness: 0.12; /* 0.12 = 12% smaller inner hexagon */
-  --border-color: black;
-  --fill-color: #999;
-  --hex-gap: 0.1vmin;
-  --tab-height: 50px;
-  --tab-width: 5px;
-  --tri-width: 12px;
+/* Content container */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
 }
 
-.hex-container {
+.skills-grid .left {
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    justify-content: center;
+}
+
+.skills-grid .right {
+    justify-self: start;
+}
+
+.skills-languages-container {
   display: flex;
   flex-direction: column;
-  /* border-top: 1px solid var(--color-accent-pink-dark); */
-  padding: 2.25rem;
-}
-
-.hex-column {
-    margin-top: -1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 3.25rem;
-  /* margin-left: calc((var(--hexagon-size) + var(--hex-gap)) / 2); */
-}
-
-.hex-column-odd {
-  margin-top: -1rem;
-  display: flex;
-  flex-direction: row;
+  gap: 15px;
   align-items: center;
 }
 
-
-.hexagon {
-  width: 8vmin;
-  aspect-ratio: 1;
-  position: relative;
-  perspective: 100vmin;
-  transform-style: preserve-3d;
-  transition: transform 0.45s ease;
+.skills-hex-grid-container {
+  margin: 2rem;
 }
 
-/* SVG stays flat */
-.hex-svg {
+.skills-expandable-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
 }
 
-.hex-shape {
-  fill: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
-  stroke: var(--color-accent-pink-dark);
-  stroke-width: 1px;
-  transition: stroke-width 0.25s ease;
+.skills-expandable-box-content {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 7%;
+  margin-right: 7%;
+  gap: 1%;
 }
 
-/* Text faces */
-.text-face {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1vmin;
-  font-weight: bold;
-  color: white;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+.skills-expandable-box-content li {
+  font-size: 0.875rem;
+}
+.skills-expandable-box-content .two-col {
+  font-size: 0.875rem;
 }
 
-/* Front text */
-.text-face.front {
-  transform: rotateY(0deg) translateZ(1px);
+.skills-expandable-box-content ~.one-col {
+  grid-template-columns: 1fr;
 }
 
-/* Back text — rotated so it appears correct after flip */
-.text-face.back {
-  transform: rotateY(180deg) translateZ(1px);
-}
-
-/* Flip the whole hexagon */
-.hexagon:hover {
-  transform: translateY(-1vmin) rotateY(180deg);
-}
-
-.hex-grid {
-  display: grid;
-  grid-template-columns: max-content max-content max-content;
-  width: fit-content;
-  justify-self: center;
-}
-
-.hex-grid .left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--color-accent-pink-dark);
-  height: 15rem;
-  text-align: center;
-  width: 3rem;
-}
-
-.languages {
-  color: black;
-  transform: rotate(-90deg);
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-top: 3.5rem;
-}
-
-.logo-image {
-    height: 50px;
-    width: auto;
-}
-
-.go-logo {
-  height: 65px;
-  width: auto;
-}
-
-.script-logo {
-  height: 43px;
-  width: auto;
-}
-
-.sql-logo {
-  height: 45px;
-  width: auto;
-}
-
-
-.tools-grid {
-  border-left: 1px solid var(--color-accent-pink-dark);
-  border-bottom: 1px solid var(--color-accent-pink-dark);
-}
-
-:root {
-  --tab-height: 40px;
-  --tab-collapsed: 6px;
-  --tab-expanded: 120px;
-}
-
-/* Shared label */
-.tab-label {
-  color: white;
-  white-space: nowrap;
-  padding: 0 10px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/* LEFT TAB */
-.tab-left {
-  position: absolute;
-  left: -15px;
-  top: 30px;
-
-  height: var(--tab-height);
-  width: var(--tab-collapsed);
-  background-color: var(--color-accent-pink-dark);
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  overflow: visible; /* <-- IMPORTANT */
-  transition: width 0.25s ease, transform 0.25s ease;
-}
-
-.tab-anchor {
-  position: relative; /* REQUIRED so the tab can anchor to this column */
-}
-
-/* Expand left */
-.tab-left:hover {
-  width: var(--tab-expanded);
-  transform: translateX(calc(-1 * (var(--tab-expanded) - var(--tab-collapsed))));
-}
-
-.tab-left:hover .tab-label {
-  opacity: 1;
-}
-
-
-.triangle {
-  position: absolute;
-  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
-  width: var(--tri-width);
-  aspect-ratio: 50%;
-  background: var(--color-accent-pink-dark);
-  height: calc(var(--tri-width) * 2); /* gives it real height */
-  transform: translateY(-25%);
-  left: calc(-1 * var(--tri-width)); 
-
-  --r: 5px;
-  -webkit-mask:
-    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
-    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
-  clip-path: polygon(0 50%,100% 100%,100% 0);
-  transition: transform 0.25s ease;
-}
-
-/* RIGHT TAB */
-.tab-right {
-  position: absolute;
-  right: 40px;      /* anchor on the right side of the column */
-  top: 30px;
-
-  height: var(--tab-height);
-  width: var(--tab-collapsed);
-  background-color: var(--color-accent-pink-dark);
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  overflow: visible;
-  transition: width 0.25s ease, transform 0.25s ease;
-}
-
-/* expand OUTWARD to the RIGHT */
-.tab-right:hover {
-  width: var(--tab-expanded);
-  transform: translateX(
-    calc(var(--tab-expanded) - var(--tab-collapsed))
-  );
-}
-
-.tab-right:hover .tab-label {
-  opacity: 1;
-}
-
-/* right triangle */
-.tab-right-triangle {
-  position: absolute;
-  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
-  width: var(--tri-width);
-  aspect-ratio: 50%;
-  background: var(--color-accent-pink-dark);
-  height: calc(var(--tri-width) * 2); /* gives it real height */
-  transform: translateY(-25%);
-  right: calc(-1 * var(--tri-width));
-  left: auto;
-
-  --r: 5px;
-  -webkit-mask:
-    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
-    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
-  clip-path: polygon(0 50%,100% 100%,100% 0);
-  transition: transform 0.25s ease;
-  rotate: 180deg;
-}
-
-/* Glow trigger */
-/* .tab-left:hover ~ .language::before {
-  opacity: 1;
-}
-
-.tab-left:hover ~ .language .hex-shape {
-  stroke-width: 3px;
-  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
-} */
-
-/* Glow row 1 */
-.hex-column:hover .language::before,
-.hex-column:hover .language .hex-shape {
-  opacity: 1;
-  stroke-width: 3px;
-  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
-}
-
-/* Glow row 2 when row 1 is hovered */
-.hex-column:hover ~ .hex-column-odd .language::before,
-.hex-column:hover ~ .hex-column-odd .language .hex-shape {
-  opacity: 1;
-  stroke-width: 3px;
-  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
-}
-
-/* Highlight all hexes in the same category when hovering a row */
-.hex-group[data-category-group]:hover [data-category] {
-    opacity: 0.3; /* dim everything first */
-}
-
-/* Highlight only the hovered category */
-.hex-group[data-category-group]:hover [data-category]:hover,
-.hex-group[data-category-group]:hover .tab-anchor:hover ~ [data-category] {
-    opacity: 1;
-    stroke-width: 3px;
-    fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
+/* Updating formatting for mobile/small screens */
+@media (max-width: 639px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
