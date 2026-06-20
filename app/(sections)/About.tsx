@@ -7,18 +7,18 @@ import {
     StyleCollaborationContent,
     StyleProblemSolvingContent,
     StyleAIContent,
-    MyHistoryContent,
-    MyMotivationContent,
     AboutIntroContent,
     MyMotivationFeelingAccomplishedCardBack,
     MyMotivationHelpingOthersCardBack,
     MyHobbiesWeightLifting,
     MyHobbiesIllustration,
-    FunFacts
+    FunFacts,
+    MyHistoryFactSetContent,
+    MyHistoryJohnsonContent,
+    MyHistoryGATechContent
 } from "@/content/about";
 import "./About.css"
 import { ExpandableCloseBox } from "../components/ExpandableBox";
-import AnimatedFlipCard from "../components/AnimatedFlipCard";
 
 
 function aboutHeader(): React.ReactNode {
@@ -43,73 +43,26 @@ function aboutHeader(): React.ReactNode {
 // builds detail boxes
 function myHistoryDetails(): React.ReactNode {
     return (
-        <div className="about-details-1-col">
-            
+        <div className="detail-container-1-col">
             <ExpandableCloseBox
                 summary="FactSet Research Systems"
-                content={
-                    <div className="about-card-grid">
-                        <AnimatedFlipCard
-                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Future Focused</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={MyHistoryFactSetContent}
             />
             <ExpandableCloseBox
                 summary="Johnson & Johnson"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Future Focused</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={MyHistoryJohnsonContent}
             />
             <ExpandableCloseBox
                 summary="Georgia Institute of Technology"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Future Focused</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={MyHistoryGATechContent}
             />
-
         </div>
     );
 }
 // Add header + description & wraps in animated section
 function myHistorySection(): React.ReactNode {
     return (
-        <AnimatedSection variants={fadeUp}>
+        <AnimatedSection variants={fadeUp} className="history">
             <h2>My History</h2>
             <p>A brief overview of my experience:</p>
             {myHistoryDetails()}
@@ -123,7 +76,7 @@ function myHistorySection(): React.ReactNode {
 // builds detail boxes
 function myMotivationDetails(): React.ReactNode {
     return (
-        <div className="about-details-2-col">
+        <div className="detail-container-2-col">
             <ExpandableCloseBox
                 summary="Feeling Accomplished"
                 content={MyMotivationFeelingAccomplishedCardBack}
@@ -138,7 +91,7 @@ function myMotivationDetails(): React.ReactNode {
 // Add header + description & wraps in animated section
 function myMotivationSection(): React.ReactNode {
     return (
-        <AnimatedSection variants={fadeUp}>
+        <AnimatedSection variants={fadeUp} className="motivation">
             <h2>My Motivation</h2>
             <p>A couple things that motivate me:</p>
             {myMotivationDetails()}
@@ -152,91 +105,30 @@ function myMotivationSection(): React.ReactNode {
 // builds detail boxes
 function myStyleDetails(): React.ReactNode {
     return (
-        <div className="about-details-1-col">
+        <div className="detail-container-1-col">
             <ExpandableCloseBox
                 summary="Software Development"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Readable, Consistent, Modular,<br/> & Well-organized code</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Future Focused</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={StyleSoftwareDevelopmentContent}
             />
             <ExpandableCloseBox
                 summary="Collaboration"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Positivity</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Acceptance</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={StyleCollaborationContent}
             />
             <ExpandableCloseBox
                 summary="AI"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Positivity</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Acceptance</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
+                content={StyleAIContent}
             />
-            <ExpandableCloseBox
+            {/* <ExpandableCloseBox
                 summary="Problem Solving"
-                content={
-                    <div>
-                        <AnimatedFlipCard
-                            front={<h3>Positivity</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                        <AnimatedFlipCard
-                            front={<h3>Acceptance</h3>}
-                            back={StyleSoftwareDevelopmentContent}
-                            width="100%"
-                            height="25rem"
-                        />
-                    </div>
-                }
-            />
-
+                content={StyleProblemSolvingContent}
+            /> */}
         </div>
     );
 }
 // Add header + description & wraps in animated section
 function myStyleSection(): React.ReactNode {
     return (
-        <AnimatedSection variants={fadeUp}>
+        <AnimatedSection variants={fadeUp} className="style">
             <h2>My Style</h2>
             <p>A few things about how I work:</p>
             {myStyleDetails()}
@@ -244,14 +136,13 @@ function myStyleSection(): React.ReactNode {
     );
 }
 
-
 //
 // My Hobbies
 //
 // builds detail boxes
 function myHobbiesDetails(): React.ReactNode {
     return(
-      <div className="about-details-2-col">
+      <div className="detail-container-2-col">
         <ExpandableCloseBox
             summary="Illustration"
             content={MyHobbiesIllustration}
@@ -266,7 +157,7 @@ function myHobbiesDetails(): React.ReactNode {
 // Add header + description & wraps in animated section
 function myHobbiesSection(): React.ReactNode {
     return(
-        <AnimatedSection variants={fadeUp}>
+        <AnimatedSection variants={fadeUp} className="hobbies">
             <h2>My Hobbies</h2>
             <p>A little bit about my hobbies:</p>
             {myHobbiesDetails()}
@@ -279,7 +170,7 @@ function myHobbiesSection(): React.ReactNode {
 //
 function funFactsSection(): React.ReactNode {
     return (
-        <AnimatedSection variants={fadeUp}>
+        <AnimatedSection variants={fadeUp} className="fun-facts">
             <h4>And more fun facts !</h4>
             {FunFacts}
             <div className="footer-padding"/> {/* Padding */}

@@ -12,20 +12,12 @@ function catHeader(): React.ReactNode {
     );
 }
 
-function catGallery(): React.ReactNode {
-    return (
-        <AnimatedSection variants={fadeUp}>
-            <Gallery dir="images/cat" />
-        </AnimatedSection>
-    );
-}
-
 export default function Cat(): React.ReactNode {
     return (
         <div className="container-box">
             {catHeader()}
             
-            {catGallery()}
+            <Gallery dir="images/cat" />
 
             <div className="footer-padding"/>
         </div>

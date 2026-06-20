@@ -11,7 +11,7 @@ export function ExpandableOpenBox({
     return (
         <details className="expandable-box" open>
             <summary>{summary}</summary>
-            <div className="content-wrapper">
+            <div className={`content-wrapper`}>
                 <div className="content">
                     {content}
                 </div>
@@ -27,7 +27,7 @@ export function ExpandableCloseBox({
     return (
         <details className="expandable-box">
             <summary>{summary}</summary>
-            <div className="content-wrapper">
+            <div className={`content-wrapper`}>
                 <div className="content">
                     {content}
                 </div>

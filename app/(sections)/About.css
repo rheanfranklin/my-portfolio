@@ -1,3 +1,9 @@
+:root {
+    --card-margin: 2rem;
+    --card-gap: 1rem;
+}
+
+/* Top level header configuration */
 .about h2 {
     font-size: 1.25rem;
     color: var(--color-accent-pink-dark);
@@ -9,34 +15,8 @@
     text-transform: none;
 }
 
-.about h3 {
-    font-size: 1.25rem;
-    color: white;
-    text-align: center;
-}
-
-.about-card-h3 {
-    text-align: center;
-    color: white;
-}
-
-
-/* Card configuration */
-.about-card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 3rem;
-    gap: 3rem;
-}
-
-.about-card-text-back {
-    font-size: 1rem;
-    color: white;
-    text-align: center;
-}
-
 /* Detail containers */
-.about-details-2-col {
+.about .detail-container-2-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 2rem;
@@ -44,16 +24,129 @@
     grid-auto-rows: min-content;
 }
 
-.about-details-1-col {
+.about .detail-container-1-col {
     display: flex;
     flex-direction: column;
     margin: 2rem;
     gap: 1rem;
 }
 
+/*
+ * History detail box configuration
+ */
+ /* box headers */
+.about .history .expandable-box h3 { /* job title */
+    text-align: left;
+    font-style: italic;
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
 
-/* Fun facts formatting */
+.about .history .expandable-box h4 {
+    color: var(--color-brand);
+    font-style: normal;
+    font-weight: unset;
+    margin-left: 3rem; 
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+}
+/* box list */
+.about .history .expandable-box ul {
+    list-style-type: circle;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
 
+.about .history .expandable-box li {
+    text-indent: 0;
+    margin-left: 4rem;
+    font-size: 0.9rem;
+    margin-right: 4rem;
+}
+/* box text */
+.about .history .expandable-box p {
+    margin-left: 4rem;
+    font-size: 0.875rem;
+    line-height: 2rem;
+}
+
+/*
+ * Motivation detail box configuration
+ */
+ /* box text */
+.about .motivation .expandable-box p {
+    text-align: center;
+    margin: 1rem;
+}
+
+/* 
+ * My Style detail box configurations
+*/
+.about .style .expandable-box h4 {
+    margin: 2rem;
+    font-weight: lighter;
+}
+
+.about .style .expandable-box p {
+    margin: 1rem;
+    text-indent: 2rem;
+}
+/* back card text */
+.about .style .flip-card-back {
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  text-indent: 0rem;
+}
+
+/* My Style - Software development grid set up */
+.about .style .software-development .card-row {
+    gap: var(--card-gap);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: var(--card-margin);
+}
+
+/* My Style - Collaboration card set up */
+.about .style .collaboration .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: var(--card-margin);
+    gap: var(--card-gap);
+}
+
+.about .style .collaboration .card-grid .card-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+}
+
+.about .style .collaboration .flip-card-back {
+    line-height: 2rem;
+}
+
+/* My Style - AI card set up */
+.about .style .ai .card-col{
+    margin: var(--card-margin);
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+}
+
+.about .style .ai .card-col .card-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--card-gap);
+    justify-content: center;
+}
+
+/*
+ * Fun facts formatting
+ */
 .about h4 {
     font-style: italic;
     font-weight: bold;

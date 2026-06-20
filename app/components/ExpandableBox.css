@@ -12,8 +12,6 @@
   /* font-weight: bold; */
     text-shadow: -2px 2px 0 black;
   cursor: pointer;
-  outline: none;
-  user-select: none;
   font-size: 1rem;
   border-radius: 8px;
   color: white;
@@ -36,16 +34,10 @@
 
 /* Wrapper handling the height animation */
 .expandable-box .content-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;              /* collapsed */
   overflow: hidden;
-  transition: grid-template-rows 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
-/* When the details box is open, expand the row to full content size */
-.expandable-box[open] .content-wrapper {
-  grid-template-rows: 1fr;              /* expanded */
-}
 
 .expandable-box[open] summary {
     border-radius: 8px 8px 0 0;
