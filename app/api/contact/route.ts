@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import twilio from "twilio";
 
 // --- Email + SMS clients ---
-const resend: Resend = new Resend('');
+const resend: Resend = new Resend(process.env.RESEND_API_KEY);
 // const twilioClient = twilio(
 //   process.env.TWILIO_SID,
 //   process.env.TWILIO_AUTH_TOKEN

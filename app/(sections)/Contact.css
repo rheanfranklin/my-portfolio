@@ -18,4 +18,7 @@
     flex-direction: column;
     align-items: center;
   }
+  .contact-wrapper .direct-contact-container {
+    margin-right: 50%;
+  }
 }

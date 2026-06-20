@@ -9,22 +9,22 @@ import { NAV_LINKS } from "./Navbar";
 // Navigate list
 const footerNavBar = (
     <ol>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.home}>Home</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.about}>About</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.skills}>Skills</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.projects}>Projects</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.cat}>Cat</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={NAV_LINKS.contact}>Contact</a>
         </li>
     </ol>
@@ -33,18 +33,21 @@ const footerNavBar = (
 // Socials list
 const socials = (
     <ol>
-        <li className="footer-li">
+        <li>
             <a href={SOCIAL_LINKS.github} target="_blank">GitHub</a>
         </li>
-        <li className="footer-li">
+        <li>
             <a href={SOCIAL_LINKS.linkedin} target="_blank">Linkedin</a>
+        </li>
+        <li>
+            <a href="/files/resume.pdf" target="_blank">Resume</a>
         </li>
     </ol>
 );
 
 export default function Footer(): React.ReactNode {
     return (
-        <footer className="container-box">
+        <footer className="container-box footer">
             <hr/>
 
             {/* Top section */}
@@ -55,13 +58,13 @@ export default function Footer(): React.ReactNode {
                     <span className="title">Full Stack Software Engineer</span>
                 </p>
                 {/* Navigate */}
-                <section className="navigate">
-                    <p className="footer-header"><strong>Navigate</strong></p>
+                <section>
+                    <h3>Navigate</h3>
                     {footerNavBar}
                 </section>
                 {/* Socials */}
-                <section className="navigate">
-                    <p className="footer-header"><strong>Connect</strong></p>
+                <section>
+                    <h3>Connect</h3>
                     {socials}
                 </section>
             </section>
@@ -69,8 +72,8 @@ export default function Footer(): React.ReactNode {
             {/* Bottom section */}
             <hr/>
             <section className="footer-bottom-grid">
-                <p className="footer-text">&#169; 2026 Rheannon Franklin</p>
-                <p className="footer-text">Built with Next.js</p>
+                <p>&#169; 2026 Rheannon Franklin</p>
+                <p>Built with Next.js</p>
             </section>
         </footer>
     );

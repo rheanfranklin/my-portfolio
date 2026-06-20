@@ -20,6 +20,8 @@
 }
 
 .mobile-menu {
-    flex: auto;
+    display: flex;
     flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
 }

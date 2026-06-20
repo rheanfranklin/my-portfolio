@@ -10,6 +10,7 @@ const Images: string[] = [
     "images/illustrations/illust-4.PNG",
     "images/illustrations/illust-5.JPEG",
     "images/illustrations/IMG_0259.PNG",
+    "images/illustrations/4945.JPEG",
     "images/illustrations/SPOILER_IMG_2477.webp",
     "images/illustrations/Untitled_Artwork1.JPEG",
     "images/illustrations/Untitled_Artwork2.PNG",
@@ -29,7 +30,7 @@ function illustrationContent(): React.ReactNode {
     return (
         <div className="content">
             <AnimatedSection variants={fadeUp}>
-                <p>I'm kinda bad at finishing my drawings ... so here are the few that I've successfully completed.</p>
+                <p>I'm kinda bad at finishing my drawings ... so here are the few that I've successfully completed (and actually look decent lol).</p>
                 <GalleryGrid
                     images={Images}
                 />

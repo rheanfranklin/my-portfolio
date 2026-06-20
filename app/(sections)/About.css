@@ -65,6 +65,12 @@
     font-size: 0.9rem;
     margin-right: 4rem;
 }
+
+.about .history .expandable-box .grid-list {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+}
+
 /* box text */
 .about .history .expandable-box p {
     margin-left: 4rem;
@@ -161,7 +167,7 @@
 
 /* Updating formatting for mobile/small screens */
 @media (max-width: 639px) {
-    .about-details-2-col {
+    .about .detail-container-2-col {
         grid-template-columns: 1fr;
         gap: 1rem;
     }

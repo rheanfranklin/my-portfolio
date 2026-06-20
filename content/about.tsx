@@ -36,6 +36,30 @@ export const MyHistoryFactSetContent: React.ReactNode = (
         Acted as a 24/7 on-call engineer & responded to support channel requests on a monthly rotation.
       </li>
     </ul>
+    <h4>Primary Languages and Technologies Used:</h4>
+    <div className="grid-list">
+      <ul>
+        <li>Python</li>
+        <li>Golang</li>
+        <li>Bash</li>
+      </ul>
+      <ul>
+        <li>SQL</li>
+        <li>GraphQL</li>
+        <li>AWS</li>
+      </ul>
+      <ul>
+        <li>Github</li>
+        <li>Github actions</li>
+        <li>SonarQube</li>
+      </ul>
+      <ul>
+        <li>Visual Studio</li>
+        <li>Dremio</li>
+        <li>Databricks</li>
+      </ul>
+      
+    </div>
   </div>
 );
 // Johnson & Johnson
@@ -66,6 +90,18 @@ export const MyHistoryJohnsonContent: React.ReactNode = (
          Facilitated updates to	material specifications, procedures, and bill	of materials of highly regulated	medical	products.
       </li>
     </ul>
+    <h4>Primary Technologies Used:</h4>
+    <div className="grid-list">
+      <ul>
+        <li>SQL</li>
+        <li>Oracle</li>
+        <li>JD Edwards</li>
+      </ul>
+      <ul>
+        <li>Excel</li>
+        <li>Powerpoint</li>
+      </ul>
+    </div>
   </div>
 );
 // GA Tech
