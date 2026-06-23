@@ -12,7 +12,7 @@ type createRowHexesProps = {
 // Generates hexagons for each row based on rowContent
 function generateRowHexes({rowContent}: createRowHexesProps): React.ReactNode {
     return rowContent.map((item) => (
-        <div key={item.name} data-category={item.category}>
+        <div key={item.name}>
             <Hexagon
                 category={item.category}
                 front={item.logo}
@@ -36,9 +36,9 @@ function generateHexRow({gridRow, isOdd, key}: createRowProps): React.ReactNode 
     // string together hexagons + left/right tabs
     return (
         <div className={`${colType} tab-anchor`} key={key}>
-            {/* {gridRow.tabs.left && <LeftTab text={gridRow.tabs.left.str} />} */}
+            {gridRow.tabs.left && <LeftTab text={gridRow.tabs.left.str} />}
             {generateRowHexes({rowContent: gridRow.rowContent })}
-            {/* {gridRow.tabs.right && <RightTab text={gridRow.tabs.right.str} />} */}
+            {gridRow.tabs.right && <RightTab text={gridRow.tabs.right.str} />}
         </div>
     )
 }

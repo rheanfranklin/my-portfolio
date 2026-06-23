@@ -1,0 +1,155 @@
+:root {
+  --tab-height: 40px;
+  --tab-collapsed: 6px;
+  --tab-expanded: 120px;
+}
+
+/* Shared label */
+.tab-label {
+  color: white;
+  white-space: nowrap;
+  padding: 0 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* LEFT TAB */
+.tab-left {
+  position: absolute;
+  left: -15px;
+  top: 30px;
+
+  height: var(--tab-height);
+  width: var(--tab-collapsed);
+  background-color: var(--color-accent-pink-dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  overflow: visible; /* <-- IMPORTANT */
+  transition: width 0.25s ease, transform 0.25s ease;
+}
+
+.tab-anchor {
+  position: relative; /* REQUIRED so the tab can anchor to this column */
+}
+
+/* Expand left */
+.tab-left:hover {
+  width: var(--tab-expanded);
+  transform: translateX(calc(-1 * (var(--tab-expanded) - var(--tab-collapsed))));
+}
+
+.tab-left:hover .tab-label {
+  opacity: 1;
+}
+
+
+.triangle {
+  position: absolute;
+  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
+  width: var(--tri-width);
+  aspect-ratio: 50%;
+  background: var(--color-accent-pink-dark);
+  height: calc(var(--tri-width) * 2); /* gives it real height */
+  transform: translateY(-25%);
+  left: calc(-1 * var(--tri-width)); 
+
+  --r: 5px;
+  -webkit-mask:
+    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
+    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
+  clip-path: polygon(0 50%,100% 100%,100% 0);
+  transition: transform 0.25s ease;
+}
+
+/* RIGHT TAB */
+.tab-right {
+  position: absolute;
+  right: 40px;      /* anchor on the right side of the column */
+  top: 30px;
+
+  height: var(--tab-height);
+  width: var(--tab-collapsed);
+  background-color: var(--color-accent-pink-dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: visible;
+  transition: width 0.25s ease, transform 0.25s ease;
+}
+
+/* expand OUTWARD to the RIGHT */
+.tab-right:hover {
+  width: var(--tab-expanded);
+  transform: translateX(
+    calc(var(--tab-expanded) - var(--tab-collapsed))
+  );
+}
+
+.tab-right:hover .tab-label {
+  opacity: 1;
+}
+
+/* right triangle */
+.tab-right-triangle {
+  position: absolute;
+  top: calc((var(--tab-height) / 2) - (var(--tri-width) / 2));
+  width: var(--tri-width);
+  aspect-ratio: 50%;
+  background: var(--color-accent-pink-dark);
+  height: calc(var(--tri-width) * 2); /* gives it real height */
+  transform: translateY(-25%);
+  right: calc(-1 * var(--tri-width));
+  left: auto;
+
+  --r: 5px;
+  -webkit-mask:
+    linear-gradient(90deg,#0000 calc(var(--r)/sqrt(2)),#000 0),
+    radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%);
+  clip-path: polygon(0 50%,100% 100%,100% 0);
+  transition: transform 0.25s ease;
+  rotate: 180deg;
+}
+
+/* Glow trigger */
+.tab-left:hover ~ .language::before {
+  opacity: 1;
+}
+
+.tab-left:hover ~ .language .hex-shape {
+  stroke-width: 3px;
+  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
+}
+
+/* Glow row 1 */
+.hex-column:hover .language::before,
+.hex-column:hover .language .hex-shape {
+  opacity: 1;
+  stroke-width: 3px;
+  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
+}
+
+/* Glow row 2 when row 1 is hovered */
+.hex-column:hover ~ .hex-column-odd .language::before,
+.hex-column:hover ~ .hex-column-odd .language .hex-shape {
+  opacity: 1;
+  stroke-width: 3px;
+  fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
+}
+
+/* Highlight all hexes in the same category when hovering a row */
+.hex-group[data-category-group]:hover [data-category] {
+    opacity: 0.3; /* dim everything first */
+}
+
+/* Highlight only the hovered category */
+.hex-group[data-category-group]:hover [data-category]:hover,
+.hex-group[data-category-group]:hover .tab-anchor:hover ~ [data-category] {
+    opacity: 1;
+    stroke-width: 3px;
+    fill: color-mix(in srgb, var(--color-accent-pink-dark) 50%, transparent);
+}

@@ -63,7 +63,6 @@
     text-indent: 0;
     margin-left: 4rem;
     font-size: 0.9rem;
-    margin-right: 4rem;
 }
 
 .about .history .expandable-box .grid-list {
@@ -106,8 +105,14 @@
   padding-right: 1rem;
   font-size: 0.875rem;
   text-indent: 0rem;
+  align-items: center;
+  justify-content: center;
 }
 
+.about .style .flip-card-front {
+    align-items: center;
+    justify-content: center;
+}
 /* My Style - Software development grid set up */
 .about .style .software-development .card-row {
     gap: var(--card-gap);

@@ -23,8 +23,8 @@
   backface-visibility: hidden;
   background-color: var(--container-box-color);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   color: inherit;
   font-size: inherit;
 }

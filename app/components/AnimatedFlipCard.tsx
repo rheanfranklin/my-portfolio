@@ -16,7 +16,6 @@ export default function AnimatedFlipCard({
   back,
   width,
   height,
-
 }: AnimatedFlipCardProps) {
   const [flipped, setFlipped] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -82,7 +81,7 @@ export default function AnimatedFlipCard({
     >
       <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
         {/* FRONT + BACK FACES */}
-        <div className="flip-card-face">{front}</div>
+        <div className="flip-card-face flip-card-front">{front}</div>
         <div className="flip-card-face flip-card-back">{back}</div>
 
         {/* STATIC BORDER (left + bottom) */}

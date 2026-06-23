@@ -32,7 +32,7 @@ export const NavMenuItems = ({ className="" }: NavMenuItemsProps) => {
       <Link href={NAV_LINKS.home} className={isActive(NAV_LINKS.home)}>HOME</Link>
       <Link href={NAV_LINKS.about} className={isActive(NAV_LINKS.about)}>ABOUT</Link>
       <Link href={NAV_LINKS.skills} className={isActive(NAV_LINKS.skills)}>SKILLS</Link>
-      {/* <Link href={NAV_LINKS.projects} className={isActive(NAV_LINKS.projects)}>PROJECTS</Link> */}
+      <Link href={NAV_LINKS.projects} className={isActive(NAV_LINKS.projects)}>PROJECTS</Link>
       <Link href={NAV_LINKS.cat} className={isActive(NAV_LINKS.cat)}>CAT</Link>
       <Link href={NAV_LINKS.contact} className={isActive(NAV_LINKS.contact)}>CONTACT</Link>
     </div>

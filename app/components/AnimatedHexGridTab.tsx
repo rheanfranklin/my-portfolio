@@ -1,3 +1,4 @@
+import "./AnimatedHexGridTab.css"
 
 type TabProps = {
   readonly text?: string;

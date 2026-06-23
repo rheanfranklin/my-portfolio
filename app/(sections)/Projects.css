@@ -1,0 +1,84 @@
+.projects h2 {
+    font-size: 1.25rem;
+    color: var(--color-accent-pink-dark);
+    text-shadow: -3px 3px 0 black;
+    font-weight: bolder;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.projects .flip-card-face {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    padding-left: 3rem;
+}
+
+.projects .flip-card-face h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent-blue);
+    font-weight: bold;
+    text-align: center;
+    font-style: normal;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    text-transform: uppercase;
+}
+
+.projects .flip-card-face h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0rem;
+    color: var(--color-accent-pink-dark);
+    font-weight: lighter;
+    margin-left: 0rem;
+}
+
+.projects .flip-card-face h4 {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--color-brand-dark);
+    padding-left: 1.5rem;
+    font-style: italic;
+}
+.projects .flip-card-face ul {
+    list-style-type: circle;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.projects .flip-card-face li {
+    text-indent: 0;
+    margin-left: 4rem;
+    font-size: 0.875rem;
+    margin-right: 4rem;
+}
+
+
+.projects .flip-card-face p {
+    font-size: 0.875rem;
+    margin: 1rem;
+}
+
+.projects .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.projects .card-grid .card-col {
+    gap: 1rem;
+}
+
+.projects .other .other-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.projects .flip-card-face .tech-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}

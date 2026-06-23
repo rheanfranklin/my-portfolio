@@ -40,6 +40,7 @@ enum Icon {
     excel = "excel",
     fastapi = "fastapi",
     gitactions = "gitactions",
+    githubcopilot = "githubcopilot",
     git = "git",
     golang = "golang",
     grafana = "grafana",
@@ -105,7 +106,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
     return ({
         aws: {
             name: "AWS", // defaults to key + first letter capitalized
-            category: Category.cloud,
+            category: Category.devtool,
             iconSize: {
                 height: "70px",
                 width: "70px",
@@ -115,14 +116,10 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             category: Category.language, 
         },
         claude: {
-            category: Category.ai,
+            category: Category.devtool,
         },
         copilot: {
-            category: Category.ai,
-            iconSize: {
-                height: "70%",
-                width: "70%",
-            }
+            category: Category.devtool,
         },
         cpp: {
             name: "C++",
@@ -136,10 +133,10 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             category: Category.framework,
         },
         databricks: {
-            category: Category.data,
+            category: Category.devtool,
         },
         dbeaver: {
-            category: Category.data,
+            category: Category.devtool,
         },
         docker: {
             category: Category.devtool,
@@ -152,13 +149,13 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             }
         },
         dremio: {
-            category: Category.data,
+            category: Category.devtool,
         },
         eclipse: {
-            category: Category.ide,
+            category: Category.devtool,
         },
         excel: {
-            category: Category.data,
+            category: Category.devtool,
         },
         fastapi: {
             name: "FastAPI",
@@ -171,6 +168,10 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             name: "GitHub Actions",
             category: Category.devtool,
         },
+        githubcopilot: {
+            name: "GitHub Copilot",
+            category: Category.devtool,
+        },
         golang: {
             category: Category.language,
             iconSize: {
@@ -179,7 +180,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             }
         },
         grafana: {
-            category: Category.data,
+            category: Category.devtool,
         },
         graphql: {
             category: Category.language,
@@ -196,7 +197,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             category: Category.language,
         },
         intellij: {
-            category: Category.ide,
+            category: Category.devtool,
             iconSize: {
                 height: "60%",
                 width: "60%",
@@ -217,7 +218,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
             category: Category.devtool,
         },
         kibana: {
-            category: Category.data,
+            category: Category.devtool,
             iconSize: {
                 height: "60%",
                 width: "60%",
@@ -239,20 +240,20 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
         },
         npm: {
             name: "npm",
-            category: Category.package,
+            category: Category.framework,
         },
         opsgenie: {
             category: Category.devtool,
         },
         oracle: {
-            category: Category.data,
+            category: Category.devtool,
         },
         p5js: {
             name: "p5.js",
             category: Category.framework,
         },
         poetry: {
-            category: Category.package,
+            category: Category.framework,
             iconSize: {
                 height: "65%",
                 width: "65%",
@@ -263,7 +264,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
         },
         powerbi: {
             name: "PowerBI",
-            category: Category.data,
+            category: Category.devtool,
         },
         putty: {
             name: "PuTTy",
@@ -284,7 +285,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
         },
         sonarqube: {
             name: "SonarQube",
-            category: Category.ai,
+            category: Category.devtool,
         },
         sql: {
             name: "SQL",
@@ -311,7 +312,7 @@ export function getLogoMap(): Record<Icon, LogoConfig> {
         },
         visualstudio: {
             name: "Visual Studio",
-            category: Category.ide,
+            category: Category.devtool,
         },
     });
 }
@@ -324,132 +325,97 @@ export function gridRows(logoMap: Record<string, LogoConfig>): Record<number, Gr
                 logoMap[Icon.python],
                 logoMap[Icon.javascript],
                 logoMap[Icon.typescript],
-                logoMap[Icon.html],
-                logoMap[Icon.css],
+                logoMap[Icon.java],
             ],
             tabs: {
-                left: {
-                    category: Category.language,
-                    str: "Languages",
-                },
-                right: null
+                left: null,
+                right: null,
             }
         },
         2: {
             rowContent: [
-                logoMap[Icon.java],
-                logoMap[Icon.golang],
+                logoMap[Icon.html],
+                logoMap[Icon.css],
                 logoMap[Icon.cpp],
-                logoMap[Icon.bash],
-                logoMap[Icon.graphql],
-                logoMap[Icon.sql],
+                logoMap[Icon.golang],
             ],
             tabs: {
                 left: null,
-                right: null,
+                right: {
+                    category: Category.language,
+                    str: "Languages",
+                },
             }
         },
         3: {
             rowContent: [
+                
+                logoMap[Icon.bash],
+                logoMap[Icon.graphql],
+                logoMap[Icon.sql],
+                logoMap[Icon.vba],
+                
+            ],
+            tabs: {
+                left: null,
+                right: null,
+            },
+        },
+        4: {
+            rowContent: [
                 logoMap[Icon.nextjs],
                 logoMap[Icon.react],
-                logoMap[Icon.tailwind],
                 logoMap[Icon.fastapi],
                 logoMap[Icon.pytest],
             ],
             tabs: {
-                left: null,
                 right: {
                     category: CATEGORY.framework,
-                    str: "Framworks",
-                }
-            }
-        },
-        4: {
-            rowContent: [
-                logoMap[Icon.dremio],
-                logoMap[Icon.databricks],
-                logoMap[Icon.dbeaver],
-                logoMap[Icon.oracle],
-                logoMap[Icon.powerbi],
-                logoMap[Icon.excel],
-            ],
-            tabs: {
-                left: {
-                    category: CATEGORY.data,
-                    str: "Data / Analytics",
+                    str: "Frameworks / Packages",
                 },
-                right: null,
             },
         },
         5: {
             rowContent: [
-                logoMap[Icon.grafana],
-                logoMap[Icon.kibana],
-                logoMap[Icon.intellij],
-                logoMap[Icon.eclipse],
-                logoMap[Icon.visualstudio],
+                logoMap[Icon.dremio],
+                logoMap[Icon.databricks],
+                logoMap[Icon.git],
+                logoMap[Icon.gitactions],
             ],
             tabs: {
                 left: null,
-                right: {
-                    category: CATEGORY.ide,
-                    str: "IDEs",
-                },
+                right: null,
             }
         },
         6: {
             rowContent: [
-                logoMap[Icon.git],
-                logoMap[Icon.gitactions],
-                logoMap[Icon.docker],
                 logoMap[Icon.postman],
-                logoMap[Icon.linux],
+                logoMap[Icon.visualstudio],
                 logoMap[Icon.putty],
-            ],
-            tabs: {
-                left: {
-                    category: CATEGORY.devtool,
-                    str: "Dev tools",
-                },
-                right: null,
-            },
-        },
-        7: {
-            rowContent: [
-                logoMap[Icon.drawio],
-                logoMap[Icon.mural],
-                logoMap[Icon.opsgenie],
-                logoMap[Icon.heroku],
                 logoMap[Icon.aws],
+                
             ],
             tabs: {
                 left: null,
                 right: {
-                    category: CATEGORY.cloud,
-                    str: "Cloud",
-                },
-            }
-        },
-        8: {
-            rowContent: [
-                logoMap[Icon.npm],
-                logoMap[Icon.poetry],
-                logoMap[Icon.claude],
-                logoMap[Icon.copilot],
-                logoMap[Icon.sonarqube],
-            ],
-            tabs: {
-                left: {
-                    category: CATEGORY.package,
-                    str: "Package / Dependency tools",
-                },
-                right: {
-                    category: CATEGORY.ai,
-                    str: "AI / Code assistance",
+                    category: CATEGORY.devtool,
+                    str: "Dev tools",
                 },
             },
-        }
+        },
+        7: {
+            rowContent: [
+                logoMap[Icon.claude],
+                logoMap[Icon.githubcopilot],
+                logoMap[Icon.sonarqube],
+                logoMap[Icon.excel],
+                
+            ],
+            tabs: {
+                left: null,
+                right: null,
+            }
+        },
     });
 }
 
