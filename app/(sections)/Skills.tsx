@@ -60,7 +60,7 @@ function skillsHeader(): React.ReactNode {
 
 function conceptsAndPracticesSection(): React.ReactNode {
     return (
-        <div className="skills-expandable-box-container">
+        <div className="concepts-and-practices">
             <h2>Concepts & Practices</h2>
             <hr />
             <ExpandableOpenBox
@@ -86,10 +86,10 @@ function conceptsAndPracticesSection(): React.ReactNode {
 function hexGridSection(): React.ReactNode {
     let gridRows: Record<string, GridRow> = returnGridRows();
     return(
-        <div className="skills-languages-container">
+        <div className="languages-container">
             <h2>Languages, Tools, & Frameworks</h2>
             <hr />
-            <div className="skills-hex-grid-container">
+            <div className="hex-grid-container">
                 {AnimatedHexGrid({gridRows: gridRows})}
             </div>
             
@@ -99,7 +99,7 @@ function hexGridSection(): React.ReactNode {
 
 export default function Skills() {
     return (
-        <div className="container-box">
+        <div className="container-box skills">
             {/* Page Header */}
             {skillsHeader()}
 
@@ -114,7 +114,6 @@ export default function Skills() {
             </AnimatedSection>
 
             <div className="footer-padding"/> {/* Padding */}
-
         </div>
     );
 }

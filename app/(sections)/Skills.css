@@ -16,14 +16,14 @@
     justify-self: start;
 }
 
-.skills-languages-container {
+.skills .languages-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
 }
 
-.skills-hex-grid-container {
+.skills .hex-grid-container {
   margin: 2rem;
   justify-content: center;
   align-items: center;
@@ -31,26 +31,37 @@
   margin-top: 4rem;
 }
 
-.skills-expandable-box-container {
+.skills .concepts-and-practices {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  width: 100%;
+  gap: 1rem;
 }
 
-.skills-expandable-box-content {
+.skills .concepts-and-practices .expandable-box .content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
   margin-top: 1rem;
-  margin-bottom: 2rem;
   margin-left: 7%;
-  margin-right: 7%;
+  padding-right: 4rem;
   gap: 1%;
 }
 
-.skills-expandable-box-content li {
+.skills .concepts-and-practices li {
   font-size: 0.875rem;
+  
 }
-.skills-expandable-box-content .two-col {
+
+.skills .concepts-and-practices ul {
+    list-style-type: circle;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
+
+.skills .concepts-and-practices .expandable-box .two-col {
   font-size: 0.875rem;
 }
 

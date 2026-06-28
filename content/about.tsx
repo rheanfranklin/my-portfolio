@@ -19,14 +19,14 @@ export const MyHistoryFactSetContent: React.ReactNode = (
     <h3>Software Engineer</h3>
     <h4>Context:</h4>
     <p>FactSet provides its clients with a wide variety of company-level financial data (e.g. stock prices, company assets, company financial statements, etc.)
-      which they use to assess risk, track earning insights, and make investment decisions for their stock portfolios.
+      which then they use to assess risk, track earning insights, and make investment decisions for their stock portfolios.
     </p>
     <h4>Main responsibilities:</h4>
     <ul>
       <li>
         Provided support for, implemented features, and helped maintain the infrastructure for FactSet's main ETL pipeline.
-        This pipeline is used by hundreds of internal employees to onboard & update hundreds of databases containing financial data
-        used directly by clients.
+        This pipeline is used by hundreds of internal employees to onboard & update hundreds of databases containing millions of
+        rows of financial data used directly by clients.
       </li>
       <li>
         Added new infrastructure to automate & validate deployments of SQL-defined views from the dev environment to staging to production. Previously,
@@ -69,7 +69,7 @@ export const MyHistoryJohnsonContent: React.ReactNode = (
     <h4>Context:</h4>
     <p>
       I worked for a subsidiary company of Johnson & Johnson called <em>Ethicon</em>, which specialized in surgical technologies,
-      wound closure, and medical devises. My position was located in a raw-materials manufacturing plant in Cornelia, GA. This 
+      wound closure, and medical devices. My position was located in a raw-materials manufacturing plant in Cornelia, GA. This 
       plant was used to produce dermabond, sutures, and needles. The sutures and needles were then shipped to our finishing plants
       to be attached together, sanitized, packaged, & distributed to customers.
     </p>
@@ -153,9 +153,33 @@ export const StyleSDScalable: React.ReactNode = (
   <p>
     Having worked on large, evolving systems, I've learned that scalability is essential if you want to build a system that lasts.<br/><br/>
     That means I'm always on the lookout for any step in a process that requires manual or tedious work and take the initiate to replace it with
-    an automated process.<br/><br/>
-    When designing systems or features, I focus on structuring the code so new pieces can be added or old ones removed with ease.<br/><br/>
-    I rely on techniques like dependency injection, SPP, and class inheritance to keep the architecture modular, adaptable, and easy to extend.
+    an automated process. When designing systems or features, I focus on structuring the code so new pieces can be added or old ones removed with ease.
+    <br/><br/>
+    To accomplish this, I rely on techniques like dependency injection, SPP, and class inheritance to keep the architecture modular, adaptable, and easy to extend.
+  </p>
+);
+
+export const StyleUserFocused: React.ReactNode = (
+  <p>
+    Everyone can list numerous products they've seen released by companies that fall flat on their
+    face upon release. No one wanted Google glasses. No one wanted a smart car. No one wanted a $500 machine
+    that squeezed juice out of a bag.<br/><br/>
+    I'm a firm believer that quality control paired with thorough & frequent consultation with users helps prevent such outcomes;
+    communication creates products people want and an automated testing framework creates products that work. Creating good software
+    is the same as creating any other product; quality comes from listening, learning, and fixing problems before they're
+    even problems to begin with.
+  </p>
+);
+
+export const StyleSimplicity: React.ReactNode = (
+  <p>
+    Raise your hand if you've ever inherited a codebase that is the most tedious thing in the world to 
+    understand. Or better yet, you have to go back and fix some code you wrote several years ago (if you're not an engineer, imagine
+    a billion people raising their hand).
+    <br/><br/>
+    When I write code, I want a new born baby to be able to read it and fully understand what it's doing (slight exaggeration). The ultimate goal
+    is for other engineers to look at my code and involutarily fall to their knees with an exclamation of relief escaping their lips;
+    for they have been saved from hours of grueling navigation through an endless list of files and code architecture that makes no sense.
   </p>
 );
 
@@ -166,13 +190,28 @@ export const StyleSoftwareDevelopmentContent: React.ReactNode = (
           <AnimatedFlipCard
             front="Organized and Detail-Oriented"
             back={StyleSDOrganized}
-            height="23rem"
+            height="25rem"
             width="100%"
           />
           <AnimatedFlipCard
-            front="Future Focused & Scalable"
+            front="Scalablility"
             back={StyleSDScalable}
-            height="23rem"
+            height="25rem"
+            width="100%"
+          />
+        </div>
+        <div className="card-row">
+          <AnimatedFlipCard
+              front="Simplicity"
+              back={StyleSimplicity}
+              height="25rem"
+              width="100%"
+            />
+        
+          <AnimatedFlipCard
+            front="Test driven & user focused"
+            back={StyleUserFocused}
+            height="25rem"
             width="100%"
           />
         </div>
@@ -182,8 +221,9 @@ export const StyleSoftwareDevelopmentContent: React.ReactNode = (
 // Collaboration
 export const StyleCollabPositivity: React.ReactNode = (
   <p>
-    I make it a point to bring positivity wherever I go. I enjoy creating an environment 
-    where people feel comfortable expressing themselves & speaking their mind. 
+    I make it a point to bring positivity wherever I go. Being negative sucks, why would anyone
+    do that. If I'm in the room, you WILL feel comfortable & at ease, whether you want to or not.
+    I will ALWAYS encourage people to speak their mind so they're heard AND NO ONE CAN STOP ME !!!
   </p>
 );
 
@@ -301,7 +341,7 @@ export const StyleAIContent: React.ReactNode = (
               <AnimatedFlipCard
                 front="Taking ownership"
                 back={StyleAIOwnership}
-                height="23rem"
+                height="26rem"
                 width="50%"
               />
             </div>

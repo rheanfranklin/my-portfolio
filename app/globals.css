@@ -49,6 +49,8 @@
   --color-accent-pink-dark-transparent: color-mix(in srgb, var(--color-accent-pink-dark) 20%, transparent);
   --hexagon-size: 6.5rem;
   --hex-gap: 0.25rem;
+  --card-margin: 2rem;
+  --card-gap: 1rem;
 }
 
 html {

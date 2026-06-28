@@ -188,9 +188,9 @@ export function About() {
 
             {myHistorySection()}
 
-            {myMotivationSection()}
-
             {myStyleSection()}
+
+            {myMotivationSection()}
             
             {myHobbiesSection()}
             

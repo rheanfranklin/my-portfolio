@@ -14,8 +14,8 @@ export const PortfolioProjFront = (
 );
 
 export const PortfolioProjBack = (
-    <p>
-        <h3>Tech Stack:</h3>        
+    <div>
+        <h3>Tech Stack:</h3>
         <div className="tech-stack">
             {/* First col */}
             <div>
@@ -50,7 +50,7 @@ export const PortfolioProjBack = (
         </div>
         <h3>GitHub Repo</h3>
         <p>See code <a href="https://github.com/rheanfranklin/my-portfolio" className="link" target="_blank">here</a>.</p>
-    </p>
+    </div>
 );
 
 // Cat animation
@@ -145,27 +145,30 @@ export const PingProjBack = (
 // FactSet Projects
 //
 // Dremio view deployer
-export const SQLViewDeployer = (
+export const SQLViewDeployerFront = (
     <div className="dvd">
+        {/* Title */}
         <h2>SQL View Deployer</h2>
-        <h3>Summary:</h3>
-        <h4>Problem:</h4>
-        <p>
-            Users (internal employees) would write SQL definitions & configure view materializaitons
-            in our dev data warehouse environment. When they wanted to promote their work, they would
-            have to manually copy & paste those definitions to staging and production.<br/>
-            This obviously created issues
-        </p>
-        <h4>Fix:</h4>
-        <p>
-            I worked with one other engineer to add new infrastructure to automate & validate deployments
-            of SQL-defined views & their materializations from our dev cluster to staging and production.
-        </p>
-        
+        {/* Card description */}
+        <div className="description">
+            <h3>Summary:</h3>
+            <h4>Problem:</h4>
+            <p>
+                Users (internal employees) would write SQL definitions & configure view materializaitons
+                in our dev data warehouse environment. When they wanted to promote their work, they would
+                have to manually copy & paste those definitions to staging and production.<br/>
+                This obviously created issues
+            </p>
+            <h4>Fix:</h4>
+            <p>
+                I worked with one other engineer to add new infrastructure to automate & validate deployments
+                of SQL-defined views & their materializations from our dev cluster to staging and production.
+            </p>
+        </div>
     </div>
 );
 
-export const SQLProjBack = (
+export const SQLViewDeployerBack = (
     <div>
         <h3>Implementation details:</h3>
         <p>
@@ -190,17 +193,20 @@ export const SQLProjBack = (
                     </li>
                 </ul>
                 <h4>Tooling:</h4>
-                <ul>
-                    <li>
-                        Dremio
-                    </li>
-                    <li>
-                        GitHub
-                    </li>
-                    <li>
-                        GitHub Actions
-                    </li>
-                    
+                <ul className="grid grid-cols-2">
+                    <div>
+                        <li>
+                            Dremio
+                        </li>
+                        <li>
+                            GitHub
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            GitHub Actions
+                        </li>
+                    </div>
                 </ul>
             </div>
             {/* Second col */}

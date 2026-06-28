@@ -422,53 +422,53 @@ export function gridRows(logoMap: Record<string, LogoConfig>): Record<number, Gr
 export const DataAnalyticsContent: React.ReactNode = (
     <div className="skills-expandable-box-content grid grid-cols-1 md:grid-cols-2">
         <ul>
-            <li>- Big Data</li>
-            <li>- Relational databases</li>
-            <li>- Data analytics</li>
-            <li>- Data governance</li>
+            <li>Big Data</li>
+            <li>Relational databases</li>
+            <li>Data analytics</li>
+            <li>Data governance</li>
         </ul>
         <ul>
-            <li>- ETL pipelines</li>
-            <li>- Data visualization</li>
-            <li>- Central logging</li>
-            <li>- View materializations</li>
+            <li>ETL pipelines</li>
+            <li>Data visualization</li>
+            <li>Central logging</li>
+            <li>View materializations</li>
         </ul>
     </div>
 );
 
 export const SoftwareDeliveryAndQualityContent: React.ReactNode = (
-    <div className="skills-expandable-box-content grid grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2">
         <ul>
-            <li>- Unit, integration, and end-to-end testing</li>
-            <li>- User testing and research</li>
-            <li>- CI/CD</li>
-            <li>- OOD/OOP</li>
+            <li>Unit, integration, and end-to-end testing</li>
+            <li>User testing and research</li>
+            <li>CI/CD</li>
+            <li>OOD/OOP</li>
             
         </ul>
         <ul>
-            <li>- UML</li>
-            <li>- Agile software development</li>
-            <li>- API develpoment</li>
-            <li>- Web development</li>
+            <li>UML</li>
+            <li>Agile software development</li>
+            <li>API develpoment</li>
+            <li>Web development</li>
         </ul>
     </div>
 );
 
 export const SystemsAndInfrastructureContent: React.ReactNode = (
-    <div className="skills-expandable-box-content">
+    <div>
         <ul>
-            <li>- Maintenance of and developmnent upon complex distributed systems</li>
-            <li>- Cloud computing</li>
-            <li>- Enterprise resource planning & disposal</li>
+            <li>Maintenance of and developmnent upon complex distributed systems</li>
+            <li>Cloud computing</li>
+            <li>Enterprise resource planning & disposal</li>
         </ul>
     </div>
 );
 
 export const OperationsAndSupportContent: React.ReactNode = (
-    <div className="skills-expandable-box-content one-col">
+    <div>
         <ul>
-            <li>- 24/7 on-call rota</li>
-            <li>- Handling support requests</li>
+            <li>24/7 on-call rota</li>
+            <li>Handling support requests</li>
         </ul>
     </div>
 );

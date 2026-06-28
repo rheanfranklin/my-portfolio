@@ -4,15 +4,35 @@
     text-shadow: -3px 3px 0 black;
     font-weight: bolder;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
+.projects hr {
+    margin-top: 2rem;
+    width: 80%;
+    color: var(--color-accent-blue);
+}
+
+.projects .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Card face configurations */
 .projects .flip-card-face {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 2rem;
     padding-left: 3rem;
+}
+
+.projects .flip-card-face .description {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
 .projects .flip-card-face h2 {
@@ -62,12 +82,16 @@
     margin: 1rem;
 }
 
+/* Card grid configurations */
 .projects .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 .projects .card-grid .card-col {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 

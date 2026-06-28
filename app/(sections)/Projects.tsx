@@ -2,7 +2,7 @@
 
 import "./Projects.css"
 import AnimatedSection from "../components/AnimatedSection";
-import { CatAnimationProjBack, CatAnimationProjFront, SQLProjBack, SQLViewDeployer, InfrastructureReworkProjBack, InfrastructureReworkProjFront, PortfolioProjBack, PortfolioProjFront, TransitionProjFront, TransitionProjBack, CAPProjFront, CAPProjBack, OtherThingsProjFront, OtherThingsProjBack, DungeonGameProjFront, DungeonGameProjBack, CalendarProjBack, CalendarProjFront, PingProjFront, PingProjBack } from "@/content/projects";
+import { CatAnimationProjBack, CatAnimationProjFront, SQLViewDeployerBack, SQLViewDeployerFront, InfrastructureReworkProjBack, InfrastructureReworkProjFront, PortfolioProjBack, PortfolioProjFront, TransitionProjFront, TransitionProjBack, CAPProjFront, CAPProjBack, OtherThingsProjFront, OtherThingsProjBack, DungeonGameProjFront, DungeonGameProjBack, CalendarProjBack, CalendarProjFront, PingProjFront, PingProjBack } from "@/content/projects";
 import { fadeUp } from "@/lib/animations/fade";
 import AnimatedFlipCard from "../components/AnimatedFlipCard";
 
@@ -17,7 +17,7 @@ function projectsHeader(): React.ReactNode {
 
 function personalProjects(): React.ReactNode {
     return (
-        <div>
+        <div className="section">
             {/* Header */}
             <AnimatedSection variants={fadeUp}>
                 <h2>Personal Projects</h2>
@@ -45,7 +45,7 @@ function personalProjects(): React.ReactNode {
 
 function universityProjects(): React.ReactNode {
     return (
-        <div>
+        <div className="section">
             {/* Header */}
             <AnimatedSection variants={fadeUp}>
                 <h2>Projects from University</h2>
@@ -53,7 +53,7 @@ function universityProjects(): React.ReactNode {
             {/* Cards */}
             <div className="card-grid">
                 {/* First column */}
-                <div>
+                <div className="card-col">
                     {/* Dungeon crawler game */}
                     <AnimatedFlipCard
                         front={DungeonGameProjFront}
@@ -70,7 +70,7 @@ function universityProjects(): React.ReactNode {
                     />
                 </div>
                 {/* Second column */}
-                <div>
+                <div className="card-col">
                     {/* Ping pong game */}
                     <AnimatedFlipCard
                         front={PingProjFront}
@@ -86,19 +86,19 @@ function universityProjects(): React.ReactNode {
 
 function factsetProjects(): React.ReactNode {
     return (
-        <div>
+        <div className="section">
             <AnimatedSection variants={fadeUp}>
                 <h2>Projects from FactSet</h2>
             </AnimatedSection>
             
             <div className="card-grid">
                 {/* First column */}
-                <div>
+                <div className="card-col">
                     {/* SQL View Deployer */}
                     <AnimatedFlipCard
-                        front={SQLViewDeployer}
-                        back={SQLProjBack}
-                        height="37rem"
+                        front={SQLViewDeployerFront}
+                        back={SQLViewDeployerBack}
+                        height="39rem"
                         width="100%"
                     />
                     {/* Infrastructure rework */}
@@ -110,12 +110,12 @@ function factsetProjects(): React.ReactNode {
                     />
                 </div>
                 {/* Second column */}
-                <div>
+                <div className="card-col">
                     {/* CAP */}
                     <AnimatedFlipCard
                         front={CAPProjFront}
                         back={CAPProjBack}
-                        height="30rem"
+                        height="32rem"
                         width="100%"
                     />
                     {/* Data warehouse transition */}
@@ -131,7 +131,7 @@ function factsetProjects(): React.ReactNode {
             <AnimatedFlipCard
                 front={OtherThingsProjFront}
                 back={OtherThingsProjBack}
-                height="34rem"
+                height="36rem"
                 width="100%"
             />
         </div>
@@ -142,10 +142,12 @@ export default function Projects() {
     return (
         <div className="container-box projects">
             {projectsHeader()}
-
             {personalProjects()}
+            <hr/>
             {universityProjects()}
+            <hr/>
             {factsetProjects()}
+            <div className="footer-padding"/>
         </div>
     );
 }

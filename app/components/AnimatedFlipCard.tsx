@@ -81,8 +81,18 @@ export default function AnimatedFlipCard({
     >
       <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
         {/* FRONT + BACK FACES */}
-        <div className="flip-card-face flip-card-front">{front}</div>
-        <div className="flip-card-face flip-card-back">{back}</div>
+        <div
+          className="flip-card-face flip-card-front"
+          style={{width, height}}
+        >
+          {front}
+        </div>
+        <div
+          className="flip-card-face flip-card-back"
+          style={{width, height}}
+        >
+          {back}
+        </div>
 
         {/* STATIC BORDER (left + bottom) */}
         <div
