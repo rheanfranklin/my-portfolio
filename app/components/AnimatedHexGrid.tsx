@@ -36,9 +36,9 @@ function generateHexRow({gridRow, isOdd, key}: createRowProps): React.ReactNode 
     // string together hexagons + left/right tabs
     return (
         <div className={`${colType} tab-anchor`} key={key}>
-            {gridRow.tabs.left && <LeftTab text={gridRow.tabs.left.str} />}
+            {/* {gridRow.tabs.left && <LeftTab text={gridRow.tabs.left.str} />} */}
             {generateRowHexes({rowContent: gridRow.rowContent })}
-            {gridRow.tabs.right && <RightTab text={gridRow.tabs.right.str} />}
+            {/* {gridRow.tabs.right && <RightTab text={gridRow.tabs.right.str} />} */}
         </div>
     )
 }

@@ -143,8 +143,8 @@ export default function Projects() {
         <div className="container-box projects">
             {projectsHeader()}
             {personalProjects()}
-            <hr/>
-            {universityProjects()}
+            {/* <hr/>
+            {universityProjects()} */}
             <hr/>
             {factsetProjects()}
             <div className="footer-padding"/>
