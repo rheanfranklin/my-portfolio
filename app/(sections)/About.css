@@ -111,12 +111,18 @@
     justify-content: center;
 }
 /* My Style - Software development grid set up */
-.about .style .software-development .card-row {
+.about .style .software-development .card-grid {
     gap: var(--card-gap);
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     margin: var(--card-margin);
+}
+
+.about .style .software-development .card-grid .card-row {
+    gap: var(--card-gap);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
 }
 
 /* My Style - Collaboration card set up */
@@ -133,21 +139,17 @@
     gap: var(--card-gap);
 }
 
-.about .style .collaboration .flip-card-back {
-    line-height: 2rem;
+/* My Style - AI card set up */
+.about .style .ai .card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--card-gap);
+    margin: var(--card-margin);
 }
 
-/* My Style - AI card set up */
-.about .style .ai .card-col{
-    margin: var(--card-margin);
+.about .style .ai .card-row .card-col {
     display: flex;
     flex-direction: column;
-    gap: var(--card-gap);
-}
-
-.about .style .ai .card-col .card-row {
-    display: flex;
-    flex-direction: row;
     gap: var(--card-gap);
     justify-content: center;
 }

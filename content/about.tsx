@@ -186,6 +186,7 @@ export const StyleSimplicity: React.ReactNode = (
 export const StyleSoftwareDevelopmentContent: React.ReactNode = (
   <div className="software-development">
       <h4>How I go about developing software:</h4>
+      <div className="card-grid">
         <div className="card-row">
           <AnimatedFlipCard
             front="Organized and Detail-Oriented"
@@ -215,6 +216,7 @@ export const StyleSoftwareDevelopmentContent: React.ReactNode = (
             width="100%"
           />
         </div>
+      </div>
     </div>
 );
 
@@ -269,7 +271,7 @@ export const StyleCollaborationContent: React.ReactNode = (
           <AnimatedFlipCard
             front="Open & Accepting"
             back={StyleCollabOpen}
-            height="22rem"
+            height="18rem"
             width="100%"
           />
         </div>
@@ -278,7 +280,7 @@ export const StyleCollaborationContent: React.ReactNode = (
           <AnimatedFlipCard
             front="Communication"
             back={StyleCollabCommunication}
-            height="22rem"
+            height="18rem"
             width="100%"
           />
           <AnimatedFlipCard
@@ -335,19 +337,19 @@ export const StyleAIContent: React.ReactNode = (
     <div className="ai">
       <h4>How I go about using AI:</h4>
       {StyleAIIntro}
-        <div className="card-col">
+        <div className="card-row">
             {/* First row */}
-            <div className="card-row">
+            <div className="card-col">
               <AnimatedFlipCard
                 front="Taking ownership"
                 back={StyleAIOwnership}
-                height="26rem"
-                width="50%"
+                height="27rem"
+                width="100%"
               />
             </div>
             
             {/* Second row */}
-            <div className="card-row">
+            <div className="card-col">
               <AnimatedFlipCard
                 front="Use it for the little things"
                 back={StyleAILittleThings}

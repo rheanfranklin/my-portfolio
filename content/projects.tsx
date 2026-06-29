@@ -48,6 +48,7 @@ export const PortfolioProjBack = (
                 </ul>
             </div>
         </div>
+        <p>Hosted on AWS Amplify</p>
         <h3>GitHub Repo</h3>
         <p>See code <a href="https://github.com/rheanfranklin/my-portfolio" className="link" target="_blank">here</a>.</p>
     </div>
@@ -172,8 +173,8 @@ export const SQLViewDeployerBack = (
     <div>
         <h3>Implementation details:</h3>
         <p>
-            I set up a GitHub repository and used it to store all the SQL definitons 
-            loaded in all our environemnts. When a user wanted to promote the changes they made to their views,
+            I set up a GitHub repository and used it to store all the SQL definitions 
+            loaded in all our environments. When a user wanted to promote the changes they made to their views,
             they would go to an app, select which views they wanted to promote, click a button to validate the SQL,
             and then click "Promote". 
             The app would then create a PR into the "development" branch in the GitHub
@@ -332,12 +333,12 @@ export const TransitionProjBack = (
             transitioned all databases to the new warehouse. Once that was all done, we removed the deprecateed
             code associated with the old warehouse and the project was considered finished.
         </p>
-        <h3>Tech stack</h3>
+        <h3>Tech Stack:</h3>
         <div className="tech-stack">
                 {/* First col */}
                 <div>
                     <h4>Languages:</h4>
-                    <ul>
+                    <ul className="grid grid-cols-2">
                         <li>
                             Python
                         </li>
@@ -367,23 +368,53 @@ export const CAPProjFront = (
         <h3>Summary:</h3>
         <p>
             Users (internal employees) were promoting individual groups of views & materializations
-            to staging and production instead of promoting the entirely to staging to production.
+            to staging and production. Occasionally, those users wouldn't finish promoting their changes all the way
+            up to production.
             Over time, this created a large disparity between what was in staging and what was in
             production. We started running into errors where the SQL definition of a view would work
-            in staging, but not production because a view that it relied on didn't exist.
+            in staging, but not production because it relied on had changes that weren't in
+            production.
         </p>
         <h3>Fix:</h3>
         <p>
             I wrote CAP as part of a hackathon project, which stands for CIF (content integration framework)
             automated promotions. Instead of deploying a group of views at a time, all changes
-            pushed into staging or production would be promoted all at once on a schedule.
+            pushed into the development branch would be promoted all at once to staging and production
+            on a schedule.
         </p>
     </div>
 );
 
 export const CAPProjBack = (
     <div className="cap">
-
+        <h3>Implementation details:</h3>
+        <p>
+            The CAP workflow would start off my comparing the development and staging branches in GitHub and
+            extract any SQL files were changed. It validated that all the columns referenced in the SQL
+            views existed in the table that it was referencing. The updated views were loaded into our staging
+            data warehouse in order of dependency (so parent views were deployed before child views to avoid
+            errors). If any view failed to deploy, then all changes were reverted. An engineer would run another workflow that would remove the
+            changes causing the error, and re-run the deployment. If the deployment was successful, then we'd merge the
+            development branch into the staging branch. This same process would occur for staging into production
+            the next day.
+        </p>
+        <h3>Tech Stack:</h3>
+        <div className="tech-stack">
+            {/* First col */}
+            <div>
+                <h4>Languages:</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>Bash</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Libraries:</h4>
+                <ul>
+                    <li>PyGithub</li>
+                </ul>
+            </div>
+        </div>
     </div>
 );
 
@@ -406,8 +437,8 @@ export const OtherThingsProjFront = (
                 <p>
                     I proposed and implemented a daemon that would routinely pull all the PRs from GitHub
                     that contained some label, iterate over them, confirm that all checks passed and that it was
-                    approved by a codeownero of the changed files, and automatically merged it into the base
-                    branch. Now users just have to add that label to their PR when they're ready to merge. 
+                    approved by a codeowner of the changed files, and automatically merged it into the base
+                    branch (usually development). Now users just have to add that label to their PR when they're ready to merge. 
                 </p>
             </div>
             {/* Second col */}
@@ -416,8 +447,8 @@ export const OtherThingsProjFront = (
                 <h4>Problem:</h4>
                 <p>
                     Users would create review apps against their PRs in the view/metadata repo to test their
-                    metadata changes. Over time, we ended up with dozens of open review apps at a time, all of
-                    which were hosted on AWS and therefore costing a significant amount of money.
+                    metadata changes. Over time, we ended up with a 100+ open review apps at once, all of
+                    which were hosted on AWS and therefore eating into our budget.
                 </p>
                 <h4>Fix:</h4>
                 <p>
@@ -438,11 +469,25 @@ export const OtherThingsProjBack = (
         <div className="other-grid">
             {/* First col */}
             <div>
-
+                <h3>Updating GitHub's codeowners file</h3>
+                <h4>Problem:</h4>
+                <p>
+                    Users needed to get their PR approved by a codeowner before it could be merged by the PR daemon.
+                    In order for someone to be considered a codeowner, their GitHub username would have to be added
+                    to the CODEOWNERS file for whatever directory they want to have approval permissions for. This
+                    task would have to be handled by my engineering team. 
+                </p>
+                <h4>Fix</h4>
+                <p>
+                    In my downtime, I wrote a GitHub workflow that would automatically create a PR adding a user to our
+                    CODEOWNERS file. That PR would then be approved and merged in by one of our bots with
+                    admin privileges. The workflow would have to be triggered by someone other than the user that was
+                    being added as codeowner, just to make sure we didn't have users mass adding themselves as codeowners
+                    with no oversight.
+                </p>
             </div>
             {/* Second col */}
             <div>
-
             </div>
         </div>
     </div>

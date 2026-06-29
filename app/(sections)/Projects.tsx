@@ -98,14 +98,14 @@ function factsetProjects(): React.ReactNode {
                     <AnimatedFlipCard
                         front={SQLViewDeployerFront}
                         back={SQLViewDeployerBack}
-                        height="39rem"
+                        height="42rem"
                         width="100%"
                     />
                     {/* Infrastructure rework */}
                     <AnimatedFlipCard
                         front={InfrastructureReworkProjFront}
                         back={InfrastructureReworkProjBack}
-                        height="27rem"
+                        height="29rem"
                         width="100%"
                     />
                 </div>
@@ -115,14 +115,14 @@ function factsetProjects(): React.ReactNode {
                     <AnimatedFlipCard
                         front={CAPProjFront}
                         back={CAPProjBack}
-                        height="32rem"
+                        height="36rem"
                         width="100%"
                     />
                     {/* Data warehouse transition */}
                     <AnimatedFlipCard
                         front={TransitionProjFront}
                         back={TransitionProjBack}
-                        height="34rem"
+                        height="35rem"
                         width="100%"
                     />
                 </div>
@@ -131,7 +131,7 @@ function factsetProjects(): React.ReactNode {
             <AnimatedFlipCard
                 front={OtherThingsProjFront}
                 back={OtherThingsProjBack}
-                height="36rem"
+                height="37rem"
                 width="100%"
             />
         </div>
