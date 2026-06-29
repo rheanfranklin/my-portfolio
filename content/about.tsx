@@ -191,13 +191,13 @@ export const StyleSoftwareDevelopmentContent: React.ReactNode = (
           <AnimatedFlipCard
             front="Organized and Detail-Oriented"
             back={StyleSDOrganized}
-            height="25rem"
+            height="30rem"
             width="100%"
           />
           <AnimatedFlipCard
             front="Scalablility"
             back={StyleSDScalable}
-            height="25rem"
+            height="30rem"
             width="100%"
           />
         </div>
@@ -205,14 +205,14 @@ export const StyleSoftwareDevelopmentContent: React.ReactNode = (
           <AnimatedFlipCard
               front="Simplicity"
               back={StyleSimplicity}
-              height="25rem"
+              height="30rem"
               width="100%"
             />
         
           <AnimatedFlipCard
             front="Test driven & user focused"
             back={StyleUserFocused}
-            height="25rem"
+            height="30ren"
             width="100%"
           />
         </div>
@@ -265,7 +265,7 @@ export const StyleCollaborationContent: React.ReactNode = (
           <AnimatedFlipCard
               front="Positivity"
               back={StyleCollabPositivity}
-              height="12rem"
+              height="14rem"
               width="100%"
           />
           <AnimatedFlipCard
@@ -280,7 +280,7 @@ export const StyleCollaborationContent: React.ReactNode = (
           <AnimatedFlipCard
             front="Communication"
             back={StyleCollabCommunication}
-            height="18rem"
+            height="20rem"
             width="100%"
           />
           <AnimatedFlipCard
@@ -343,7 +343,7 @@ export const StyleAIContent: React.ReactNode = (
               <AnimatedFlipCard
                 front="Taking ownership"
                 back={StyleAIOwnership}
-                height="27rem"
+                height="30rem"
                 width="100%"
               />
             </div>
@@ -359,7 +359,7 @@ export const StyleAIContent: React.ReactNode = (
               <AnimatedFlipCard
                 front="Thorough review of generated code"
                 back={StyleAIReview}
-                height="13rem"
+                height="16rem"
                 width="100%"
               />
             </div>
