@@ -372,8 +372,8 @@ export const CAPProjFront = (
             up to production.
             Over time, this created a large disparity between what was in staging and what was in
             production. We started running into errors where the SQL definition of a view would work
-            in staging, but not production because it relied on had changes that weren't in
-            production.
+            in staging, but not production because it relied on changes that hadn't been completely
+            promoted yet.
         </p>
         <h3>Fix:</h3>
         <p>
