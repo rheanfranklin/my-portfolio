@@ -30,7 +30,7 @@ function rateLimit(ip: string) {
 }
 
 export async function POST(req: Request) {
-const resend: Resend = new Resend(process.env.RESEND_API_KEY);
+  const resend: Resend = new Resend(process.env.RESEND_API_KEY);
   const ip =
     req.headers.get("x-forwarded-for") ||
     req.headers.get("x-real-ip") ||
@@ -88,7 +88,7 @@ const resend: Resend = new Resend(process.env.RESEND_API_KEY);
   }
 
   await resend.emails.send({
-    from: "Contact Form <contact@yourdomain.com>",
+    from: "Contact Form <onboarding@resend.dev>",
     to: contactEmailTo,
     subject: `New message from ${cleanName}`,
     html: `
@@ -99,7 +99,8 @@ const resend: Resend = new Resend(process.env.RESEND_API_KEY);
       <p>${cleanMessage}</p>
       <p><strong>IP:</strong> ${ip}</p>
     `,
-  });
+});
+
 
   // Send SMS
   // await twilioClient.messages.create({
