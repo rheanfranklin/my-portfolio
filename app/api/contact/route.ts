@@ -46,9 +46,11 @@ export async function POST(req: Request) {
 
     console.log("Sanitized:", { cleanName, cleanEmail, cleanMessage });
 
+    const contactEmailTo = process.env.CONTACT_EMAIL_TO ?? "";
+    
     const result = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL_TO,
+      to: contactEmailTo,
       subject: `New message from ${cleanName}`,
       html: `<p>${cleanMessage}</p>`,
     });
