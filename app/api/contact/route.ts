@@ -88,7 +88,7 @@ const resend: Resend = new Resend(process.env.RESEND_API_KEY);
   }
 
   await resend.emails.send({
-    from: "Contact Form <contact@yourdomain.com>",
+    from: "Contact Form <onboarding@resend.dev>",
     to: contactEmailTo,
     subject: `New message from ${cleanName}`,
     html: `
