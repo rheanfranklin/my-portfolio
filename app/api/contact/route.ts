@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import sanitizeHtml from "sanitize-html";
+import validator from "validator";
 
 // --- Simple in-memory rate limit (per IP) ---
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
@@ -45,20 +45,9 @@ export async function POST(req: Request) {
     }
 
     // --- Sanitization (Amplify-safe) ---
-    const cleanName = sanitizeHtml(String(name || ""), {
-      allowedTags: [],
-      allowedAttributes: {},
-    }).trim();
-
-    const cleanEmail = sanitizeHtml(String(email || ""), {
-      allowedTags: [],
-      allowedAttributes: {},
-    }).trim();
-
-    const cleanMessage = sanitizeHtml(String(message || ""), {
-      allowedTags: ["b", "i", "em", "strong", "p", "br"],
-      allowedAttributes: {},
-    }).trim();
+    const cleanName = validator.escape(String(name || "").trim());
+    const cleanEmail = validator.escape(String(email || "").trim());
+    const cleanMessage = validator.escape(String(message || "").trim());
 
     // Validation
     if (!cleanName || !cleanEmail || !cleanMessage) {
