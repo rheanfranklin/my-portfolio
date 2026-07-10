@@ -1,14 +1,5 @@
 import { NextResponse } from "next/server";
-import DOMPurify from "isomorphic-dompurify";
-import { Resend } from "resend";
-// import twilio from "twilio";
-
-// --- Email + SMS clients ---
-
-// const twilioClient = twilio(
-//   process.env.TWILIO_SID,
-//   process.env.TWILIO_AUTH_TOKEN
-// );
+import sanitizeHtml from "sanitize-html";
 
 // --- Simple in-memory rate limit (per IP) ---
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
@@ -29,91 +20,121 @@ function rateLimit(ip: string) {
   return true;
 }
 
-// export async function POST(req: Request) {
-//   console.log("API ROUTE LOADED"); // this should print in CloudWatch
-//   return NextResponse.json({ ok: true });
-// }
-
 export async function POST(req: Request) {
-  const test = process.env.RESEND_API_KEY
-  // const resend: Resend = new Resend(process.env.RESEND_API_KEY);
-  // const ip =
-  //   req.headers.get("x-forwarded-for") ||
-  //   req.headers.get("x-real-ip") ||
-  //   "unknown";
+  try {
+    console.log("Starting contact route");
 
-  // // --- Rate limit check ---
-  // if (!rateLimit(ip)) {
-  //   return NextResponse.json(
-  //     { error: "Too many requests" },
-  //     { status: 429 }
-  //   );
-  // }
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
-  // const { name, email, message, hellobot } = await req.json();
+    // --- Rate limit check ---
+    if (!rateLimit(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests" },
+        { status: 429 }
+      );
+    }
 
-  // // Honeypot to catch bots
-  // if (hellobot) {
-  //   return NextResponse.json({ success: true });
-  // }
+    const { name, email, message, hellobot } = await req.json();
 
-  // // Sanitize
-  // const cleanName = DOMPurify.sanitize(name);
-  // const cleanEmail = DOMPurify.sanitize(email);
-  // const cleanMessage = DOMPurify.sanitize(message);
+    // Honeypot to catch bots
+    if (hellobot) {
+      return NextResponse.json({ success: true });
+    }
 
-  // // Validation
-  // if (!cleanName || !cleanEmail || !cleanMessage) {
-  //   return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  // }
+    // --- Sanitization (Amplify-safe) ---
+    const cleanName = sanitizeHtml(String(name || ""), {
+      allowedTags: [],
+      allowedAttributes: {},
+    }).trim();
 
-  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-  //   return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-  // }
+    const cleanEmail = sanitizeHtml(String(email || ""), {
+      allowedTags: [],
+      allowedAttributes: {},
+    }).trim();
 
-  // if (cleanMessage.length > 2000) {
-  //   return NextResponse.json({ error: "Message too long" }, { status: 400 });
-  // }
+    const cleanMessage = sanitizeHtml(String(message || ""), {
+      allowedTags: ["b", "i", "em", "strong", "p", "br"],
+      allowedAttributes: {},
+    }).trim();
 
-  // Log for debugging
-//   console.log("New contact form submission:", {
-//     name: cleanName,
-//     email: cleanEmail,
-//     message: cleanMessage,
-//     ip,
-//   });
+    // Validation
+    if (!cleanName || !cleanEmail || !cleanMessage) {
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    }
 
-//   // Send Email
-//   const contactEmailTo = process.env.CONTACT_EMAIL_TO;
-//   if (!contactEmailTo) {
-//     console.error("Missing CONTACT_EMAIL_TO env var");
-//     return NextResponse.json(
-//       { error: "Email destination not configured" },
-//       { status: 501 }
-//     );
-//   }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
 
-//   await resend.emails.send({
-//     from: "Contact Form <onboarding@resend.dev>",
-//     to: contactEmailTo,
-//     subject: `New message from ${cleanName}`,
-//     html: `
-//       <h2>New Contact Form Submission</h2>
-//       <p><strong>Name:</strong> ${cleanName}</p>
-//       <p><strong>Email:</strong> ${cleanEmail}</p>
-//       <p><strong>Message:</strong></p>
-//       <p>${cleanMessage}</p>
-//       <p><strong>IP:</strong> ${ip}</p>
-//     `,
-// });
+    if (cleanMessage.length > 2000) {
+      return NextResponse.json({ error: "Message too long" }, { status: 400 });
+    }
 
+    console.log("New contact form submission:", {
+      name: cleanName,
+      email: cleanEmail,
+      message: cleanMessage,
+      ip,
+    });
 
-  // Send SMS
-  // await twilioClient.messages.create({
-  //   body: `New contact form message from ${cleanName} (${cleanEmail}).`,
-  //   from: process.env.TWILIO_PHONE_FROM,
-  //   to: process.env.TWILIO_PHONE_TO,
-  // });
+    // --- Email destination ---
+    const contactEmailTo = process.env.CONTACT_EMAIL_TO;
+    if (!contactEmailTo) {
+      console.error("Missing CONTACT_EMAIL_TO env var");
+      return NextResponse.json(
+        { error: "Email destination not configured" },
+        { status: 501 }
+      );
+    }
 
-  return NextResponse.json({ success: true });
+    // --- Resend REST API (Amplify-safe) ---
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("Missing RESEND_API_KEY env var");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 501 }
+      );
+    }
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Contact Form <onboarding@resend.dev>",
+        to: contactEmailTo,
+        subject: `New message from ${cleanName}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${cleanName}</p>
+          <p><strong>Email:</strong> ${cleanEmail}</p>
+          <p><strong>Message:</strong></p>
+          <p>${cleanMessage}</p>
+          <p><strong>IP:</strong> ${ip}</p>
+        `,
+      }),
+    });
+
+    const resultJson = await emailResponse.json();
+    console.log("Resend REST result:", resultJson);
+
+    if (!emailResponse.ok) {
+      console.error("Resend REST API error:", resultJson);
+      return NextResponse.json(
+        { error: "Failed to send email", details: resultJson },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("CONTACT ROUTE ERROR:", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
 }
