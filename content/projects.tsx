@@ -128,6 +128,13 @@ export const CalendarProjBack = (
     </div>
 );
 
+// CircuitSim
+export const CircuitSimFront = (
+    <div>
+        
+    </div>
+);
+
 // ping pong game
 export const PingProjFront = (
     <div>
