@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 // import DOMPurify from "isomorphic-dompurify";
-// import { Resend } from "resend";
+import { Resend } from "resend";
 // import twilio from "twilio";
 
 // --- Email + SMS clients ---
