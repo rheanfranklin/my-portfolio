@@ -28,55 +28,53 @@ function rateLimit(ip: string) {
   ipHits.set(ip, recent);
   return true;
 }
-// REMOVE DOMPurify COMPLETELY
-// REMOVE Resend COMPLETELY
-
-export async function POST(req: Request) {
-  console.log("API ROUTE LOADED"); // this should print in CloudWatch
-  return NextResponse.json({ ok: true });
-}
 
 // export async function POST(req: Request) {
-//   const resend: Resend = new Resend(process.env.RESEND_API_KEY);
-//   const ip =
-//     req.headers.get("x-forwarded-for") ||
-//     req.headers.get("x-real-ip") ||
-//     "unknown";
+//   console.log("API ROUTE LOADED"); // this should print in CloudWatch
+//   return NextResponse.json({ ok: true });
+// }
 
-//   // --- Rate limit check ---
-//   if (!rateLimit(ip)) {
-//     return NextResponse.json(
-//       { error: "Too many requests" },
-//       { status: 429 }
-//     );
-//   }
+export async function POST(req: Request) {
+  const resend: Resend = new Resend(process.env.RESEND_API_KEY);
+  const ip =
+    req.headers.get("x-forwarded-for") ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
 
-//   const { name, email, message, hellobot } = await req.json();
+  // --- Rate limit check ---
+  if (!rateLimit(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      { status: 429 }
+    );
+  }
 
-//   // Honeypot to catch bots
-//   if (hellobot) {
-//     return NextResponse.json({ success: true });
-//   }
+  const { name, email, message, hellobot } = await req.json();
 
-//   // Sanitize
-//   const cleanName = DOMPurify.sanitize(name);
-//   const cleanEmail = DOMPurify.sanitize(email);
-//   const cleanMessage = DOMPurify.sanitize(message);
+  // Honeypot to catch bots
+  if (hellobot) {
+    return NextResponse.json({ success: true });
+  }
 
-//   // Validation
-//   if (!cleanName || !cleanEmail || !cleanMessage) {
-//     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-//   }
+  // Sanitize
+  const cleanName = DOMPurify.sanitize(name);
+  const cleanEmail = DOMPurify.sanitize(email);
+  const cleanMessage = DOMPurify.sanitize(message);
 
-//   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-//     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-//   }
+  // Validation
+  if (!cleanName || !cleanEmail || !cleanMessage) {
+    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+  }
 
-//   if (cleanMessage.length > 2000) {
-//     return NextResponse.json({ error: "Message too long" }, { status: 400 });
-//   }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
 
-//   // Log for debugging
+  if (cleanMessage.length > 2000) {
+    return NextResponse.json({ error: "Message too long" }, { status: 400 });
+  }
+
+  // Log for debugging
 //   console.log("New contact form submission:", {
 //     name: cleanName,
 //     email: cleanEmail,
@@ -109,12 +107,12 @@ export async function POST(req: Request) {
 // });
 
 
-//   // Send SMS
-//   // await twilioClient.messages.create({
-//   //   body: `New contact form message from ${cleanName} (${cleanEmail}).`,
-//   //   from: process.env.TWILIO_PHONE_FROM,
-//   //   to: process.env.TWILIO_PHONE_TO,
-//   // });
+  // Send SMS
+  // await twilioClient.messages.create({
+  //   body: `New contact form message from ${cleanName} (${cleanEmail}).`,
+  //   from: process.env.TWILIO_PHONE_FROM,
+  //   to: process.env.TWILIO_PHONE_TO,
+  // });
 
-//   return NextResponse.json({ success: true });
-// }
+  return NextResponse.json({ success: true });
+}
