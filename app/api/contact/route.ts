@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import validator from "validator";
 
 // --- Simple in-memory rate limit (per IP) ---
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
@@ -18,6 +17,16 @@ function rateLimit(ip: string) {
   recent.push(now);
   ipHits.set(ip, recent);
   return true;
+}
+
+// --- Safe HTML escape (Amplify-compatible) ---
+function escapeHtml(input: string) {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
 }
 
 export async function POST(req: Request) {
@@ -45,9 +54,9 @@ export async function POST(req: Request) {
     }
 
     // --- Sanitization (Amplify-safe) ---
-    const cleanName = validator.escape(String(name || "").trim());
-    const cleanEmail = validator.escape(String(email || "").trim());
-    const cleanMessage = validator.escape(String(message || "").trim());
+    const cleanName = escapeHtml(String(name || "").trim());
+    const cleanEmail = escapeHtml(String(email || "").trim());
+    const cleanMessage = escapeHtml(String(message || "").trim());
 
     // Validation
     if (!cleanName || !cleanEmail || !cleanMessage) {
