@@ -36,43 +36,43 @@ function rateLimit(ip: string) {
 
 export async function POST(req: Request) {
   const resend: Resend = new Resend(process.env.RESEND_API_KEY);
-  const ip =
-    req.headers.get("x-forwarded-for") ||
-    req.headers.get("x-real-ip") ||
-    "unknown";
+  // const ip =
+  //   req.headers.get("x-forwarded-for") ||
+  //   req.headers.get("x-real-ip") ||
+  //   "unknown";
 
-  // --- Rate limit check ---
-  if (!rateLimit(ip)) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      { status: 429 }
-    );
-  }
+  // // --- Rate limit check ---
+  // if (!rateLimit(ip)) {
+  //   return NextResponse.json(
+  //     { error: "Too many requests" },
+  //     { status: 429 }
+  //   );
+  // }
 
-  const { name, email, message, hellobot } = await req.json();
+  // const { name, email, message, hellobot } = await req.json();
 
-  // Honeypot to catch bots
-  if (hellobot) {
-    return NextResponse.json({ success: true });
-  }
+  // // Honeypot to catch bots
+  // if (hellobot) {
+  //   return NextResponse.json({ success: true });
+  // }
 
-  // Sanitize
-  const cleanName = DOMPurify.sanitize(name);
-  const cleanEmail = DOMPurify.sanitize(email);
-  const cleanMessage = DOMPurify.sanitize(message);
+  // // Sanitize
+  // const cleanName = DOMPurify.sanitize(name);
+  // const cleanEmail = DOMPurify.sanitize(email);
+  // const cleanMessage = DOMPurify.sanitize(message);
 
-  // Validation
-  if (!cleanName || !cleanEmail || !cleanMessage) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  }
+  // // Validation
+  // if (!cleanName || !cleanEmail || !cleanMessage) {
+  //   return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+  // }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-  }
+  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+  //   return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  // }
 
-  if (cleanMessage.length > 2000) {
-    return NextResponse.json({ error: "Message too long" }, { status: 400 });
-  }
+  // if (cleanMessage.length > 2000) {
+  //   return NextResponse.json({ error: "Message too long" }, { status: 400 });
+  // }
 
   // Log for debugging
 //   console.log("New contact form submission:", {
