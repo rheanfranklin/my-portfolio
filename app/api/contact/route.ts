@@ -83,7 +83,7 @@ export async function POST(req: Request) {
     console.error("Missing CONTACT_EMAIL_TO env var");
     return NextResponse.json(
       { error: "Email destination not configured" },
-      { status: 500 }
+      { status: 501 }
     );
   }
 
