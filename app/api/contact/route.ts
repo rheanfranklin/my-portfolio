@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import DOMPurify from "isomorphic-dompurify";
-import { Resend } from "resend";
+// import DOMPurify from "isomorphic-dompurify";
+// import { Resend } from "resend";
 // import twilio from "twilio";
 
 // --- Email + SMS clients ---
@@ -28,119 +28,93 @@ function rateLimit(ip: string) {
   ipHits.set(ip, recent);
   return true;
 }
+// REMOVE DOMPurify COMPLETELY
+// REMOVE Resend COMPLETELY
 
 export async function POST(req: Request) {
-  try {
-    console.log("Starting contact route");
-
-    const resend: Resend = new Resend(process.env.RESEND_API_KEY);
-    console.log("Resend initialized");
-
-    const body = await req.json();
-    console.log("Body:", body);
-
-    // TEMP: disable DOMPurify
-    const cleanName = body.name;
-    const cleanEmail = body.email;
-    const cleanMessage = body.message;
-
-    console.log("Sanitized:", { cleanName, cleanEmail, cleanMessage });
-
-    const contactEmailTo = process.env.CONTACT_EMAIL_TO ?? "";
-    
-    const result = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: contactEmailTo,
-      subject: `New message from ${cleanName}`,
-      html: `<p>${cleanMessage}</p>`,
-    });
-
-    console.log("Resend result:", result);
-
-    return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error("CONTACT ROUTE ERROR:", err);
-    return NextResponse.json({ error: String(err) }, { status: 500 });
-  }
-
-  const resend: Resend = new Resend(process.env.RESEND_API_KEY);
-  const ip =
-    req.headers.get("x-forwarded-for") ||
-    req.headers.get("x-real-ip") ||
-    "unknown";
-
-  // --- Rate limit check ---
-  if (!rateLimit(ip)) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      { status: 429 }
-    );
-  }
-
-  const { name, email, message, hellobot } = await req.json();
-
-  // Honeypot to catch bots
-  if (hellobot) {
-    return NextResponse.json({ success: true });
-  }
-
-  // Sanitize
-  const cleanName = DOMPurify.sanitize(name);
-  const cleanEmail = DOMPurify.sanitize(email);
-  const cleanMessage = DOMPurify.sanitize(message);
-
-  // Validation
-  if (!cleanName || !cleanEmail || !cleanMessage) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-  }
-
-  if (cleanMessage.length > 2000) {
-    return NextResponse.json({ error: "Message too long" }, { status: 400 });
-  }
-
-  // Log for debugging
-  console.log("New contact form submission:", {
-    name: cleanName,
-    email: cleanEmail,
-    message: cleanMessage,
-    ip,
-  });
-
-  // Send Email
-  const contactEmailTo = process.env.CONTACT_EMAIL_TO;
-  if (!contactEmailTo) {
-    console.error("Missing CONTACT_EMAIL_TO env var");
-    return NextResponse.json(
-      { error: "Email destination not configured" },
-      { status: 501 }
-    );
-  }
-
-  await resend.emails.send({
-    from: "Contact Form <onboarding@resend.dev>",
-    to: contactEmailTo,
-    subject: `New message from ${cleanName}`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${cleanName}</p>
-      <p><strong>Email:</strong> ${cleanEmail}</p>
-      <p><strong>Message:</strong></p>
-      <p>${cleanMessage}</p>
-      <p><strong>IP:</strong> ${ip}</p>
-    `,
-});
-
-
-  // Send SMS
-  // await twilioClient.messages.create({
-  //   body: `New contact form message from ${cleanName} (${cleanEmail}).`,
-  //   from: process.env.TWILIO_PHONE_FROM,
-  //   to: process.env.TWILIO_PHONE_TO,
-  // });
-
-  return NextResponse.json({ success: true });
+  console.log("API ROUTE LOADED"); // this should print in CloudWatch
+  return NextResponse.json({ ok: true });
 }
+
+// export async function POST(req: Request) {
+//   const resend: Resend = new Resend(process.env.RESEND_API_KEY);
+//   const ip =
+//     req.headers.get("x-forwarded-for") ||
+//     req.headers.get("x-real-ip") ||
+//     "unknown";
+
+//   // --- Rate limit check ---
+//   if (!rateLimit(ip)) {
+//     return NextResponse.json(
+//       { error: "Too many requests" },
+//       { status: 429 }
+//     );
+//   }
+
+//   const { name, email, message, hellobot } = await req.json();
+
+//   // Honeypot to catch bots
+//   if (hellobot) {
+//     return NextResponse.json({ success: true });
+//   }
+
+//   // Sanitize
+//   const cleanName = DOMPurify.sanitize(name);
+//   const cleanEmail = DOMPurify.sanitize(email);
+//   const cleanMessage = DOMPurify.sanitize(message);
+
+//   // Validation
+//   if (!cleanName || !cleanEmail || !cleanMessage) {
+//     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+//   }
+
+//   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+//     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+//   }
+
+//   if (cleanMessage.length > 2000) {
+//     return NextResponse.json({ error: "Message too long" }, { status: 400 });
+//   }
+
+//   // Log for debugging
+//   console.log("New contact form submission:", {
+//     name: cleanName,
+//     email: cleanEmail,
+//     message: cleanMessage,
+//     ip,
+//   });
+
+//   // Send Email
+//   const contactEmailTo = process.env.CONTACT_EMAIL_TO;
+//   if (!contactEmailTo) {
+//     console.error("Missing CONTACT_EMAIL_TO env var");
+//     return NextResponse.json(
+//       { error: "Email destination not configured" },
+//       { status: 501 }
+//     );
+//   }
+
+//   await resend.emails.send({
+//     from: "Contact Form <onboarding@resend.dev>",
+//     to: contactEmailTo,
+//     subject: `New message from ${cleanName}`,
+//     html: `
+//       <h2>New Contact Form Submission</h2>
+//       <p><strong>Name:</strong> ${cleanName}</p>
+//       <p><strong>Email:</strong> ${cleanEmail}</p>
+//       <p><strong>Message:</strong></p>
+//       <p>${cleanMessage}</p>
+//       <p><strong>IP:</strong> ${ip}</p>
+//     `,
+// });
+
+
+//   // Send SMS
+//   // await twilioClient.messages.create({
+//   //   body: `New contact form message from ${cleanName} (${cleanEmail}).`,
+//   //   from: process.env.TWILIO_PHONE_FROM,
+//   //   to: process.env.TWILIO_PHONE_TO,
+//   // });
+
+//   return NextResponse.json({ success: true });
+// }
