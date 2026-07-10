@@ -30,6 +30,37 @@ function rateLimit(ip: string) {
 }
 
 export async function POST(req: Request) {
+  try {
+    console.log("Starting contact route");
+
+    const resend: Resend = new Resend(process.env.RESEND_API_KEY);
+    console.log("Resend initialized");
+
+    const body = await req.json();
+    console.log("Body:", body);
+
+    // TEMP: disable DOMPurify
+    const cleanName = body.name;
+    const cleanEmail = body.email;
+    const cleanMessage = body.message;
+
+    console.log("Sanitized:", { cleanName, cleanEmail, cleanMessage });
+
+    const result = await resend.emails.send({
+      from: "Contact Form <onboarding@resend.dev>",
+      to: process.env.CONTACT_EMAIL_TO,
+      subject: `New message from ${cleanName}`,
+      html: `<p>${cleanMessage}</p>`,
+    });
+
+    console.log("Resend result:", result);
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("CONTACT ROUTE ERROR:", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
+
   const resend: Resend = new Resend(process.env.RESEND_API_KEY);
   const ip =
     req.headers.get("x-forwarded-for") ||
