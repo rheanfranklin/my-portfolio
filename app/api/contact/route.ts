@@ -22,11 +22,11 @@ function rateLimit(ip: string) {
 // --- Safe HTML escape (Amplify-compatible) ---
 function escapeHtml(input: string) {
   return input
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#x27;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("\"", "&quot;")
+    .replaceAll("'", "&#x27;");
 }
 
 export async function POST(req: Request) {
