@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-// import DOMPurify from "isomorphic-dompurify";
+import DOMPurify from "isomorphic-dompurify";
 import { Resend } from "resend";
 // import twilio from "twilio";
 
