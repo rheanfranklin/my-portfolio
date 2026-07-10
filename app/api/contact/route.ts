@@ -35,7 +35,7 @@ function rateLimit(ip: string) {
 // }
 
 export async function POST(req: Request) {
-  const resend: Resend = new Resend(process.env.RESEND_API_KEY);
+  // const resend: Resend = new Resend(process.env.RESEND_API_KEY);
   // const ip =
   //   req.headers.get("x-forwarded-for") ||
   //   req.headers.get("x-real-ip") ||
