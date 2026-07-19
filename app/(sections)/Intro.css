@@ -28,7 +28,7 @@
 }
 
 .intro-name {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-style: normal;
     text-align: left;
     font-family: "Humanoid Font", sans-serif;
@@ -41,7 +41,7 @@
     color: var(--color-accent-pink-dark);
     font-size: 1.6rem;
     text-shadow: var(--text-shadow);
-    font-weight: bold;
+    font-weight: lighter;
     text-align: left;
 }
 
