@@ -6,7 +6,7 @@ export const IntroContentText: React.ReactNode = <p className="intro-text rainbo
     <span className="text-accent-pink-dark">//</span>hello, my name is
 </p>;
 
-export const Name: React.ReactNode = <p className="intro-name rainbow-hover">RHEANNON FRANKLIN</p>
+export const Name: React.ReactNode = <p className="intro-name rainbow-hover">Rheannon Franklin</p>
 
 export const Title: React.ReactNode = <p className="intro-job rainbow-hover">&gt; Full Stack Software Engineer</p>
 

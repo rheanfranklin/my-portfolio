@@ -8,9 +8,11 @@
 @import "@fontsource/ibm-plex-mono";
 @import "@fontsource/fira-code";
 @import "@fontsource/share-tech-mono";
+@import "@fontsource/playfair-display";
+@import "@fontsource/playfair-display/900.css";
 @import "tailwindcss";
 
-
+/* color: rgb(185, 155, 255) */
 
 /* #ACAECB */
 /* 8ce9ff  81e4fc */ 
@@ -40,6 +42,21 @@
     background-position: -200% 0%;
   }
 }
+
+@font-face {
+  font-family: "Blox Font";
+  src: url("/fonts/Blox2.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Humanoid Font";
+  src: url("/fonts/HumanoidStraight.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
 
 :root {
   --font-size-std: 0.875rem;

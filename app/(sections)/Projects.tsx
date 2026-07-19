@@ -2,7 +2,31 @@
 
 import "./Projects.css"
 import AnimatedSection from "../components/AnimatedSection";
-import { CatAnimationProjBack, CatAnimationProjFront, SQLViewDeployerBack, SQLViewDeployerFront, InfrastructureReworkProjBack, InfrastructureReworkProjFront, PortfolioProjBack, PortfolioProjFront, TransitionProjFront, TransitionProjBack, CAPProjFront, CAPProjBack, OtherThingsProjFront, OtherThingsProjBack, DungeonGameProjFront, DungeonGameProjBack, CalendarProjBack, CalendarProjFront, PingProjFront, PingProjBack } from "@/content/projects";
+import {
+    CatAnimationProjBack,
+    CatAnimationProjFront,
+    SQLViewDeployerBack,
+    SQLViewDeployerFront,
+    InfrastructureReworkProjBack,
+    InfrastructureReworkProjFront,
+    PortfolioProjBack,
+    PortfolioProjFront,
+    TransitionProjFront,
+    TransitionProjBack,
+    CAPProjFront,
+    CAPProjBack,
+    OtherThingsProjFront,
+    OtherThingsProjBack,
+    DungeonGameProjFront,
+    DungeonGameProjBack,
+    CalendarProjBack,
+    CalendarProjFront,
+    PingProjFront,
+    PingProjBack,
+    BudgetProjBack,
+    BudgetProjFront,
+
+} from "@/content/projects";
 import { fadeUp } from "@/lib/animations/fade";
 import AnimatedFlipCard from "../components/AnimatedFlipCard";
 
@@ -23,21 +47,28 @@ function personalProjects(): React.ReactNode {
                 <h2>Personal Projects</h2>
             </AnimatedSection>
             {/* Cards */}
-            <div className="card-grid">
+            <div className="personal-grid">
                 {/* Portfolio */}
                 <AnimatedFlipCard
                     front={PortfolioProjFront}
                     back={PortfolioProjBack}
-                    height="20rem"
+                    height="22rem"
+                    width="100%"
+                />
+                {/* Excel budget */}
+                <AnimatedFlipCard
+                    front={BudgetProjFront}
+                    back={BudgetProjBack}
+                    height="22rem"
                     width="100%"
                 />
                 {/* Cat animation */}
-                <AnimatedFlipCard
+                {/* <AnimatedFlipCard
                     front={CatAnimationProjFront}
                     back={CatAnimationProjBack}
                     height="20rem"
                     width="100%"
-                />
+                /> */}
             </div>
         </div>
     );
@@ -138,13 +169,20 @@ function factsetProjects(): React.ReactNode {
     );
 }
 
+
+function johnsonProjects(): React.ReactNode {
+    return (
+        <div className="section">
+        </div>
+    )
+}
 export default function Projects() {
     return (
         <div className="container-box projects">
             {projectsHeader()}
             {personalProjects()}
-            {/* <hr/>
-            {universityProjects()} */}
+            <hr/>
+            {universityProjects()}
             <hr/>
             {factsetProjects()}
             <div className="footer-padding"/>

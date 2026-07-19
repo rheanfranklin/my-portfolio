@@ -89,6 +89,13 @@
     gap: 1rem;
 }
 
+.projects .section .personal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1rem;
+}
+
+
 .projects .card-grid .card-col {
     display: flex;
     flex-direction: column;

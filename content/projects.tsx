@@ -54,6 +54,54 @@ export const PortfolioProjBack = (
     </div>
 );
 
+// Budget
+export const BudgetProjFront = (
+    <div className="budget">
+        <h2>Excel Budget</h2>
+        <h3>Summary:</h3>
+        <p>
+            I wanted to be able to make long term plans for my finances and so I could get a timeline for large purchases.(e.g. buying a house, or car).
+            I was already thoroughly familiar with Excel & VBA after my time at Johnson & Johnson, so I gravitated towards using
+            that as a solution. Over the years, I gradually built upon that spreadsheet until I had a full-fledged budget that incorporated the use
+            of a local postgresql database to store all budget-related data alongside various metrics & graphs  to fully understand my finances.
+        </p>
+    </div>
+);
+
+export const BudgetProjBack = (
+    <div>
+        <h3>Tech Stack:</h3>
+        <div className="tech-stack">
+            {/* First col */}
+            <div>
+                <h4>Languages:</h4>
+                <ul>
+                    <li>
+                        VBA
+                    </li>
+                    <li>
+                        SQL
+                    </li>
+                </ul>
+            </div>
+            {/* Second col */}
+            <div>
+                <h4>Tools:</h4>
+                <ul>
+                    <li>
+                        Excel
+                    </li>
+                    <li>
+                        PostgreSQL
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3>GitHub Repo</h3>
+        <p>See excel file & VBA code <a href="https://github.com/rheanfranklin/excel-budget" className="link" target="_blank">here</a>.</p>
+    </div>
+);
+
 // Cat animation
 export const CatAnimationProjFront = (
     <div className="cat-animation">
