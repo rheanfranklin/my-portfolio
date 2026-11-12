@@ -10,6 +10,7 @@ import {
     IntroContentText,
     Name,
     Title,
+    Description,
     WelcomeMessage,
     OpenToWork,
     OpenToRelocate,
@@ -27,6 +28,7 @@ const IntroSubsection: React.ReactNode = (
         <AnimatedText>{IntroContentText}</AnimatedText>
         <AnimatedText>{Name}</AnimatedText>
         <AnimatedText>{Title}</AnimatedText>
+        <AnimatedText>{Description}</AnimatedText>
 
         <div className="p-10" /> {/* Padding */}
 
