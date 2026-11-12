@@ -40,7 +40,7 @@ const IntroSubsection: React.ReactNode = (
                     </div>
             </AnimatedText>
         </AnimatedSection>
-        <AnimatedText>{OpenToRelocate}</AnimatedText>
+        {/* <AnimatedText>{OpenToRelocate}</AnimatedText> */}
     </div>
 );
 
