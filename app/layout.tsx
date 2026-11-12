@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import BackgroundVideo from "./components/BackgroundVideo";
 import Footer from "./components/Footer";
+import WindowLogger from "./components/WindowLogger";
 
 export const metadata: Metadata = {
   title: "Rheannon Franklin Portfolio",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="page relative">
+        <WindowLogger />
         <BackgroundVideo />
         <Navbar />
         {children}

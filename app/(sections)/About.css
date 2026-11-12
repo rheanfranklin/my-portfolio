@@ -170,7 +170,7 @@
 }
 
 /* Updating formatting for mobile/small screens */
-@media (max-width: 639px) {
+@media (min-width: 1276px) {
     .about .detail-container-2-col {
         grid-template-columns: 1fr;
         gap: 1rem;
