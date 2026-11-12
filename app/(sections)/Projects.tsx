@@ -25,6 +25,8 @@ import {
     PingProjBack,
     BudgetProjBack,
     BudgetProjFront,
+    CircuitSimProjFront,
+    CircuitSimProjBack,
 
 } from "@/content/projects";
 import { fadeUp } from "@/lib/animations/fade";
@@ -85,17 +87,17 @@ function universityProjects(): React.ReactNode {
             <div className="card-grid">
                 {/* First column */}
                 <div className="card-col">
+                    {/* CircuitSim */}
+                    <AnimatedFlipCard
+                        front={CircuitSimProjFront}
+                        back={CircuitSimProjBack}
+                        height="23rem"
+                        width="100%"
+                    />
                     {/* Dungeon crawler game */}
                     <AnimatedFlipCard
                         front={DungeonGameProjFront}
                         back={DungeonGameProjBack}
-                        height="20rem"
-                        width="100%"
-                    />
-                    {/* Calendar */}
-                    <AnimatedFlipCard
-                        front={CalendarProjFront}
-                        back={CalendarProjBack}
                         height="20rem"
                         width="100%"
                     />
@@ -106,6 +108,13 @@ function universityProjects(): React.ReactNode {
                     <AnimatedFlipCard
                         front={PingProjFront}
                         back={PingProjBack}
+                        height="20rem"
+                        width="100%"
+                    />
+                    {/* Calendar */}
+                    <AnimatedFlipCard
+                        front={CalendarProjFront}
+                        back={CalendarProjBack}
                         height="20rem"
                         width="100%"
                     />
@@ -181,8 +190,8 @@ export default function Projects() {
         <div className="container-box projects">
             {projectsHeader()}
             {personalProjects()}
-            {/* <hr/>
-            {universityProjects()} */}
+            <hr/>
+            {universityProjects()}
             <hr/>
             {factsetProjects()}
             <div className="footer-padding"/>

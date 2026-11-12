@@ -1,0 +1,32 @@
+.circuit-sim h2 {
+    font-size: 1.25rem;
+    color: var(--color-accent-pink-dark);
+    text-shadow: -3px 3px 0 black;
+    font-weight: bolder;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    text-transform: none;
+}
+
+.circuit-sim figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-brand-dark);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.circuit-sim .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem;
+    gap: 1.5rem;
+    grid-auto-rows: min-content;
+}
+
+.circuit-sim .section .col {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}

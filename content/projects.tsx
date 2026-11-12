@@ -189,6 +189,54 @@ export const PingProjBack = (
     </div>
 );
 
+// circuit sim
+export const CircuitSimProjFront = (
+    <div className="circuit-sim">
+        {/* Title */}
+        <h2>Circuit Sim</h2>
+        {/* Card description */}
+        <div className="description">
+            <h3>Summary:</h3>
+            <p>
+                In my computer organization class, where we learned about basic computer hardware, machine language, & assembly,
+                we were tasked with using a circuit simulator to build a virtual LC3 (little computer 3) from scratch throughout
+                the course. We started with building basic logic gates, using those gates to build adders, which were then used to
+                build ALUs, and so on until we were able to build a fully functioning virtual computer in the CircuitSim that could
+                run assembly code.
+                
+            </p>
+        </div>
+    </div>
+);
+
+export const CircuitSimProjBack = (
+    <div>
+        <h3>Tech stack:</h3>
+        <div className="tech-stack">
+            {/* First col */}
+            <div>
+                <h4>Languages:</h4>
+                <ul>
+                    <li>
+                        Assembly
+                    </li>
+                </ul>
+            </div>
+            {/* Second col */} 
+            <div>
+                <h4>Tools:</h4>
+                <ul>
+                    <li>
+                        CircuitSim
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3>View:</h3>
+        <p>See screenshots of the different circuits I built <a href="/circuit-sim" target="_blank" rel="noopener noreferrer" className="link">here</a>.</p>
+    </div>
+);
+
 
 //
 // FactSet Projects
