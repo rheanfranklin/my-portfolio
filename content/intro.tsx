@@ -15,7 +15,7 @@ export const WelcomeMessage: React.ReactNode = <p className="intro-welcome rainb
 </p>;
 
 export const OpenToWork: React.ReactNode = <p className="rounded-container-text rainbow-hover">
-    &nbsp;IT BI Analyst & Develop &middot; City of Groton Utilities &middot; CT, USA;
+    &nbsp;IT BI Analyst & Developer &middot; City of Groton Utilities &middot; CT, USA;
 </p>;
 
 export const OpenToRelocate: React.ReactNode = <p className="intro-open-message rainbow-hover">
