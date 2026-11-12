@@ -10,12 +10,14 @@ export const Name: React.ReactNode = <p className="intro-name rainbow-hover">Rhe
 
 export const Title: React.ReactNode = <p className="intro-job rainbow-hover">&gt; Full Stack Software Engineer</p>
 
+export const Description: React.ReactNode = <p className="intro-text rainbow-hover">with a specialization in automation and ETL pipeline management</p>
+
 export const WelcomeMessage: React.ReactNode = <p className="intro-welcome rainbow-hover">
     Welcome to my portfolio! Feel free to take a look around :D
 </p>;
 
 export const OpenToWork: React.ReactNode = <p className="rounded-container-text rainbow-hover">
-    &nbsp;IT BI Analyst & Developer &middot; City of Groton Utilities &middot; CT, USA;
+    &nbsp;IT BI Analyst & Developer &middot; CT, USA &middot; City of Groton Utilities
 </p>;
 
 export const OpenToRelocate: React.ReactNode = <p className="intro-open-message rainbow-hover">
