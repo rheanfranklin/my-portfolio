@@ -6,8 +6,8 @@ import { NAV_LINKS } from "@/app/components/Navbar";
 
 //
 export const AboutIntroContent: React.ReactNode = <p className="section-description">
-  Hello there! I'm so excited you're here! On this page you can find an in-depth description
-  of who I am, both as a person and an engineer, so you can know if I match what you're looking for.
+  Hello there! I'm so excited you're here! On this page you can find a more in-depth description
+  of who I am, both as a person and an engineer.
 </p>;
 
 //
