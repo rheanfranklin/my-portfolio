@@ -10,7 +10,7 @@ export const Name: React.ReactNode = <p className="intro-name rainbow-hover">Rhe
 
 export const Title: React.ReactNode = <p className="intro-job rainbow-hover">&gt; Full Stack Software Engineer</p>
 
-export const Description: React.ReactNode = <p className="intro-text rainbow-hover">with a specialization in automation and ETL pipeline management</p>
+export const Description: React.ReactNode = <p className="intro-description rainbow-hover">with a specialization in automation and ETL pipeline management</p>
 
 export const WelcomeMessage: React.ReactNode = <p className="intro-welcome rainbow-hover">
     Welcome to my portfolio! Feel free to take a look around :D
