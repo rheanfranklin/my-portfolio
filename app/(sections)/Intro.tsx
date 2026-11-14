@@ -10,9 +10,10 @@ import {
     IntroContentText,
     Name,
     Title,
+    Description,
     WelcomeMessage,
     OpenToWork,
-    OpenToRelocate,
+    // OpenToRelocate,
     CardOne,
     CardTwo,
     CardThree,
@@ -27,12 +28,13 @@ const IntroSubsection: React.ReactNode = (
         <AnimatedText>{IntroContentText}</AnimatedText>
         <AnimatedText>{Name}</AnimatedText>
         <AnimatedText>{Title}</AnimatedText>
+        <AnimatedText>{Description}</AnimatedText>
 
-        <div className="p-10" /> {/* Padding */}
+        {/* <div className="p-10" /> */}
 
-        <AnimatedText>{WelcomeMessage}</AnimatedText>
+        {/* <AnimatedText>{WelcomeMessage}</AnimatedText> */}
 
-        <div className="p-2" /> {/* Padding */}
+        <div className="p-2" />
         <AnimatedSection variants={fadeUp}>
             <AnimatedText>
                     <div className="rounded-container">
@@ -40,7 +42,7 @@ const IntroSubsection: React.ReactNode = (
                     </div>
             </AnimatedText>
         </AnimatedSection>
-        <AnimatedText>{OpenToRelocate}</AnimatedText>
+        {/* <AnimatedText>{OpenToRelocate}</AnimatedText> */}
     </div>
 );
 
@@ -73,7 +75,9 @@ const ResumeButton: React.ReactNode = (
 export function Intro() {
     return (
         <div className="container-box intro">
-            <div className="intro-section-padding" /> {/* Padding */}
+            {/* Padding */}
+            <div className="intro-section-padding" />
+            
             {/* Intro + Image */}
             <div className="intro-grid">
                 {/* Left column */}
@@ -82,16 +86,22 @@ export function Intro() {
                 {/* Right Column */}
                 {IntroImage}
             </div>
+            
+            {/* Padding */}
+            <div className="p-5" /> 
 
-            <div className="p-20" /> {/* Padding */}
-
+            <AnimatedText>{WelcomeMessage}</AnimatedText>
+            
+    
             {CardGrid}
 
-            <div className="p-3" /> {/* Padding */}
+            {/* Padding */}
+            <div className="p-3" />
             
             {ResumeButton}
 
-            <div className="footer-padding" /> {/* Padding */}
+            {/* Padding */}
+            <div className="footer-padding" />
         </div>
     );
 }

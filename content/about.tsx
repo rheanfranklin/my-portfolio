@@ -6,12 +6,11 @@ import { NAV_LINKS } from "@/app/components/Navbar";
 
 //
 export const AboutIntroContent: React.ReactNode = <p className="section-description">
-  Hello there! I'm so excited you're here! On this page you can find an in-depth description
-  of who I am, both as a person and an engineer, so you can know if I match what you're looking for.
+  Hello there! I'm glad you're here. This page provides a more in-depth look at who I am, both as a person and as an engineer.
 </p>;
 
 //
-// My History subsction
+// My History subsection
 //
 // FactSet
 export const MyHistoryFactSetContent: React.ReactNode = (
@@ -19,13 +18,13 @@ export const MyHistoryFactSetContent: React.ReactNode = (
     <h3>Software Engineer</h3>
     <h4>Context:</h4>
     <p>FactSet provides its clients with a wide variety of company-level financial data (e.g. stock prices, company assets, company financial statements, etc.)
-      which then they use to assess risk, track earning insights, and make investment decisions for their stock portfolios.
+      which clients use to assess risk, identify trends, and make investment decisions., track earning insights, and make investment decisions for their stock portfolios.
     </p>
     <h4>Main responsibilities:</h4>
     <ul>
       <li>
         Provided support for, implemented features, and helped maintain the infrastructure for FactSet's main ETL pipeline.
-        This pipeline is used by hundreds of internal employees to onboard & update hundreds of databases containing millions of
+        This pipeline is used by hundreds of internal employees to onboard and maintain hundreds of databases containing millions of
         rows of financial data used directly by clients.
       </li>
       <li>
@@ -33,7 +32,7 @@ export const MyHistoryFactSetContent: React.ReactNode = (
         users were manually copying & pasting SQL definitions from one environment to another, with little oversight or validation.
       </li>
       <li>
-        Acted as a 24/7 on-call engineer & responded to support channel requests on a monthly rotation.
+        Participated in a rotating 24/7 on-call support schedule and responded to production incidents and support requests.
       </li>
     </ul>
     <h4>Primary Languages and Technologies Used:</h4>
@@ -108,7 +107,7 @@ export const MyHistoryJohnsonContent: React.ReactNode = (
 export const MyHistoryGATechContent: React.ReactNode = (
   <div>
     <p>
-      I completed my bachelors in computer science with a specialization in user interface. My school work was written in
+      I completed my bachelor's degree in computer science with a specialization in user interface design & development. My school work was written in
       Java, C++, and TypeScript.
     </p>
   </div>
@@ -132,7 +131,7 @@ export const MyMotivationHelpingOthersCardBack: React.ReactNode = (
       I've worked on are internal tools used by other employees to improve their workflow efficiency (see the <em>My Projects</em> page for
       some examples). <br/> <br/>I have a
       knack for seeing pain points of complex systems and coming up with solutions to ease those issues
-      so my collegues can focus on feature implementation instead of damage control.
+      so my colleagues can focus on feature implementation instead of damage control.
     </p>
 );
 
@@ -142,27 +141,27 @@ export const MyMotivationHelpingOthersCardBack: React.ReactNode = (
 // Software Development
 export const StyleSDOrganized: React.ReactNode = (
   <p>
-    I thrive off of structure & organization; my head is already scatterbrained enough, so the last thing I
+    I thrive on structure & organization; my head is already scatterbrained enough, so the last thing I
     need is for my code to be just as chaotic.<br/><br/>Every function, class, & file is modular and has one specific purpose. 
-    Every section of logic has its own inline explanation. <br/><br/>I hate looking back at my own work and having difficulty understanding what
-    and why I did things.
-  </p>
+    Every meaningful section of logic includes clear documentation explaining its purpose and behavior. <br/><br/>I hate looking
+    back at my own work and having difficulty understanding what and why I did things.
+  </p> 
 );
 
 export const StyleSDScalable: React.ReactNode = (
   <p>
     Having worked on large, evolving systems, I've learned that scalability is essential if you want to build a system that lasts.<br/><br/>
-    That means I'm always on the lookout for any step in a process that requires manual or tedious work and take the initiate to replace it with
+    That means I'm always on the lookout for any step in a process that requires manual or tedious work and take the initiative to replace it with
     an automated process. When designing systems or features, I focus on structuring the code so new pieces can be added or old ones removed with ease.
     <br/><br/>
-    To accomplish this, I rely on techniques like dependency injection, SPP, and class inheritance to keep the architecture modular, adaptable, and easy to extend.
+    To accomplish this, I rely on techniques like dependency injection, SOLID, and class inheritance to keep the architecture modular, adaptable, and easy to extend.
   </p>
 );
 
 export const StyleUserFocused: React.ReactNode = (
   <p>
     Everyone can list numerous products they've seen released by companies that fall flat on their
-    face upon release. No one wanted Google glasses. No one wanted a smart car. No one wanted a $500 machine
+    face upon release. No one wanted Google Glass. No one wanted a smart car. No one wanted a $500 machine
     that squeezed juice out of a bag.<br/><br/>
     I'm a firm believer that quality control paired with thorough & frequent consultation with users helps prevent such outcomes;
     communication creates products people want and an automated testing framework creates products that work. Creating good software
@@ -177,8 +176,8 @@ export const StyleSimplicity: React.ReactNode = (
     understand. Or better yet, you have to go back and fix some code you wrote several years ago (if you're not an engineer, imagine
     a billion people raising their hand).
     <br/><br/>
-    When I write code, I want a new born baby to be able to read it and fully understand what it's doing (slight exaggeration). The ultimate goal
-    is for other engineers to look at my code and involutarily fall to their knees with an exclamation of relief escaping their lips;
+    When I write code, I want a newborn baby to be able to read it and fully understand what it's doing (slight exaggeration). The ultimate goal
+    is for other engineers to look at my code and involuntarily fall to their knees with an exclamation of relief escaping their lips;
     for they have been saved from hours of grueling navigation through an endless list of files and code architecture that makes no sense.
   </p>
 );
@@ -235,14 +234,14 @@ export const StyleCollabOpen: React.ReactNode = (
     accepting of everyone, regardless of who they are or their walk of life.
     <br/><br/>I would never judge someone over something that doesn't matter.
     I welcome a variety of perspectives and believe diversity of thought
-    creates wellroundedness.
+    creates well-roundedness.
   </p>
 );
 
 export const StyleCollabCommunication: React.ReactNode = (
   <p>
     I think the best way to learn or figure something out is to reach out to an expert.
-    I've learned my leason from spending hours on an problem and then getting an immediate
+    I've learned my lesson from spending hours on a problem and then getting an immediate
     solution once I talk to someone with more experience.
     <br/><br/>I also value thorough communication of my work so any of my colleagues can pick up
     where I left off if I ever need to shift my focus or they need to build upon/debug my code.
@@ -299,7 +298,7 @@ export const StyleAIIntro: React.ReactNode = (
   <p>
     It's clear that AI's integration into our workflows as software engineers is inevitable.
     It is an incredibly powerful tool, and I believe it's just as incredibly important that we
-    priortize using it appropriately. The last thing we want is to end up with a bunch of AI generated code of
+    prioritize using it appropriately. The last thing we want is to end up with a bunch of AI generated code of
     poor to mediocre quality in production, and then have no idea what it does when it breaks.
     <br/><br/>
     That's why I'm mindful of when & how I use AI.
@@ -308,12 +307,12 @@ export const StyleAIIntro: React.ReactNode = (
 
 export const StyleAIOwnership: React.ReactNode = (
   <p>
-    I always take ownership of all design and implementation decisions for any code I put on a PR.
-    <br/><br/>When incorporating AI into my work, I first write up single-purpose
-    stubs with detailed inline comments of their purpose, the logic they implement, and how they string together. The only thing I leave up to AI is tedious
-    language and package specific details.
+    I make a point to take ownership of all design and implementation decisions for any code I put on a PR.
+    <br/><br/>When incorporating AI into my work, I first write up empty
+    stubs with detailed inline comments of their purpose, the logic they implement, and how they string together. I primarily use AI for language-specific syntax,
+    boilerplate code, and package-specific implementation details.
     <br/><br/>Working this way has enabled me to create well designed tools with a thorough
-    understanding of how those tools work, all while expediting my output ten fold. I love that I can focus on the structure of my code instead of spending hours
+    understanding of how those tools work, all while expediting my output tenfold. I love that I can focus on the structure of my code instead of spending hours
     trying to debug annoying syntax errors on a programming language I'm not familiar with.
   </p>
 );
@@ -400,10 +399,9 @@ export const MyHobbiesIllustration: React.ReactNode = (
 export const FunFacts: React.ReactNode = (
   <ul>
     <li>- My favorite food is garlic noodles dipped in cinnamon applesauce.</li>
-    <li>- I ate ramen noodles everyday for 3 years straight as an adult.</li>
+    <li>- I ate ramen noodles every day for 3 years straight as an adult.</li>
     <li>- I had two pet squirrels growing up. The first one drowned in our toilet & the second one bit me :,(</li>
-    <li>- I'm an emerald Briar OTP in League of Legends.</li>
     <li>- I will fight anyone who asks for a duel.</li>
-    <li>- I was the salutatorian at my highschool (is this still impressive when you're almost 30 ?).</li>
+    <li>- I was the salutatorian at my high school (is this still impressive when you're almost 30 ?).</li>
   </ul>
 );
