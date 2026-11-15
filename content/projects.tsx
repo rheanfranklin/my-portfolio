@@ -153,13 +153,49 @@ export const CatAnimationProjBack: React.ReactNode = (
 // Dungeon crawler game
 export const DungeonGameProjFront = (
     <div>
+        {/* Title */}
+        <h2>Dungeon Crawler Game</h2>
+        {/* Card description */}
+        <div className="description">
+            <h3>Summary:</h3>
+            <p>
+                As part of my Objects and Design course, we were tasked with creating a dungeon crawler game using object-oriented programming principles.
+                The game featured a player character navigating through procedurally generated dungeons, battling enemies, and collecting items, all while managing health, inventory, and other game mechanics.
+                This project allowed me to apply my knowledge of object-oriented programming in a practical and engaging way, while also developing skills in game design and development.
+            </p>
+        </div>
 
     </div>
 );
-
+``
 export const DungeonGameProjBack = (
     <div>
 
+        <h3>Tech Stack:</h3>
+        <div className="tech-stack">
+            {/* First col */}
+            <div>
+                <h4>Languages:</h4>
+                <ul>
+                    <li>
+                        Java
+                    </li>
+                </ul>
+            </div>
+            {/* Second col */}
+            <div>
+                <h4>Libraries:</h4>
+                <ul>
+                    <li>
+                        JavaFX
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3>GitHub Repo:</h3>
+        <p>See code <a href="https://github.com/rheanfranklin/dungeon-crawler" className="link" target="_blank">here</a>.</p>
+        <h3>View:</h3>
+        <p>See demo <a href="https://youtu.be/8nhRgUARzrY" className="link" target="_blank">here</a> and view game assets <a href="/dungeon-crawler" className="link" target="_blank">here</a>.</p>
     </div>
 );
 
@@ -198,11 +234,9 @@ export const CircuitSimProjFront = (
         <div className="description">
             <h3>Summary:</h3>
             <p>
-                In my computer organization class, where we learned about basic computer hardware, machine language, & assembly,
-                we were tasked with using a circuit simulator to build a virtual LC3 (little computer 3) from scratch throughout
-                the course. We started with building basic logic gates, using those gates to build adders, which were then used to
-                build ALUs, and so on until we were able to build a fully functioning virtual computer in the CircuitSim that could
-                run assembly code.
+                In my Computer Organization course, we were tasked with building a virtual LC-3 (Little Computer 3) from scratch using CircuitSim, a circuit simulation tool developed by GA Tech.
+                Over the semester, we worked our way up from basic logic gates to adders, ALUs, registers, and other hardware components, gradually assembling a complete CPU.
+                By the end of the project, our virtual computer was capable of executing assembly programs, giving me a much deeper understanding of how software interacts with hardware at a low level.
                 
             </p>
         </div>
@@ -219,6 +253,9 @@ export const CircuitSimProjBack = (
                 <ul>
                     <li>
                         Assembly
+                    </li>
+                    <li>
+                        Binary
                     </li>
                 </ul>
             </div>
@@ -542,13 +579,14 @@ export const OtherThingsProjFront = (
                 <h4>Problem:</h4>
                 <p>
                     Users would create review apps against their PRs in the view/metadata repo to test their
-                    metadata changes. Over time, we ended up with a 100+ open review apps at once, all of
+                    metadata changes. Those PRs were often abandoned or left open for extended periods of time. 
+                    Over time, we ended up with a 100+ open review apps at once, all of
                     which were hosted on AWS and therefore eating into our budget.
                 </p>
                 <h4>Fix:</h4>
                 <p>
-                    I wrote a GitHub action that would iterate through all open PRs in the view/metadata repo
-                    and add a "stale" label if there was no recent activity on the PR and there were no logs in our
+                    I wrote a GitHub action that would iterate through all open PRs in the view/metadata repo.
+                    A "stale" label would be added if there was no recent activity on the PR and there were no logs in our
                     central logging platform for the associated review app for X number of days. Once the label
                     was added, a comment was made on the PR notifying the user of its imminent closure. If the
                     stale PR still had no review app logs or PR activity after another 7 days, the PR would be

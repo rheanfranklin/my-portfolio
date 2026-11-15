@@ -1,0 +1,14 @@
+.dungeon-crawler h2 {
+    font-size: 1.75rem;
+    color: var(--color-accent-pink-dark);
+    text-shadow: -3px 3px 0 black;
+    font-weight: bolder;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: none;
+}
+
+.dungeon-crawler hr {
+    width: 80%;
+}

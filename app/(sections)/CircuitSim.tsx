@@ -1,4 +1,6 @@
 "use client";
+import { fadeUp } from "@/lib/animations/fade";
+import AnimatedSection from "../components/AnimatedSection";
 import "./CircuitSim.css";
 
 function LogicGatesGrid(): React.ReactNode {
@@ -182,23 +184,40 @@ function StateMachineCircuits(): React.ReactNode {
 export default function CircuitSim(): React.ReactNode {
     return (
         <div className="container-box circuit-sim">
-            <h1>Circuit Sim</h1>
-            <p className="section-description">Screenshots of the circuits I built in a circuit simulator.</p>
-            <h2>Logic Gates</h2>
-            {LogicGatesGrid()}
-            <h2>Combinational Circuits</h2>
-            {CombinationalCircuits()}
-            <h2>Circuits with Storage & Timing</h2>
-            {StorageTimingCircuits()}
-            <h2>State Machines</h2>
-            {StateMachineCircuits()}
-            <h2>Full LC3</h2>
-            <figure>
-                <img
-                    src="/images/projects/circuit-sim/lc-3.png"
-                    alt="Circuit Sim"
-                />
-            </figure>
+            <AnimatedSection variants={fadeUp}>
+                <h1>Circuit Sim</h1>
+                <p className="section-description">Screenshots of the circuits I built in a circuit simulator.</p>
+            </AnimatedSection>
+            
+            <AnimatedSection variants={fadeUp}>
+                <h2>Logic Gates</h2>
+                {LogicGatesGrid()}
+            </AnimatedSection>
+            
+            <AnimatedSection variants={fadeUp}>
+                <h2>Combinational Circuits</h2>
+                {CombinationalCircuits()}
+            </AnimatedSection>
+            
+            <AnimatedSection variants={fadeUp}>
+                <h2>Circuits with Storage & Timing</h2>
+                {StorageTimingCircuits()}
+            </AnimatedSection>
+            
+            <AnimatedSection variants={fadeUp}>
+                <h2>State Machines</h2>
+                {StateMachineCircuits()}
+            </AnimatedSection>
+            
+            <AnimatedSection variants={fadeUp}>
+                <h2>Full LC3</h2>
+                <figure>
+                    <img
+                        src="/images/projects/circuit-sim/lc-3.png"
+                        alt="Circuit Sim"
+                    />
+                </figure>
+            </AnimatedSection>
             <div className="footer-padding"/>
         </div>
     );

@@ -87,35 +87,36 @@ function universityProjects(): React.ReactNode {
             <div className="card-grid">
                 {/* First column */}
                 <div className="card-col">
-                    {/* CircuitSim */}
+                    {/* Calendar */}
                     <AnimatedFlipCard
-                        front={CircuitSimProjFront}
-                        back={CircuitSimProjBack}
-                        height="23rem"
+                        front={CalendarProjFront}
+                        back={CalendarProjBack}
+                        height="20rem"
                         width="100%"
                     />
+                    
                     {/* Dungeon crawler game */}
                     <AnimatedFlipCard
                         front={DungeonGameProjFront}
                         back={DungeonGameProjBack}
-                        height="20rem"
+                        height="23rem"
                         width="100%"
                     />
                 </div>
                 {/* Second column */}
                 <div className="card-col">
                     {/* Ping pong game */}
-                    <AnimatedFlipCard
+                    {/* <AnimatedFlipCard
                         front={PingProjFront}
                         back={PingProjBack}
                         height="20rem"
                         width="100%"
-                    />
-                    {/* Calendar */}
+                    /> */}
+                    {/* CircuitSim */}
                     <AnimatedFlipCard
-                        front={CalendarProjFront}
-                        back={CalendarProjBack}
-                        height="20rem"
+                        front={CircuitSimProjFront}
+                        back={CircuitSimProjBack}
+                        height="23rem"
                         width="100%"
                     />
                 </div>
@@ -191,9 +192,10 @@ export default function Projects() {
             {projectsHeader()}
             {personalProjects()}
             <hr/>
-            {universityProjects()}
-            <hr/>
             {factsetProjects()}
+            <hr/>
+            {universityProjects()}
+            
             <div className="footer-padding"/>
         </div>
     );
