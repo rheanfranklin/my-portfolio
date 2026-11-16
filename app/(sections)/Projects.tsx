@@ -88,12 +88,12 @@ function universityProjects(): React.ReactNode {
                 {/* First column */}
                 <div className="card-col">
                     {/* Calendar */}
-                    <AnimatedFlipCard
+                    {/* <AnimatedFlipCard
                         front={CalendarProjFront}
                         back={CalendarProjBack}
                         height="20rem"
                         width="100%"
-                    />
+                    /> */}
                     
                     {/* Dungeon crawler game */}
                     <AnimatedFlipCard
