@@ -625,3 +625,80 @@ export const OtherThingsProjBack = (
         </div>
     </div>
 )
+
+//
+// JnJ Projects
+//
+
+// Approval Process Digitalization
+export const ApprovalDigiProjFront = (
+    <div className="approval-digi">
+        <h2>RID Approval Process Digitalization</h2>
+        <h3>Summary:</h3>
+        <h4>Problem:</h4>
+        <p>
+            An inevitable consequence of the manufacturing processes is destroying faulty, expired, or otherwise unusable products.
+            Due to the highly regulated nature and high cost of the materials that were being destroyed, each request for inventory destruction
+            (RID) required a formal approval process to ensure compliance and proper documentation.
+            When I first started working for the JnJ manufacturing plant, this process was almost entirely manual and paper-based which
+            led to extended delays and inefficiencies. Previously, internal employees had to fill out a paper RID form, sign it, and then physically hand it to me. If they filled out any information
+            incorrectly, I had to physically hand the paper form back to them for correction.
+            When it came time to approve the form, each approver had to print it out, sign it, scan it, and then email it back to me.
+            I would also have to manually keep track off where each RID was in the approval process, which was often up to a dozen RIDs at any given time.
+        </p>
+        <h4>Fix:</h4>
+        <ul>
+            <li>Set up digital signatures in compliance with the company's digital approval protocol.</li>
+            <li>Set up digital folder to store RIDs.</li>
+            <li>Created a digital form for RID requests.
+                <ul>
+                    <li>
+                        Instead of having employees fill out the entire paper form, I created a new digital form that requested
+                        only the essential information from the requester - namely the lot number, quantity, and reason for destruction.
+                        Once they submitted the digital form, I used Excel VBA to automatically fill out the official RID form by using the information
+                        provided by the employee and then connecting to the company's inventory management system. 
+                        The excel macro would then create a PDF of the completed form, upload the form to our digital file system, update the excel file used to track RIDs,
+                        and email me a notification that a request had been submitted.
+                    </li>
+                </ul>
+            </li>
+            <li>Centralized location of RIDs awaiting approval.
+                <ul>
+                    <li>
+                        I created a folder in SharePoint to store all RIDs that were awaiting approval.
+                        Previously, RIDs awaiting approval were scattered across various emails, making it difficult for me and the approvers to keep
+                        track and manage them efficiently.
+                        Instead of having to manage 6 different copies for each RID - one from each approver - I could now manage a single centralized copy, significantly reducing confusion and improving efficiency.
+                    </li>
+                </ul>
+            </li>
+            <li>Automated RID reminder system.
+                <ul>
+                    <li>
+                        I found myself writing the exact same emails to approvers over and over again.
+                        To reduce the repetitive nature of this task, I wrote an Excel macro that would update the Excel tracking file
+                        whenever a RID was signed by an approver so I could track who had already signed what.
+                        Some RIDs required up to 6 signatures, so keeping track of who had already approved was essential.
+                        I then set up another macro that would send reminder emails to approvers with a list of RIDs that they hadn't approved yet
+                        using the information from the Excel tracking file.
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+    </div>
+)
+
+
+export const ApprovalDigiProjBack = (
+    <div className="approval-digi">
+        <h3>Approval Process Digitalization</h3> 
+        <h4>Problem:</h4>
+        <p>
+        </p>
+        <h4>Fix:</h4>
+        <p>
+        </p>
+    </div>
+)
+

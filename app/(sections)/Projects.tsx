@@ -27,6 +27,8 @@ import {
     BudgetProjFront,
     CircuitSimProjFront,
     CircuitSimProjBack,
+    ApprovalDigiProjFront,
+    ApprovalDigiProjBack,
 
 } from "@/content/projects";
 import { fadeUp } from "@/lib/animations/fade";
@@ -71,55 +73,6 @@ function personalProjects(): React.ReactNode {
                     height="20rem"
                     width="100%"
                 /> */}
-            </div>
-        </div>
-    );
-}
-
-function universityProjects(): React.ReactNode {
-    return (
-        <div className="section">
-            {/* Header */}
-            <AnimatedSection variants={fadeUp}>
-                <h2>Projects from University</h2>
-            </AnimatedSection>
-            {/* Cards */}
-            <div className="card-grid">
-                {/* First column */}
-                <div className="card-col">
-                    {/* Calendar */}
-                    {/* <AnimatedFlipCard
-                        front={CalendarProjFront}
-                        back={CalendarProjBack}
-                        height="20rem"
-                        width="100%"
-                    /> */}
-                    
-                    {/* Dungeon crawler game */}
-                    <AnimatedFlipCard
-                        front={DungeonGameProjFront}
-                        back={DungeonGameProjBack}
-                        height="23rem"
-                        width="100%"
-                    />
-                </div>
-                {/* Second column */}
-                <div className="card-col">
-                    {/* Ping pong game */}
-                    {/* <AnimatedFlipCard
-                        front={PingProjFront}
-                        back={PingProjBack}
-                        height="20rem"
-                        width="100%"
-                    /> */}
-                    {/* CircuitSim */}
-                    <AnimatedFlipCard
-                        front={CircuitSimProjFront}
-                        back={CircuitSimProjBack}
-                        height="23rem"
-                        width="100%"
-                    />
-                </div>
             </div>
         </div>
     );
@@ -179,10 +132,73 @@ function factsetProjects(): React.ReactNode {
     );
 }
 
-
-function johnsonProjects(): React.ReactNode {
+function universityProjects(): React.ReactNode {
     return (
         <div className="section">
+            {/* Header */}
+            <AnimatedSection variants={fadeUp}>
+                <h2>Projects from University</h2>
+            </AnimatedSection>
+            {/* Cards */}
+            <div className="card-grid">
+                {/* First column */}
+                <div className="card-col">
+                    {/* Calendar */}
+                    {/* <AnimatedFlipCard
+                        front={CalendarProjFront}
+                        back={CalendarProjBack}
+                        height="20rem"
+                        width="100%"
+                    /> */}
+                    
+                    {/* Dungeon crawler game */}
+                    <AnimatedFlipCard
+                        front={DungeonGameProjFront}
+                        back={DungeonGameProjBack}
+                        height="23rem"
+                        width="100%"
+                    />
+                </div>
+                {/* Second column */}
+                <div className="card-col">
+                    {/* Ping pong game */}
+                    {/* <AnimatedFlipCard
+                        front={PingProjFront}
+                        back={PingProjBack}
+                        height="20rem"
+                        width="100%"
+                    /> */}
+                    {/* CircuitSim */}
+                    <AnimatedFlipCard
+                        front={CircuitSimProjFront}
+                        back={CircuitSimProjBack}
+                        height="23rem"
+                        width="100%"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function jnjProjects(): React.ReactNode {
+    return (
+        <div className="section">
+            {/* Header */}
+            <AnimatedSection variants={fadeUp}>
+                <h2>Projects from Johnson & Johnson</h2>
+            </AnimatedSection>
+            <AnimatedFlipCard
+                    front={ApprovalDigiProjFront}
+                    back={ApprovalDigiProjBack}
+                    height="55rem"
+                    width="100%"
+                />
+            {/* Cards */}
+            <div className="card-grid">
+                {/* Approval Process Digitalization */}
+                
+            </div>
         </div>
     )
 }
@@ -195,6 +211,8 @@ export default function Projects() {
             {factsetProjects()}
             <hr/>
             {universityProjects()}
+            <hr/>
+            {jnjProjects()}
             
             <div className="footer-padding"/>
         </div>
