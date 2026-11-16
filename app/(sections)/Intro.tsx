@@ -12,7 +12,7 @@ import {
     Title,
     Description,
     WelcomeMessage,
-    OpenToWork,
+    CurrentPosition,
     // OpenToRelocate,
     CardOne,
     CardTwo,
@@ -29,19 +29,12 @@ const IntroSubsection: React.ReactNode = (
         <AnimatedText>{Name}</AnimatedText>
         <AnimatedText>{Title}</AnimatedText>
         <AnimatedText>{Description}</AnimatedText>
-
-        {/* <div className="p-10" /> */}
-
-        {/* <AnimatedText>{WelcomeMessage}</AnimatedText> */}
-
-        <div className="p-2" />
         <AnimatedSection variants={fadeUp}>
-            <AnimatedText>
-                    <div className="rounded-container">
-                        {OpenToWork}
-                    </div>
-            </AnimatedText>
+            <div className="rounded-container intro-current-position-container">
+                {CurrentPosition}
+            </div>
         </AnimatedSection>
+        <AnimatedText>{WelcomeMessage}</AnimatedText>
         {/* <AnimatedText>{OpenToRelocate}</AnimatedText> */}
     </div>
 );
@@ -75,6 +68,7 @@ const ResumeButton: React.ReactNode = (
 export function Intro() {
     return (
         <div className="container-box intro">
+
             {/* Padding */}
             <div className="intro-section-padding" />
             
@@ -89,9 +83,6 @@ export function Intro() {
             
             {/* Padding */}
             <div className="p-5" /> 
-
-            <AnimatedText>{WelcomeMessage}</AnimatedText>
-            
     
             {CardGrid}
 

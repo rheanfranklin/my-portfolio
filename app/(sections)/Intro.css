@@ -5,7 +5,7 @@
 /* grid containing the welcome message + image */
 .intro-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.25fr 1fr;
     gap: 1.75rem;
     align-items: center;
 }
@@ -14,8 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-self: end;
-    justify-content: left;
-    align-items: center;
+    justify-content: flex-start;
     padding-bottom: 2rem;
 }
 
@@ -31,7 +30,7 @@
 }
 
 .intro-name {
-    font-size: 3rem;
+    font-size: 4rem;
     font-style: normal;
     text-align: left;
     font-family: "Humanoid Font", sans-serif;
@@ -42,7 +41,7 @@
 
 .intro-job {
     color: var(--color-accent-pink-dark);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     text-shadow: var(--text-shadow);
     font-weight: bold;
     text-align: left;
@@ -53,13 +52,22 @@
     text-align: left;
     font-size: 0.875rem;
     font-style: italic;
-    padding-top: 0.5rem;
+    margin-top: 0.0rem;
 }
 
 .intro-welcome {
+    margin-top: 1.75em;
+}
+
+.intro-current-position-container {
     text-align: center;
-    font-size: 1.25rem;
-    padding-bottom: 2rem;
+    align-self: flex-start;
+    margin-top: 1.75rem;
+}
+
+.intro-current-position-text {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .intro-open-message {
