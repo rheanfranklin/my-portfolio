@@ -72,7 +72,7 @@ function CombinationalCircuits(): React.ReactNode {
                 </figure>
                 <figure>
                     <img
-                        src="/images/projects/circuit-sim/8-Bit-alu.png"
+                        src="/images/projects/circuit-sim/8-bit-ALU.png"
                         alt="Circuit Sim"
                     />
                     <figcaption>8-Bit ALU</figcaption>
