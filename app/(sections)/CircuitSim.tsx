@@ -186,7 +186,7 @@ export default function CircuitSim(): React.ReactNode {
         <div className="container-box circuit-sim">
             <AnimatedSection variants={fadeUp}>
                 <h1>Circuit Sim</h1>
-                <p className="section-description">Screenshots of the circuits I built in a circuit simulator.</p>
+                <p className="section-description">Screenshots of the circuits I built in a circuit simulator as part of my coursework in university.</p>
             </AnimatedSection>
             
             <AnimatedSection variants={fadeUp}>
